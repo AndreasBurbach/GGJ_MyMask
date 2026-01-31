@@ -1,23 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://brc7tkecr8s0i"]
+[gd_scene load_steps=10 format=3 uid="uid://brc7tkecr8s0i"]
 
 [ext_resource type="Script" uid="uid://op647jm0ibgi" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cfmvyhxwydp3y" path="res://Placeholder.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cfqy2chhmjk87" path="res://assets/items/Placeholder.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="4_1bvp3"]
+[ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="4_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 resource_local_to_scene = true
 size = Vector2(143, 28)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 resource_local_to_scene = true
 size = Vector2(128, 128)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
-
-[node name="CourserObj" type="Sprite2D" parent="."]
-texture = ExtResource("3_h2yge")
 
 [node name="ItemContainer" type="Node" parent="."]
 
@@ -25,6 +35,9 @@ texture = ExtResource("3_h2yge")
 
 [node name="CollisionShape2D" parent="ItemContainer/Placeholder" index="0"]
 shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Sprite2D" parent="ItemContainer/Placeholder" index="1"]
+material = SubResource("ShaderMaterial_7mycd")
 
 [node name="Placeholder2" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
 position = Vector2(568, 296)
@@ -34,7 +47,13 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Sprite2D" parent="ItemContainer/Placeholder2" index="1"]
+material = SubResource("ShaderMaterial_272bh")
 texture = ExtResource("4_1bvp3")
+
+[node name="CourserLayer" type="CanvasLayer" parent="."]
+
+[node name="CourserObj" type="Sprite2D" parent="CourserLayer"]
+texture = ExtResource("3_h2yge")
 
 [connection signal="selected" from="ItemContainer/Placeholder" to="." method="_on_placeholder_selected"]
 [connection signal="selected" from="ItemContainer/Placeholder2" to="." method="_on_placeholder_selected"]
