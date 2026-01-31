@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cw51pt3u06lpk"]
+
+[ext_resource type="Script" uid="uid://bvavelnngq1uw" path="res://person.gd" id="1_3qlke"]
+[ext_resource type="Texture2D" uid="uid://cabiwiwitqvqt" path="res://art/sprites/person.png" id="1_hncb1"]
+[ext_resource type="Texture2D" uid="uid://bj0j7ejenc4gs" path="res://art/sprites/person_eyes.png" id="2_3qlke"]
+[ext_resource type="Script" uid="uid://wme8x1l2r401" path="res://personeyes.gd" id="3_g6f2d"]
+
+[sub_resource type="Animation" id="Animation_3qlke"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g6f2d"]
+resource_name = "walk"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-5, 0), Vector2(0, 0), Vector2(5, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aoiax"]
+_data = {
+&"RESET": SubResource("Animation_3qlke"),
+&"walk": SubResource("Animation_g6f2d")
+}
+
+[node name="Person" type="Node2D" unique_id=344192785]
+script = ExtResource("1_3qlke")
+metadata/_edit_group_ = true
+
+[node name="Container" type="Node2D" parent="." unique_id=141999487]
+
+[node name="Body" type="Sprite2D" parent="Container" unique_id=1715423154]
+texture = ExtResource("1_hncb1")
+
+[node name="Eyes" type="Node2D" parent="Container" unique_id=1485549230]
+script = ExtResource("3_g6f2d")
+
+[node name="Sprite" type="Sprite2D" parent="Container/Eyes" unique_id=664283080]
+texture = ExtResource("2_3qlke")
+
+[node name="Pivot" type="Marker2D" parent="Container/Eyes" unique_id=608855915]
+position = Vector2(1, -56)
+
+[node name="Walk" type="AnimationPlayer" parent="." unique_id=471859376]
+root_node = NodePath("../Container/Body")
+libraries/ = SubResource("AnimationLibrary_aoiax")
+speed_scale = 12.0
