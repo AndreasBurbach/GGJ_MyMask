@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca80evulmn22s" path="res://Placeholder.gd" id="1_vpkq7"]
 [ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="2_wpfw3"]
-[ext_resource type="Texture2D" uid="uid://cfqy2chhmjk87" path="res://assets/items/Placeholder.png" id="3_8iplm"]
+[ext_resource type="Texture2D" uid="uid://ffa871ytl1j7" path="res://assets/items/Test.png" id="3_vpkq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpkq7"]
 size = Vector2(144, 28)
@@ -22,7 +22,7 @@ shape = SubResource("RectangleShape2D_vpkq7")
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_dl81w")
-texture = ExtResource("3_8iplm")
+texture = ExtResource("3_vpkq7")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

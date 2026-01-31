@@ -2,12 +2,21 @@ shader_type canvas_item;
 
 // Variablen, die wir von außen (Inspector oder Script) ändern können
 uniform vec4 line_color : source_color = vec4(0.50, 0.50, 0.0, 1.0); // Weiß
-//uniform float line_thickness : hint_range(0.0, 10.0) = 5.0; // Standardmäßig 0 (aus)
-uniform float line_thickness : hint_range(0.0, 0.5) = 0.00; // 0.05 ist ein guter Startwert
+uniform float line_thickness : hint_range(0.0, 1.0) = 0.00; // 0 ist aus
 
 void fragment() {
-    vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
     vec4 col = texture(TEXTURE, UV);
+	
+	if (line_thickness == 0.0){
+	
+		COLOR = col;	
+	}
+	else
+	{
+		
+	
+	
+    vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
     
     // Wir prüfen die Transparenz der Nachbarpixel
     float au = texture(TEXTURE, UV + vec2(0, -size.y)).a;
@@ -26,19 +35,25 @@ void fragment() {
         COLOR = col;
     }
 	
-	col = texture(TEXTURE, UV);
-    if (col.a > 0.1) {
-        COLOR = vec4(0.0, 0.0, 1.0, 1.0); // Blau (Dein Objekt)
-    } else {
-        COLOR = vec4(1.0, 1.0, 0.0, 1.0); // Gelb (Hintergrund/Transparenz)
-    }
+	size = TEXTURE_PIXEL_SIZE * line_thickness;
+	
+	// Wir prüfen die Nachbarpixel (Oben, Unten, Links, Rechts)
+	outline = texture(TEXTURE, UV + vec2(-size.x, 0)).a;
+	outline += texture(TEXTURE, UV + vec2(size.x, 0)).a;
+	outline += texture(TEXTURE, UV + vec2(0, -size.y)).a;
+	outline += texture(TEXTURE, UV + vec2(0, size.y)).a;
+	outline = min(outline, 1.0);
 	
 	vec4 color = texture(TEXTURE, UV);
+	// Mische die Originalfarbe mit der Outline-Farbe basierend auf der Transparenz
+	COLOR = mix(color, line_color, outline - color.a);
+	//vec4 color = texture(TEXTURE, UV);
     
     // Wir prüfen, ob die UV-Koordinate nah am Rand (0.0 oder 1.0) liegt
-    if (UV.x < line_thickness || UV.x > 1.0 - line_thickness || UV.y < line_thickness || UV.y > 1.0 - line_thickness) {
-        COLOR = line_color;
-    } else {
-        COLOR = color;
-    }
+    //if (UV.x < line_thickness || UV.x > 1.0 - line_thickness || UV.y < line_thickness || UV.y > 1.0 - line_thickness) {
+      //  COLOR = line_color;
+    //} else {
+      //  COLOR = color;
+    //}
+	}
 }
