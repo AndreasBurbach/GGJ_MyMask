@@ -140,7 +140,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
-		selectedObj.show() 
+		if selectedObj != null:
+			selectedObj.show() 
 		coursorObj.hide()
 		selected = false
 	var x = Vector2(coursorObj.texture.get_width()/2, coursorObj.texture.get_height() / 2)

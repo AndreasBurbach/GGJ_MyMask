@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://brc7tkecr8s0i"]
+[gd_scene load_steps=11 format=3 uid="uid://brc7tkecr8s0i"]
 
 [ext_resource type="Script" uid="uid://op647jm0ibgi" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cfmvyhxwydp3y" path="res://Placeholder.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cfqy2chhmjk87" path="res://assets/items/Placeholder.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="4_1bvp3"]
 [ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b2pnyhqo721us" path="res://sleep_and_wake.tscn" id="6_7mycd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 resource_local_to_scene = true
@@ -29,7 +30,7 @@ shader_parameter/line_thickness = 0.0
 [node name="Main" type="Node" unique_id=796557797]
 script = ExtResource("1_ig7tw")
 
-[node name="ItemContainer" type="Node" parent="." unique_id=1232026291]
+[node name="ItemContainer" type="Node2D" parent="."]
 
 [node name="Placeholder" parent="ItemContainer" unique_id=17914846 instance=ExtResource("2_0xm2m")]
 
@@ -54,6 +55,11 @@ texture = ExtResource("4_1bvp3")
 
 [node name="CourserObj" type="Sprite2D" parent="CourserLayer" unique_id=1757928376]
 texture = ExtResource("3_h2yge")
+
+[node name="CusceneLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" parent="CusceneLayer" instance=ExtResource("6_7mycd")]
+in_time = 0.0
 
 [connection signal="selected" from="ItemContainer/Placeholder" to="." method="_on_placeholder_selected"]
 [connection signal="selected" from="ItemContainer/Placeholder2" to="." method="_on_placeholder_selected"]
