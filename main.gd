@@ -132,6 +132,7 @@ func _ready() -> void:
 	var children = $ItemContainer.get_children()
 	for child in children: 
 		name2item[child.name] = child 
+		print(child.name)
 	coursorObj.hide()
 	
 	pass # Replace with function body.
@@ -144,14 +145,13 @@ func _process(delta: float) -> void:
 			selectedObj.show() 
 		coursorObj.hide()
 		selected = false
-	var x = Vector2(coursorObj.texture.get_width()/2, coursorObj.texture.get_height() / 2)
-	coursorObj.position = get_viewport().get_mouse_position() + x
+	coursorObj.position = get_viewport().get_mouse_position() + cursorOffset
 	pass
 
 func interaction(a1:Area2D,a2:Area2D) -> void: 
 	print("use ", a1.name, " on ", a2.name)
 
-func _on_placeholder_selected(name: String,texture:Texture) -> void:
+func _on_placeholder_selected(name: String,texture:Texture,offset:Vector2) -> void:
 	if selected: 
 		var other = name2item[name] 
 		interaction(selectedObj,other)
@@ -160,6 +160,8 @@ func _on_placeholder_selected(name: String,texture:Texture) -> void:
 	selectedObj = name2item[name]
 	selectedObj.hide() 
 	coursorObj.texture = texture
+	#cursorOffset = Vector2(coursorObj.texture.get_width()/2, coursorObj.texture.get_height() / 2) + offset
+	cursorOffset = offset
 	coursorObj.show()
 	selected = true
 	pass # Replace with function body.

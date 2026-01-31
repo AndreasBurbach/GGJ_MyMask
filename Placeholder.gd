@@ -2,19 +2,31 @@ extends Area2D
 
 @onready var sprite = $Sprite2D
 @onready var collisionShape = $CollisionShape2D
+@export var x_offset = 0.0
+@export var y_offset = 0.0
+@export var trust_collision = false
 
-signal selected(name: String,texture:Texture)
+signal selected(name: String,texture:Texture,offset:Vector2)
 var hovered = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if trust_collision:
+		var pos = collisionShape.position
+		x_offset += -pos.x 
+		y_offset += -pos.y 
+		print(name,pos)
+	else: 		
+		x_offset += sprite.texture.get_width()/2
+		y_offset += sprite.texture.get_height()/2
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Mouse_Left_Click") and hovered:
-		emit_signal("selected", name,sprite.texture)
+		emit_signal("selected", name,sprite.texture,Vector2(x_offset,y_offset))
 	pass
 
 
@@ -39,7 +51,7 @@ func update_collision_shape():
 		var size = sprite.texture.get_size() * sprite.scale
 		
 		# Falls noch kein Shape vorhanden ist, erstelle ein neues Rechteck
-		if not collisionShape.shape is RectangleShape2D:
+		if collisionShape.shape == null:
 			collisionShape.shape = RectangleShape2D.new()
 		
 		# Setze die extents (Halbe Breite/Höhe)
