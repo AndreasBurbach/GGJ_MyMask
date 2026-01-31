@@ -3,7 +3,7 @@ shader_type canvas_item;
 // Variablen, die wir von außen (Inspector oder Script) ändern können
 uniform vec4 line_color : source_color = vec4(0.50, 0.50, 0.0, 1.0); // Weiß
 //uniform float line_thickness : hint_range(0.0, 10.0) = 5.0; // Standardmäßig 0 (aus)
-uniform float line_thickness : hint_range(0.0, 0.5) = 0.05; // 0.05 ist ein guter Startwert
+uniform float line_thickness : hint_range(0.0, 0.5) = 0.00; // 0.05 ist ein guter Startwert
 
 void fragment() {
     vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;

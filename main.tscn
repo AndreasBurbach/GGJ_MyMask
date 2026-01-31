@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://brc7tkecr8s0i"]
 
+[ext_resource type="Script" uid="uid://op647jm0ibgi" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cfmvyhxwydp3y" path="res://Placeholder.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cfqy2chhmjk87" path="res://assets/items/Placeholder.png" id="3_h2yge"]
+
 [node name="Main" type="Node" unique_id=329191809]
+script = ExtResource("1_ig7tw")
+
+[node name="Placeholder" parent="." unique_id=1620453019 instance=ExtResource("2_0xm2m")]
+
+[node name="CourserObj" type="Sprite2D" parent="." unique_id=1251171855]
+texture = ExtResource("3_h2yge")
+
+[connection signal="selected" from="Placeholder" to="." method="_on_placeholder_selected"]

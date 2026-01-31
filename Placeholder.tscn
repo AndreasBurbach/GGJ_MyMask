@@ -4,18 +4,25 @@
 [ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="2_wpfw3"]
 [ext_resource type="Texture2D" uid="uid://cfqy2chhmjk87" path="res://assets/items/Placeholder.png" id="3_8iplm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpkq7"]
+size = Vector2(144, 28)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dl81w"]
 shader = ExtResource("2_wpfw3")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.050000002375
+shader_parameter/line_thickness = 0.0
 
 [node name="Placeholder" type="Area2D" unique_id=1620453019]
 script = ExtResource("1_vpkq7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186363825]
+shape = SubResource("RectangleShape2D_vpkq7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2097957947]
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_dl81w")
 texture = ExtResource("3_8iplm")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
