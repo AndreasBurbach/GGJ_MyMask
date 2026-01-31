@@ -35,6 +35,10 @@ var height := 200:
 @onready var lwall := $LWall
 @onready var rwall := $RWall
 
+@onready var lwallb := $LWallB/CollisionPolygon2D
+@onready var rwallb := $RWallB/CollisionPolygon2D
+@onready var bwallb := $BWallB/CollisionPolygon2D
+
 func _ready() -> void:
 	rebuild_lines()
 
@@ -57,6 +61,12 @@ func rebuild_lines() -> void:
 	p += depth.rotated(PI + angle)
 	floor.add_point(p)
 	floor.closed = true
+	bwallb.polygon = [
+		floor.points[1],
+		floor.points[2],
+		floor.points[3],
+		floor.points[2] - height
+	]
 
 	p = Vector2.ZERO
 	lwall.clear_points()
@@ -68,6 +78,8 @@ func rebuild_lines() -> void:
 	p -= height
 	lwall.add_point(p)
 	lwall.closed = true
+	lwallb.polygon = lwall.points
+
 
 	p = Vector2.ZERO
 	rwall.clear_points()
@@ -79,6 +91,8 @@ func rebuild_lines() -> void:
 	p -= height
 	rwall.add_point(p)
 	rwall.closed = true
+	rwallb.polygon = rwall.points
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

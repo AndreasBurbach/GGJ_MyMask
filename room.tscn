@@ -28,3 +28,15 @@ points = PackedVector2Array(0, 0, 0, -311, 646.9712, -62.651016, 646.9712, 248.3
 closed = true
 width = 2.0
 default_color = Color(0, 0, 0, 1)
+
+[node name="LWallB" type="StaticBody2D" parent="." unique_id=612691531]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LWallB" unique_id=1648758278]
+
+[node name="RWallB" type="StaticBody2D" parent="." unique_id=315197731]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RWallB" unique_id=899864022]
+
+[node name="BWallB" type="StaticBody2D" parent="." unique_id=775890601]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BWallB" unique_id=611018669]
