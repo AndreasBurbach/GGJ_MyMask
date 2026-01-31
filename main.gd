@@ -162,6 +162,7 @@ func _on_placeholder_selected(name: String,texture:Texture,offset:Vector2) -> vo
 	coursorObj.texture = texture
 	#cursorOffset = Vector2(coursorObj.texture.get_width()/2, coursorObj.texture.get_height() / 2) + offset
 	cursorOffset = offset
+	coursorObj.position = get_viewport().get_mouse_position() + cursorOffset
 	coursorObj.show()
 	selected = true
 	pass # Replace with function body.
