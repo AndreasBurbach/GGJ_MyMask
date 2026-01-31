@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bgbhnq0k10ala"]
+
+[ext_resource type="Texture2D" uid="uid://2evu6qjtkjce" path="res://art/sprites/floor.png" id="1_ju58f"]
+[ext_resource type="PackedScene" uid="uid://dksxq52k1wp6o" path="res://room.tscn" id="1_oqbmf"]
+[ext_resource type="PackedScene" uid="uid://cw51pt3u06lpk" path="res://person.tscn" id="2_arrdh"]
+[ext_resource type="Texture2D" uid="uid://mdcn8bpns0yq" path="res://art/sprites/walls.png" id="2_sqxie"]
+[ext_resource type="PackedScene" uid="uid://dla8wqxxr6k0n" path="res://window.tscn" id="5_sqxie"]
+[ext_resource type="Texture2D" uid="uid://bd8oxbapj7kha" path="res://art/sprites/door.png" id="9_6r6vx"]
+[ext_resource type="PackedScene" uid="uid://c3fwgstba5cp2" path="res://closet.tscn" id="9_2602c"]
+[ext_resource type="PackedScene" uid="uid://qxriqd5vwo4m" path="res://drawer.tscn" id="9_i507p"]
+[ext_resource type="PackedScene" uid="uid://ckljqhqgepbui" path="res://snake.tscn" id="9_l3001"]
+
+[node name="TestRoom" type="Node2D" unique_id=785187453]
+position = Vector2(601, 287)
+scale = Vector2(0.8, 0.8)
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1421113155]
+position = Vector2(-2, 81)
+texture = ExtResource("1_ju58f")
+
+[node name="Walls" type="Sprite2D" parent="." unique_id=1267190777]
+position = Vector2(0, 76)
+texture = ExtResource("2_sqxie")
+
+[node name="Room" parent="." unique_id=1847015269 instance=ExtResource("1_oqbmf")]
+scale = Vector2(0.8, 0.8)
+
+[node name="Window" parent="." unique_id=19461601 instance=ExtResource("5_sqxie")]
+position = Vector2(-379, 27)
+
+[node name="Door" type="Sprite2D" parent="." unique_id=1453277277]
+position = Vector2(-22, 71)
+texture = ExtResource("9_6r6vx")
+
+[node name="Drawer" parent="." unique_id=105037415 instance=ExtResource("9_i507p")]
+
+[node name="Closet" parent="." unique_id=1578186393 instance=ExtResource("9_2602c")]
+position = Vector2(368, 90)
+
+[node name="Person" parent="." unique_id=344192785 instance=ExtResource("2_arrdh")]
+position = Vector2(-66, 271)
+
+[node name="Snake" parent="." unique_id=1500285706 instance=ExtResource("9_l3001")]
+position = Vector2(-359, 147)
