@@ -36,13 +36,14 @@ animations = [{
 [node name="Window" type="Node2D" unique_id=19461601]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1419497489]
-position = Vector2(714, 359)
+visible = false
 sprite_frames = SubResource("SpriteFrames_srjdr")
 autoplay = "default"
-frame_progress = 0.30605474
+frame_progress = 0.08665211
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1251820593]
-position = Vector2(540, 510)
+position = Vector2(24, 99)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_ifklg")
 autoplay = "default"
-frame_progress = 0.15923277
+frame_progress = 0.6146128
