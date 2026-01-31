@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c3fwgstba5cp2"]
+
+[ext_resource type="Texture2D" uid="uid://cdddpcecu337p" path="res://art/sprites/closet.png" id="1_48ji0"]
+
+[node name="Closet" type="Node2D" unique_id=1578186393]
+
+[node name="Closet" type="Sprite2D" parent="." unique_id=1249433968]
+position = Vector2(-341, 2)
+texture = ExtResource("1_48ji0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=988520797]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=489693727]
+polygon = PackedVector2Array(-68, 75, -23, 112, -12, 102, 55, 123, 100, 93, 104, -93, 31, -120, 3, -148, -56, -120)
