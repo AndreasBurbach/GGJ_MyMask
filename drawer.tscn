@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://qxriqd5vwo4m"]
+
+[ext_resource type="Texture2D" uid="uid://2a8sou7gg5i6" path="res://art/sprites/drawer.png" id="1_qe6j5"]
+
+[node name="Drawer" type="Node2D" unique_id=105037415]
+
+[node name="Drawer" type="Sprite2D" parent="." unique_id=1233603757]
+texture = ExtResource("1_qe6j5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=469244474]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1140050464]
+polygon = PackedVector2Array(24, 33, -79, 70, -115, 56, -129, -66, -14, -110, 26, -93)
