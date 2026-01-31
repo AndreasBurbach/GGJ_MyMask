@@ -8,7 +8,7 @@ var eye_move_dist := 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var dir := get_viewport().get_mouse_position() - eyes_pivot.global_position
+	var dir := eyes_pivot.get_local_mouse_position()
 	if dir.length() > eye_move_dist:
 		dir = dir.normalized() * eye_move_dist
 	eyes.position = dir
