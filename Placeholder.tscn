@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpkq7"]
 resource_local_to_scene = true
-size = Vector2(143, 28)
+size = Vector2(48, 136)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dl81w"]
 resource_local_to_scene = true
