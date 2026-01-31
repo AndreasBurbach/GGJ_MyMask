@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dksxq52k1wp6o"]
 
-[ext_resource type="Script" uid="uid://cnac682s7pfjf" path="res://room.gd" id="1_88gup"]
+[ext_resource type="Script" uid="uid://b807hjn25t62c" path="res://room.gd" id="1_88gup"]
 
 [node name="Room" type="Node2D" unique_id=1847015269]
-position = Vector2(960, 421)
 script = ExtResource("1_88gup")
 angle = 0.3665191429188092
 width = 693
@@ -14,14 +13,18 @@ metadata/_edit_group_ = true
 [node name="Floor" type="Line2D" parent="." unique_id=1085639986]
 points = PackedVector2Array(0, 0, 646.9712, 248.34898, -6.1035156e-05, 496.69794, -646.9713, 248.34901)
 closed = true
-width = 1.0
+width = 2.0
+default_color = Color(0, 0, 0, 1)
 
 [node name="LWall" type="Line2D" parent="." unique_id=609864914]
 points = PackedVector2Array(0, 0, 0, -311, -646.97125, -62.65103, -646.97125, 248.34897)
 closed = true
-width = 1.0
+width = 2.0
+default_color = Color(0, 0, 0, 1)
 
 [node name="RWall" type="Line2D" parent="." unique_id=2060430625]
+position = Vector2(0, -1)
 points = PackedVector2Array(0, 0, 0, -311, 646.9712, -62.651016, 646.9712, 248.34898)
 closed = true
-width = 1.0
+width = 2.0
+default_color = Color(0, 0, 0, 1)
