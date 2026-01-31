@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dla8wqxxr6k0n"]
+
+[ext_resource type="Texture2D" uid="uid://bntotd4i7njjd" path="res://art/sprites/window1.png" id="1_hjewq"]
+[ext_resource type="Texture2D" uid="uid://dje44nnwelddb" path="res://art/sprites/window2.png" id="2_nfq5s"]
+[ext_resource type="Texture2D" uid="uid://cw3tmq6qkf8je" path="res://art/sprites/window1_gmp.png" id="3_srjdr"]
+[ext_resource type="Texture2D" uid="uid://btmnjoyget3ny" path="res://art/sprites/window2_gmp.png" id="4_4vd1n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srjdr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hjewq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nfq5s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ifklg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_srjdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4vd1n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Window" type="Node2D" unique_id=19461601]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1419497489]
+position = Vector2(714, 359)
+sprite_frames = SubResource("SpriteFrames_srjdr")
+autoplay = "default"
+frame_progress = 0.30605474
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1251820593]
+position = Vector2(540, 510)
+sprite_frames = SubResource("SpriteFrames_ifklg")
+autoplay = "default"
+frame_progress = 0.15923277
