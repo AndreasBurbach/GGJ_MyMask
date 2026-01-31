@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ckljqhqgepbui"]
+
+[ext_resource type="Texture2D" uid="uid://bircpfkpcv3al" path="res://art/sprites/snake_cute.png" id="1_baghe"]
+
+[sub_resource type="Animation" id="Animation_gxkgb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SnakeCute:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SnakeCute:position.y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_2x2sd"]
+resource_name = "float"
+length = 2.0666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SnakeCute:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -30), Vector2(0, 30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olj5u"]
+_data = {
+&"RESET": SubResource("Animation_gxkgb"),
+&"float": SubResource("Animation_2x2sd")
+}
+
+[node name="Snake" type="Node2D" unique_id=1500285706]
+
+[node name="SnakeCute" type="Sprite2D" parent="." unique_id=1369442994]
+texture = ExtResource("1_baghe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2018827545]
+libraries/ = SubResource("AnimationLibrary_olj5u")
+autoplay = &"float"
