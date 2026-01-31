@@ -43,7 +43,11 @@ _data = {
 &"walk": SubResource("Animation_g6f2d")
 }
 
-[node name="Person" type="Node2D" unique_id=344192785]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_g6f2d"]
+a = Vector2(-6, 74)
+b = Vector2(10, 74)
+
+[node name="Person" type="CharacterBody2D" unique_id=2064254714]
 script = ExtResource("1_3qlke")
 metadata/_edit_group_ = true
 
@@ -65,3 +69,9 @@ position = Vector2(1, -56)
 root_node = NodePath("../Container/Body")
 libraries/ = SubResource("AnimationLibrary_aoiax")
 speed_scale = 12.0
+
+[node name="WalkPivot" type="Marker2D" parent="." unique_id=1032119134]
+position = Vector2(3, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1960204126]
+shape = SubResource("SegmentShape2D_g6f2d")
