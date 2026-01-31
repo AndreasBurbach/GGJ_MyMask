@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brc7tkecr8s0i"]
+[gd_scene load_steps=12 format=3 uid="uid://brc7tkecr8s0i"]
 
 [ext_resource type="Script" uid="uid://op647jm0ibgi" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cfmvyhxwydp3y" path="res://Placeholder.tscn" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="4_1bvp3"]
 [ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b2pnyhqo721us" path="res://sleep_and_wake.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cg3nc17p58a38" path="res://text_bubble.tscn" id="7_272bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 resource_local_to_scene = true
@@ -27,12 +28,12 @@ shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[node name="Main" type="Node" unique_id=796557797]
+[node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
 
 [node name="ItemContainer" type="Node2D" parent="."]
 
-[node name="Placeholder" parent="ItemContainer" unique_id=17914846 instance=ExtResource("2_0xm2m")]
+[node name="Placeholder" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
 
 [node name="CollisionShape2D" parent="ItemContainer/Placeholder" index="0"]
 shape = SubResource("RectangleShape2D_lquwl")
@@ -40,7 +41,7 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="Sprite2D" parent="ItemContainer/Placeholder" index="1"]
 material = SubResource("ShaderMaterial_7mycd")
 
-[node name="Placeholder2" parent="ItemContainer" unique_id=1437190501 instance=ExtResource("2_0xm2m")]
+[node name="Placeholder2" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
 position = Vector2(568, 296)
 
 [node name="CollisionShape2D" parent="ItemContainer/Placeholder2" index="0"]
@@ -51,15 +52,24 @@ shape = SubResource("RectangleShape2D_272bh")
 material = SubResource("ShaderMaterial_5vw27")
 texture = ExtResource("4_1bvp3")
 
-[node name="CourserLayer" type="CanvasLayer" parent="." unique_id=1635828439]
+[node name="CourserLayer" type="CanvasLayer" parent="."]
 
-[node name="CourserObj" type="Sprite2D" parent="CourserLayer" unique_id=1757928376]
+[node name="CourserObj" type="Sprite2D" parent="CourserLayer"]
 texture = ExtResource("3_h2yge")
 
 [node name="CusceneLayer" type="CanvasLayer" parent="."]
 
 [node name="Fade" parent="CusceneLayer" instance=ExtResource("6_7mycd")]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.99500006
+offset_right = -1112.0
+offset_bottom = -604.7601
 in_time = 0.0
+
+[node name="TextBubble" parent="CusceneLayer" instance=ExtResource("7_272bh")]
+position = Vector2(888, 168)
+default = "Hello"
 
 [connection signal="selected" from="ItemContainer/Placeholder" to="." method="_on_placeholder_selected"]
 [connection signal="selected" from="ItemContainer/Placeholder2" to="." method="_on_placeholder_selected"]

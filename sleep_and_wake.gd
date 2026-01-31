@@ -13,9 +13,6 @@ var out = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	color_rect.color = Color(color,0)
-	$FadeOut.wait_time = out_time 
-	$OutTime.wait_time = hold_time 
-	$FadeIn.wait_time = in_time
 	hide()
 	pass # Replace with function body.
 
@@ -35,6 +32,7 @@ func start():
 	if out_time == 0:
 		_on_out_time_timeout()
 		return
+	$FadeOut.wait_time = out_time
 	$FadeOut.start() 
 	timer = $FadeOut
 	out = true
@@ -43,7 +41,7 @@ func start():
 func _on_fade_out_timeout() -> void:
 	if hold_time == 0:
 		_on_out_time_timeout()
-		return
+	$OutTime.wait_time = hold_time
 	print("fadeout hold")
 	$OutTime.start()
 	timer = null
@@ -53,6 +51,7 @@ func _on_out_time_timeout() -> void:
 		_on_fade_in_timeout()
 		return
 	print("fadeint start")
+	$FadeIn.wait_time = in_time
 	$FadeIn.start()
 	timer = $FadeIn 
 	out = false
