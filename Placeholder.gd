@@ -3,7 +3,7 @@ extends Area2D
 @onready var sprite = $Sprite2D
 @onready var collisionShape = $CollisionShape2D
 
-signal selected(name: String)
+signal selected(name: String,texture:Texture)
 var hovered = false
 
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Mouse_Left_Click") and hovered:
-		emit_signal("selected", name)
+		emit_signal("selected", name,sprite.texture)
 	pass
 
 
