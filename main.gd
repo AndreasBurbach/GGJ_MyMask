@@ -57,7 +57,9 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		messageObj.show_text_for(NothingHappend,5)
 		return
 		
-	sfxSoundPlayer.playSoundByItems([extensions.Item[a1.name],extensions.Item[a2.name]])
+	sfxSoundPlayer.playSoundByItems(
+		[extensions.Item[a1.name],extensions.Item[a2.name]] as Array[extensions.Item]
+		)
 	
 	if extensions.Item[a1.name] == extensions.Item.SleepingMask or extensions.Item[a2.name] == extensions.Item.SleepingMask:
 		musicPlayer.playSleepMask()
