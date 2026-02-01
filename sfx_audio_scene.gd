@@ -6,6 +6,12 @@ const extensions = preload("res://scene_extensions.gd")
 @export var PersonFork : AudioStream
 @export var StoneLamp : AudioStream
 @export var CrashWindow : AudioStream
+@export var HearProtection: AudioStream
+@export var NewsletterToWindow: AudioStream
+@export var Wardrobe: AudioStream
+@export var WallpaperCut: AudioStream
+@export var UseCurtains: AudioStream
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +32,8 @@ func playSoundByItems(items:Array[extensions.Item]):
 	if extensions.Item.Person in items:
 		if extensions.Item.Fork in items:
 			play_sfx(PersonFork)
+		if extensions.Item.HearingProtection in items:
+			play_sfx(HearProtection)
 			
 	if extensions.Item.Lamp in items:
 		if extensions.Item.Stone in items:			
@@ -52,4 +60,16 @@ func playSoundByItems(items:Array[extensions.Item]):
 			play_sfx(StoneLamp)
 		if extensions.Item.Hammer in items:
 			play_sfx(StoneLamp)
-				
+		if extensions.Item.Newsletter in items:
+			play_sfx(NewsletterToWindow)
+	
+	if extensions.Item.Curtains in items:
+		if extensions.Item.WindowGlas in items:
+			play_sfx(UseCurtains)
+			
+	if extensions.Item.Wallpaper in items:
+		play_sfx(WallpaperCut)
+		
+	if extensions.Item.Wardrobe in items:
+		play_sfx(Wardrobe)
+	

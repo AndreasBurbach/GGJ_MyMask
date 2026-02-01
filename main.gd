@@ -71,7 +71,7 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		if hide_item not in removedItems:
 			removedItems.append(hide_item) 
 
-	if Item[selectedObj.name] in removedItems:
+	if extensions.Item[selectedObj.name] in removedItems:
 		selected = false 
 		coursorObj.hide()  
 	if next_try:
@@ -145,7 +145,7 @@ func getRandomIssueSource(issue: Issue):
 	var sourceNumber = rng.randi_range(0, len(leftSources)-1)
 	return leftSources[sourceNumber]
 	
-func getLeftItemsWithoutSources()-> Array[Item]:
+func getLeftItemsWithoutSources()-> Array[extensions.Item]:
 	var items :Array[extensions.Item]=[]
 	for item in extensions.Item.values():
 		if not item in removedItems and not item in issueSources[Issue.NOISE] and not item in issueSources[Issue.LIGHT]:
