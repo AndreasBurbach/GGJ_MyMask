@@ -114,6 +114,7 @@ func getIssueAndIssueSource() -> Array:
 	var issueSource = getRandomIssueSource(issue)
 	return [issue, issueSource]
 	
+#Array with [issue, issueSource, itemsForScene, MessageWhenAwakes, MessageForIssue]
 func getScene() -> Array:
 	const maxDifferentItems = 8
 	
@@ -136,7 +137,13 @@ func getScene() -> Array:
 		if not solution[1] in sceneItems:
 			sceneItems.append(solution[1])
 			
-	return [issue, issueSource, sceneItems]
+	if not Item.Person in sceneItems:
+		sceneItems.append(Item.Person)
+		
+	var awakeMessage = AwakeAgainMessages.pick_random()
+	var issueMessage = NoiseIssueStartMessage if issue == Issue.NOISE else LightIssueStartMessage
+			
+	return [issue, issueSource, sceneItems, awakeMessage, issueMessage]
 		
 	
 	
@@ -210,14 +217,24 @@ enum Issue {
 	LIGHT = 1
 }
 
+var AwakeAgainMessages = [AwakeAgain1,AwakeAgain2,AwakeAgain3,AwakeAgain4,AwakeAgain5,AwakeAgain6,AwakeAgain7,AwakeAgain8]
 
-	# Erfolgstexte (Neutral bis Erleichtert)
-# --- Zusätzliche Interaktionen (Dystopisch & Zynisch) ---
+var NoiseIssueStartMessage = "Wie soll ich einschlafen bei dem ganzen Lärm?"
+var LightIssueStartMessage = "Selbst wenn ich die Augen zu mache, brennen sie von dem ganzen Licht hier. Wie soll ich da einschlafen?"
+
+var AwakeAgain1 = "Ähm... wieso, bin ich schon wieder Wach? Was ist hier los?"
+var AwakeAgain2 = "Was zur Hölle ist hier los. Ich war doch gerade noch im Bett?"
+var AwakeAgain3 = "Was... was ist hier los?"
+var AwakeAgain4 = "Oh man... Einschlafen wird immer schwerer."
+var AwakeAgain5 = "Wieso liege ich nicht mehr im Bett? Bewegt sich der Raum um mich herum?"
+var AwakeAgain6 = "... müde!"
+var AwakeAgain7 = "Träume ich...?"
+var AwakeAgain8 = "Ist das mein Zimmer?"
+
 
 var SleepFinaly = "Endlich... die süße Dunkelheit umarmt mich. Gute Nacht, grausame Welt."
 var HidingInWardrobe = "Zwischen alten Socken hört dich niemand schreien – oder schnarchen. Ein herrlich muffiges Grab."
 	
-	# Licht-Interaktionen (Aggressiv)
 var CrushLamp = "Es werde Licht? Von wegen. Es werde Dunkelheit. Dauerhaft und schmerzhaft."
 var CrushLampWithApple = "Nun ist das Licht weg, ich kann schlafen, aber mein Frühstück ist voller Scherben."
 var CrushWindowGlass = "Scherben bringen Glück. Und hoffentlich das Ende dieser verdammten Photonen-Invasion!"
@@ -225,19 +242,16 @@ var CoverWindows = "Was ich nicht sehe, existiert nicht. Ein Hoch auf die totale
 var ShutOfLamp = "Ein kleiner Klick für mich, ein gigantischer Schritt Richtung REM-Phase."
 var ShutOfWindowLigth = "Endlich ist dieser gelbe Feuerball da draußen ausgesperrt. Bleib wo der Pfeffer wächst!"
 	
-	# Lärm-Interaktionen (Blutig)
 var KillRacoonByPeeler = "Waschbären waschen im Jenseits keine Wäsche mehr. Die Stille ist fast so schön wie sein entsetzter Blick."
 var KillSnakeByPeeler = "Ein Gürtel, der früher mal gezischt hat. Sehr kleidsam und vor allem: ABSOLUT STILL."
 var KillSingerByKnive = "Das letzte hohe C war sein finales. Die Stille danach ist die schönste Musik, die ich je gehört habe."
 var UseHearingProtection = "Ich höre nur noch mein eigenes Herz klopfen... wenigstens nervt das rhythmisch."
 	
-	# Basteln / DIY (Wahnsinnig)
 var CreateSleepingMask = "Aus Müll eine Maske gebastelt. Ich sehe aus wie ein Irrer im Hungerstreik, aber es ist dunkel."
 var CreateAppleSleepingMask = "Vitamine direkt auf die Netzhaut. Wenn ich nicht schlafen kann, kriege ich wenigstens keine Augenringe."
 var CreateRacoonSleepingMask = "Das Fell ist noch warm und riecht nach Mülltonne, aber es blockiert das Licht perfekt. Wer braucht schon Hygiene?"
 var CreateSnakeSleepingMask = "Kaltes Schuppenleder auf den Augen. Die Schlange starrt nicht mehr, jetzt starre ich – in die unendliche Schwärze."
 
-# Lampen-Zerstörung
 var CrushLampWithStone = "Ein Steinzeit-Tool für ein modernes Problem. Funken, Glas, Dunkelheit. Die Evolution ist ein Kreis."
 var CrushLampWithPillow = "Ich habe das Licht erstickt. Es hat sich kaum gewehrt. Wenn es doch nur bei meinen Gedanken so einfach wäre."
 var CrushLampWithBlanket = "Unter dieser Decke stirbt jede Hoffnung – und zum Glück auch diese verdammte Glühbirne."
@@ -245,12 +259,10 @@ var CrushLampWithHammer = "Ein kräftiger Schlag gegen die Erleuchtung. Wer brau
 var CrushLampWithKnive = "Ich habe die Photonen erstochen. Ein chirurgischer Eingriff in die Atmosphäre. Patient tot, Zimmer dunkel. Perfekt."
 var CrushLampWithFork = "Ein metallisches 'Zapp', ein kurzer Schmerz im Arm und... Stille im Stromkreis. Ein Hoch auf die elektrische Hinrichtung."
 
-# Fenster-Interaktionen
 var CoverWindowsWithBlanket = "Mein Zimmer ist jetzt ein gepolstertes Grab. Die Außenwelt kann draußen verrotten, ich sehe sie nicht mehr."
 var CrushWindowGlassWithAx = "Frische Luft? Nein, nur Scherben und das Ende dieser voyeuristischen Glasbarriere. Komm rein, Nacht."
 var CoverWindowsWithNewsletter = "Endlich nützliche Nachrichten: Sie blockieren die Sicht auf eine Welt, die ohnehin keinen Sinn ergibt."
 
-# Masken-Basteln (Der Wahnsinn lässt grüßen)
 var CreatePeelerMaskWithRacoon = "Präzisionsarbeit mit dem Sparschäler. Das Ergebnis ist haarig, blutig und riecht nach Mülltonne – aber es ist blickdicht."
 var CreatePeelerMaskWithSnake = "Ich habe der Schlange die Haut abgezogen, damit ich nicht mehr sehen muss. Ein fairer Tausch, sie braucht sie im Jenseits eh nicht."
 var CreateSleepingMaskWithNewsletter = "Schlagzeilen direkt auf den Augäpfeln. So sehe ich wenigstens schwarz auf weiß, dass alles den Bach runtergeht."
@@ -259,10 +271,8 @@ var CreateSleepingMaskWithBlanket = "Viel zu schwer, viel zu warm, aber die tota
 var CreateSleepingMaskWithPillow = "Ich habe ein Kissen um meinen Kopf geschnallt. Ich sehe aus wie ein Unfall, aber es ist fast so leise wie im Sarg."
 var CreateSleepingMaskWithWallpaper = "Ich habe die Tapete von den Wänden gerissen. Wenn die Wohnung mich anstarrt, starre ich eben mit Kleisterresten zurück."
 
-# Gehörschutz
 var CreateHearingProtectionByPillow = "Ich presse mir das Kissen auf die Ohren, bis das Blut rauscht. Mein eigener Puls ist der einzige Soundtrack, den ich noch ertrage."
 
-# Lärm-Eliminierung (Blutig & Makaber)
 var KillSingerByAx = "Sein letzter hoher Ton war ein gurgelndes E. Die Axt hat die Partitur beendet. Applaus für die ewige Stille."
 var KillRacoonByAx = "Waschbären sind erstaunlich aerodynamisch, wenn man sie mit einer Axt spaltet. Der Müll gehört jetzt wieder mir."
 var KillSnakeByAx = "Aus eins mach zwei. Beide Teile zappeln noch, aber das Zischen hat endlich ein Ende gefunden."
@@ -280,7 +290,6 @@ var KillSnakeByFork = "Wie Spaghetti, nur widerspenstiger. Jetzt zappelt nichts 
 var KillSingerByFork = "Punktierung nennt man das in der Musik, oder? Ich habe ihn an so vielen Stellen punktiert, bis die Musik auslief."
 var KillSingerByPeeler = "Ich habe ihm alle Noten einzeln von der Zunge geschält. Der gibt erstmal Ruhe"
 
-# Game Over (Der letzte Ausweg)
 var SelfKillPersonByStone = "Ein schwerer Stein, ein leichter Abgang. Endlich ist der Kopf leer und die Nacht dauerhaft."
 var SelfKillPersonByAx = "Ein letzter, schwungvoller Akt der Selbstbefreiung. Die Axt trennt nicht nur Holz, sondern auch Sorgen vom Körper."
 var SelfKillPersonByKnive = "Ein kleiner Schnitt für einen Menschen, ein riesiger Sprung in die absolute Belanglosigkeit. Gute Nacht."
