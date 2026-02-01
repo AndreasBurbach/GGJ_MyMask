@@ -7,11 +7,11 @@
 [ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="3_2v3k6"]
 [ext_resource type="Script" uid="uid://wme8x1l2r401" path="res://personeyes.gd" id="3_g6f2d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoeld"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7rx5"]
 resource_local_to_scene = true
 size = Vector2(48, 136)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xktsn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v3k6"]
 resource_local_to_scene = true
 shader = ExtResource("3_2v3k6")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
@@ -71,10 +71,10 @@ y_offset = -28.775
 
 [node name="CollisionShape2D" parent="Container/Person" index="0" unique_id=1035127510]
 position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_hoeld")
+shape = SubResource("RectangleShape2D_r7rx5")
 
 [node name="Sprite2D" parent="Container/Person" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_xktsn")
+material = SubResource("ShaderMaterial_2v3k6")
 texture = ExtResource("1_hncb1")
 
 [node name="Eyes" type="Node2D" parent="Container/Person" unique_id=1485549230]
@@ -87,7 +87,6 @@ texture = ExtResource("2_3qlke")
 position = Vector2(1, -56)
 
 [node name="Walk" type="AnimationPlayer" parent="." unique_id=471859376]
-root_node = NodePath("")
 libraries/ = SubResource("AnimationLibrary_aoiax")
 speed_scale = 12.0
 
