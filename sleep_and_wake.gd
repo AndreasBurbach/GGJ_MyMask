@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @onready var color_rect = $ColorRect
 @export var color:Color
@@ -8,15 +8,15 @@ var out = true
 @export var hold_time = 1.0 
 @export var in_time = 1.0
 
-
+@onready var cr = $ColorRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	color_rect.color = Color(color,0)
-	$FadeOut.wait_time = out_time 
-	$OutTime.wait_time = hold_time 
-	$FadeIn.wait_time = in_time
-	hide()
+	$FadeOut.wait_time = out_time  or 1
+	$OutTime.wait_time = hold_time or 1
+	$FadeIn.wait_time = in_time or 1
+	cr.hide()
 	pass # Replace with function body.
 
 
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	color_rect.color = Color(color,progress)
 	
 func start():
-	show()
+	cr.show()
 	print("fadout start")
 	if out_time == 0:
 		_on_out_time_timeout()
@@ -43,7 +43,6 @@ func start():
 func _on_fade_out_timeout() -> void:
 	if hold_time == 0:
 		_on_out_time_timeout()
-		return
 	print("fadeout hold")
 	$OutTime.start()
 	timer = null
@@ -60,4 +59,4 @@ func _on_out_time_timeout() -> void:
 
 func _on_fade_in_timeout() -> void:
 	print("fadein done")
-	hide()
+	cr.hide()
