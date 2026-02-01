@@ -485,7 +485,6 @@ var itemActionDict : Dictionary[Vector3, Array] = {
 	Vector3(extensions.Item.Pillow, extensions.Item.Lamp, Issue.NOISE): [false, true, CrushLampWithPillowByNoise, "", [extensions.Item.Pillow, extensions.Item.Lamp]],
 	Vector3(extensions.Item.Blanket, extensions.Item.Lamp, Issue.NOISE): [false, true, CrushLampWithBlanketByNoise, "", [extensions.Item.Blanket, extensions.Item.Lamp]],
 	Vector3(extensions.Item.Blanket, extensions.Item.WindowGlas, Issue.NOISE): [false, true, CoverWindowsWithBlanketByNoise, "", [extensions.Item.Blanket]],
-	Vector3(extensions.Item.Curtains, extensions.Item.WindowGlas, Issue.NOISE): [false, true, ShutOfWindowLigthByNoise, "", [extensions.Item.Curtains, extensions.Item.WindowGlas]],
 	Vector3(extensions.Item.LightSwitch, extensions.Item.Lamp, Issue.NOISE): [false, true, CrushLampByNoise, "", []],
 	Vector3(extensions.Item.Axe, extensions.Item.Lamp, Issue.NOISE): [false, true, CrushLampByNoise, "", [extensions.Item.Lamp]],
 	Vector3(extensions.Item.Axe, extensions.Item.WindowGlas, Issue.NOISE): [false, true, CrushWindowGlassByNoise, "", [extensions.Item.Axe, extensions.Item.WindowGlas]],
