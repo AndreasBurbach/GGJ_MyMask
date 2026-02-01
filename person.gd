@@ -15,6 +15,9 @@ func is_walking() -> bool:
 	return target != position
 
 func _physics_process(delta: float) -> void:
+	# stop walking when selected
+	if not $Container/Person.visible:
+		target = position
 	var diff = target - position
 	if diff != Vector2.ZERO:
 		velocity = diff.normalized() * speed 
