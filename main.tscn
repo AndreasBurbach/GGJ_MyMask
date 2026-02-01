@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://brc7tkecr8s0i"]
+[gd_scene format=3 uid="uid://brc7tkecr8s0i"]
 
 [ext_resource type="Script" uid="uid://op647jm0ibgi" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cfmvyhxwydp3y" path="res://Placeholder.tscn" id="2_0xm2m"]
@@ -109,182 +109,212 @@ shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1178112073]
 script = ExtResource("1_ig7tw")
 
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1756490103]
 layer = -1
 
-[node name="Floor" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Floor" type="Sprite2D" parent="BackgroundLayer" unique_id=1943734105]
 position = Vector2(576, 335)
 texture = ExtResource("12_w48qg")
 
-[node name="Walls" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Walls" type="Sprite2D" parent="BackgroundLayer" unique_id=683108178]
 position = Vector2(577, 336)
 texture = ExtResource("13_vivmo")
 
-[node name="Room" parent="BackgroundLayer" instance=ExtResource("16_2cqfq")]
+[node name="Room" parent="BackgroundLayer" unique_id=337929631 instance=ExtResource("16_2cqfq")]
 position = Vector2(576, 256)
 scale = Vector2(0.8, 0.8)
 
-[node name="Bed" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Bed" type="Sprite2D" parent="BackgroundLayer" unique_id=632211683]
 position = Vector2(600, 330)
 texture = ExtResource("14_2cqfq")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer/Bed"]
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer/Bed" unique_id=133992600]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/Bed/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/Bed/StaticBody2D" unique_id=2123653176]
 polygon = PackedVector2Array(-286, 207, -162, 154, -168, 42, -228, 42, -263, 63, -329, 49, -375, 17, -389, -45, -520, -9, -518, 115)
 
-[node name="ItemContainer" type="Node2D" parent="."]
+[node name="ItemContainer" type="Node2D" parent="." unique_id=2110082557]
 position = Vector2(-64, -33)
 
-[node name="Placeholder" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Placeholder" parent="ItemContainer" unique_id=848615 instance=ExtResource("2_0xm2m")]
 visible = false
 
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Placeholder" index="0" unique_id=1035127510]
 shape = SubResource("RectangleShape2D_074og")
 
-[node name="Sprite2D" parent="ItemContainer/Placeholder" index="1"]
+[node name="Sprite2D" parent="ItemContainer/Placeholder" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_cegan")
 
-[node name="Placeholder2" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Placeholder2" parent="ItemContainer" unique_id=260494476 instance=ExtResource("2_0xm2m")]
 visible = false
 position = Vector2(568, 296)
 
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder2" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Placeholder2" index="0" unique_id=1035127510]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_82xsv")
 
-[node name="Sprite2D" parent="ItemContainer/Placeholder2" index="1"]
+[node name="Sprite2D" parent="ItemContainer/Placeholder2" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_getpj")
 texture = ExtResource("4_1bvp3")
 
-[node name="Placeholder3" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Placeholder3" parent="ItemContainer" unique_id=362195320 instance=ExtResource("2_0xm2m")]
 visible = false
 position = Vector2(504, 432)
 
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder3" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Placeholder3" index="0" unique_id=1035127510]
 shape = SubResource("RectangleShape2D_ryguw")
 
-[node name="Sprite2D" parent="ItemContainer/Placeholder3" index="1"]
+[node name="Sprite2D" parent="ItemContainer/Placeholder3" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_d13ii")
 
-[node name="Pillow" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Pillow" parent="ItemContainer" unique_id=2070790265 instance=ExtResource("2_0xm2m")]
 position = Vector2(664, 369)
 x_offset = 64.26
 y_offset = 35.925
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Pillow" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Pillow" index="0" unique_id=1035127510]
 position = Vector2(-425.30124, 23.679375)
 rotation = -0.48869225
 scale = Vector2(0.9999999, 1)
 skew = -0.42760575
 shape = SubResource("RectangleShape2D_1u8w0")
 
-[node name="Sprite2D" parent="ItemContainer/Pillow" index="1"]
+[node name="Sprite2D" parent="ItemContainer/Pillow" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_0odxb")
 texture = ExtResource("5_kek77")
 
-[node name="Blanket" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Blanket" parent="ItemContainer" unique_id=1853836460 instance=ExtResource("2_0xm2m")]
 position = Vector2(664, 369)
 x_offset = 63.205
 y_offset = 34.21
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Blanket" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Blanket" index="0" unique_id=1035127510]
 position = Vector2(-339.69684, 74.93981)
 rotation = 0.25936875
 skew = 0.57770383
 shape = SubResource("RectangleShape2D_lswn8")
 
-[node name="Sprite2D" parent="ItemContainer/Blanket" index="1"]
+[node name="Sprite2D" parent="ItemContainer/Blanket" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_a6jrf")
 position = Vector2(0, -2)
 texture = ExtResource("6_4c57u")
 
-[node name="Wardrobe" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Wardrobe" parent="ItemContainer" unique_id=51738863 instance=ExtResource("2_0xm2m")]
 position = Vector2(608, 360)
 x_offset = 91.51
 y_offset = 125.15
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Wardrobe" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Wardrobe" index="0" unique_id=1035127510]
 position = Vector2(364.25, -8)
 shape = SubResource("RectangleShape2D_xuqvo")
 
-[node name="Sprite2D" parent="ItemContainer/Wardrobe" index="1"]
+[node name="Sprite2D" parent="ItemContainer/Wardrobe" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_qsp4k")
 texture = ExtResource("7_4c57u")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="ItemContainer/Wardrobe"]
+[node name="StaticBody2D" type="StaticBody2D" parent="ItemContainer/Wardrobe" unique_id=710512859]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ItemContainer/Wardrobe/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ItemContainer/Wardrobe/StaticBody2D" unique_id=157039311]
 polygon = PackedVector2Array(274, 72, 320, 112, 329, 103, 392, 118, 443, 91, 447, -98, 370, -121, 345, -150, 282, -119)
 
-[node name="Lamp" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Lamp" parent="ItemContainer" unique_id=1188170685 instance=ExtResource("2_0xm2m")]
 position = Vector2(600, 353)
 x_offset = 35.92
 y_offset = 19.92
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Lamp" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Lamp" index="0" unique_id=1035127510]
 position = Vector2(172.96759, -196.30771)
 shape = SubResource("RectangleShape2D_kq58d")
 
-[node name="Sprite2D" parent="ItemContainer/Lamp" index="1"]
+[node name="Sprite2D" parent="ItemContainer/Lamp" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_seu75")
 texture = ExtResource("8_efxa6")
 
-[node name="Door" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Door" parent="ItemContainer" unique_id=1123710878 instance=ExtResource("2_0xm2m")]
 position = Vector2(592, 353)
 x_offset = 59.73
 y_offset = 108.29
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Door" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Door" index="0" unique_id=1035127510]
 position = Vector2(162.51593, -98.254745)
 rotation = 1.6528268
 skew = 0.20594883
 shape = SubResource("RectangleShape2D_htxhm")
 
-[node name="Sprite2D" parent="ItemContainer/Door" index="1"]
+[node name="Sprite2D" parent="ItemContainer/Door" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_jq2sk")
 texture = ExtResource("12_vivmo")
 
-[node name="WindowGlas" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="WindowGlas" parent="ItemContainer" unique_id=685454857 instance=ExtResource("2_0xm2m")]
 position = Vector2(352, 265)
 x_offset = -3.29
 y_offset = -23.23
 
-[node name="CollisionShape2D" parent="ItemContainer/WindowGlas" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/WindowGlas" index="0" unique_id=1035127510]
 position = Vector2(-7.6293945e-06, 1.0000019)
 rotation = 1.569051
 scale = Vector2(0.9999999, 1)
 skew = -0.37175536
 shape = SubResource("RectangleShape2D_4k2k6")
 
-[node name="Sprite2D" parent="ItemContainer/WindowGlas" index="1"]
+[node name="Sprite2D" parent="ItemContainer/WindowGlas" index="1" unique_id=389929912]
 material = SubResource("ShaderMaterial_0rl1p")
 texture = ExtResource("13_2cqfq")
 
-[node name="Person" parent="." instance=ExtResource("15_vivmo")]
+[node name="Racoon" parent="ItemContainer" unique_id=764344958 instance=ExtResource("2_0xm2m")]
+
+[node name="Knive" parent="ItemContainer" unique_id=319361115 instance=ExtResource("2_0xm2m")]
+
+[node name="Wallpaper" parent="ItemContainer" unique_id=1987819470 instance=ExtResource("2_0xm2m")]
+
+[node name="HearingProtection" parent="ItemContainer" unique_id=1226969648 instance=ExtResource("2_0xm2m")]
+
+[node name="Peeler" parent="ItemContainer" unique_id=1950674533 instance=ExtResource("2_0xm2m")]
+
+[node name="Snake" parent="ItemContainer" unique_id=2045513227 instance=ExtResource("2_0xm2m")]
+
+[node name="Axe" parent="ItemContainer" unique_id=931861314 instance=ExtResource("2_0xm2m")]
+
+[node name="LightSwitch" parent="ItemContainer" unique_id=1526214866 instance=ExtResource("2_0xm2m")]
+
+[node name="Stone" parent="ItemContainer" unique_id=1536080977 instance=ExtResource("2_0xm2m")]
+
+[node name="Hammer" parent="ItemContainer" unique_id=813643263 instance=ExtResource("2_0xm2m")]
+
+[node name="SleepingMask" parent="ItemContainer" unique_id=1880928930 instance=ExtResource("2_0xm2m")]
+
+[node name="Fork" parent="ItemContainer" unique_id=1158921526 instance=ExtResource("2_0xm2m")]
+
+[node name="Curtains" parent="ItemContainer" unique_id=23179540 instance=ExtResource("2_0xm2m")]
+
+[node name="Apple" parent="ItemContainer" unique_id=674286737 instance=ExtResource("2_0xm2m")]
+
+[node name="Newsletter" parent="ItemContainer" unique_id=1367880260 instance=ExtResource("2_0xm2m")]
+position = Vector2(64, 33)
+
+[node name="Person" parent="." unique_id=2102129749 instance=ExtResource("15_vivmo")]
 position = Vector2(676, 448)
 
-[node name="CourserLayer" type="CanvasLayer" parent="."]
+[node name="CourserLayer" type="CanvasLayer" parent="." unique_id=33849377]
 
-[node name="CourserObj" type="Sprite2D" parent="CourserLayer"]
+[node name="CourserObj" type="Sprite2D" parent="CourserLayer" unique_id=691285681]
 texture = ExtResource("3_h2yge")
 
-[node name="CusceneLayer" type="CanvasLayer" parent="."]
-visible = false
+[node name="CusceneLayer" type="CanvasLayer" parent="." unique_id=36522148]
 
-[node name="Fade" parent="CusceneLayer" instance=ExtResource("6_7mycd")]
+[node name="Fade" parent="CusceneLayer" unique_id=1734964139 instance=ExtResource("6_7mycd")]
 in_time = 0.0
 
-[node name="TextBubble" parent="CusceneLayer" instance=ExtResource("7_272bh")]
-position = Vector2(824, 135)
+[node name="TextBubble" parent="CusceneLayer" unique_id=551091152 instance=ExtResource("7_272bh")]
+position = Vector2(872, 14)
 default = "Hello"
 
 [editable path="ItemContainer/Placeholder"]

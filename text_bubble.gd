@@ -13,7 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func show_for(text:String,seconds:int=1):
+func show_text_for(text:String,seconds:int=1):
 	$Label.text = text 
 	$ShowTimer.start(seconds)
 	show()

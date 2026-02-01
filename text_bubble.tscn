@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg3nc17p58a38"]
+[gd_scene format=3 uid="uid://cg3nc17p58a38"]
 
 [ext_resource type="Script" uid="uid://b00fdpqcaakvd" path="res://text_bubble.gd" id="1_bo3s3"]
 [ext_resource type="Shader" uid="uid://b78k6fdyilt81" path="res://text_bubble.gdshader" id="1_j0576"]
@@ -16,26 +16,27 @@ shader_parameter/height = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_87vmk"]
 font_color = Color(0, 0, 0, 1)
 
-[node name="TextBubble" type="Node2D"]
+[node name="TextBubble" type="Node2D" unique_id=1904638311]
 script = ExtResource("1_bo3s3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=973102491]
 material = SubResource("ShaderMaterial_j0576")
 offset_right = 256.0
-offset_bottom = 192.0
+offset_bottom = 160.0
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2075389631]
 offset_left = 24.0
 offset_top = 16.0
-offset_right = 240.0
-offset_bottom = 176.0
+offset_right = 232.0
+offset_bottom = 144.0
 text = "Speech Bubble"
 label_settings = SubResource("LabelSettings_87vmk")
 
-[node name="ShowTimer" type="Timer" parent="."]
+[node name="ShowTimer" type="Timer" parent="." unique_id=784092334]
 one_shot = true
 
-[node name="SpeechSpike" type="Polygon2D" parent="."]
+[node name="SpeechSpike" type="Polygon2D" parent="." unique_id=1070482693]
+position = Vector2(16, -32)
 polygon = PackedVector2Array(64, 192, 16, 296, 112, 192)
 uv = PackedVector2Array(56, 192, 72, 264, 112, 192)
 
