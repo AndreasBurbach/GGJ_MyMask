@@ -6,125 +6,17 @@ var selectedObj: Area2D
 var cursorOffset: Vector2 = Vector2(0,10)
 var name2item: Dictionary[String,Area2D]
 var selected = false
+var rng = RandomNumberGenerator.new()
+var currentIssue: Issue
 
-enum Item {
-	Person,
-	SleepingMask,
-	Blanket,
-	Pillow,
-	Wardrobe,
-	LightSwitch,
-	Curtains,
-	Ax,
-	Hammer,
-	HearingProtection,
-	Stone,
-	WindowGlas,
-	Knive,
-	Appel,
-	Racoon,
-	Peeler,
-	Newsletter,
-	Glue,
-	Wallpaper,
-	Fork,
-	Lamp,
-	Snake,
-	Door,
-}
-
-enum ItemAction{
-	UsePillowAsSleepingMask,
-	UseBlanketAsSleepingMask,
-	UseSleepingMask,
-	CreateAppleSleepingMask,
-	CreateRacoonSleepingMask,
-	CreateSnakeSleepingMask,
-	CreateSleepingMask,
-	CrushWindowGlass,
-	CrushLamp,
-	ShutOfLamp,
-	KillRacoon,
-	UseHearingProtection,
-	UsePillowAsHearingProtection,
-	CloseDoor,
-	KillSinger,
-	KillSnake,
-	KillPerson,
-	ShutOfWindowLigth,
-	HidingInWardrobe,
-	UseCurtainsAsSleepingMask,
-	CoverWindows,
-}
-
-# Vector2 => Item was man auf das Item zieht
-var itemActionDict : Dictionary[Vector2,ItemAction] = {
-	Vector2(Item.SleepingMask,Item.Person): ItemAction.UseSleepingMask,
-	Vector2(Item.SleepingMask,Item.Racoon): ItemAction.KillRacoon,
-	Vector2(Item.Stone,Item.Lamp): ItemAction.CrushLamp,
-	Vector2(Item.Stone,Item.WindowGlas): ItemAction.CrushWindowGlass,
-	Vector2(Item.Stone,Item.Person): ItemAction.KillPerson,
-	Vector2(Item.Stone,Item.Door): ItemAction.KillSinger,
-	Vector2(Item.Pillow,Item.Knive): ItemAction.KillRacoon,
-	Vector2(Item.Pillow,Item.Peeler): ItemAction.CreateSleepingMask,	
-	Vector2(Item.Pillow,Item.Person): ItemAction.UsePillowAsSleepingMask,
-	Vector2(Item.Pillow,Item.Lamp): ItemAction.CrushLamp,
-	Vector2(Item.Blanket,Item.Person): ItemAction.UseBlanketAsSleepingMask,
-	Vector2(Item.Blanket,Item.Lamp): ItemAction.CrushLamp,
-	Vector2(Item.Blanket,Item.Racoon): ItemAction.KillRacoon,
-	Vector2(Item.Blanket,Item.Snake): ItemAction.KillSnake,
-	Vector2(Item.Blanket,Item.WindowGlas): ItemAction.CoverWindows,
-	Vector2(Item.Curtains,Item.WindowGlas): ItemAction.ShutOfWindowLigth,
-	Vector2(Item.Curtains,Item.Person): ItemAction.UseCurtainsAsSleepingMask,
-	Vector2(Item.LightSwitch,Item.Lamp): ItemAction.ShutOfLamp,
-	Vector2(Item.Ax,Item.Lamp): ItemAction.CrushLamp,
-	Vector2(Item.Ax,Item.WindowGlas): ItemAction.CrushWindowGlass,
-	Vector2(Item.Ax,Item.Appel): ItemAction.CreateAppleSleepingMask,
-	Vector2(Item.Ax,Item.Racoon): ItemAction.KillRacoon,
-	Vector2(Item.Ax,Item.Snake): ItemAction.KillSnake,
-	Vector2(Item.Ax,Item.Newsletter): ItemAction.CreateSleepingMask,
-	Vector2(Item.Ax,Item.Curtains): ItemAction.CreateSleepingMask,
-	Vector2(Item.Ax,Item.Door): ItemAction.KillSinger,
-	Vector2(Item.Ax,Item.Person): ItemAction.KillPerson,
-	Vector2(Item.Ax,Item.Blanket): ItemAction.CreateSleepingMask,
-	Vector2(Item.Ax,Item.Pillow): ItemAction.CreateSleepingMask,
-	Vector2(Item.Ax,Item.Wallpaper): ItemAction.CreateSleepingMask,
-	Vector2(Item.Knive,Item.Lamp): ItemAction.CrushLamp,
-	Vector2(Item.Knive,Item.Appel): ItemAction.CreateAppleSleepingMask,
-	Vector2(Item.Knive,Item.Racoon): ItemAction.KillRacoon,
-	Vector2(Item.Knive,Item.Snake): ItemAction.KillSnake,
-	Vector2(Item.Knive,Item.Newsletter): ItemAction.CreateSleepingMask,
-	Vector2(Item.Knive,Item.Curtains): ItemAction.CreateSleepingMask,
-	Vector2(Item.Knive,Item.Door): ItemAction.KillSinger,
-	Vector2(Item.Knive,Item.Person): ItemAction.KillPerson,
-	Vector2(Item.Knive,Item.Blanket): ItemAction.CreateSleepingMask,
-	Vector2(Item.Knive,Item.Pillow): ItemAction.CreateSleepingMask,
-	Vector2(Item.Knive,Item.Wallpaper): ItemAction.CreateSleepingMask,
-	Vector2(Item.Fork,Item.Racoon): ItemAction.KillRacoon,
-	Vector2(Item.Fork,Item.Snake): ItemAction.KillSnake,
-	Vector2(Item.Fork,Item.Door): ItemAction.KillSinger,
-	Vector2(Item.Fork,Item.Person): ItemAction.KillPerson,
-	Vector2(Item.Fork,Item.Lamp): ItemAction.CrushLamp,
-	Vector2(Item.Hammer,Item.Racoon): ItemAction.KillRacoon,
-	Vector2(Item.Hammer,Item.Snake): ItemAction.KillSnake,
-	Vector2(Item.Hammer,Item.Door): ItemAction.KillSinger,
-	Vector2(Item.Hammer,Item.Person): ItemAction.KillPerson,
-	Vector2(Item.Hammer,Item.Lamp): ItemAction.CrushLamp,
-	Vector2(Item.Hammer,Item.WindowGlas): ItemAction.CrushWindowGlass,
-	Vector2(Item.HearingProtection,Item.Person): ItemAction.UseHearingProtection,
-	Vector2(Item.Appel,Item.Lamp): ItemAction.CrushLamp,
-	Vector2(Item.Appel,Item.Peeler): ItemAction.CreateAppleSleepingMask,
-	Vector2(Item.Snake,Item.Door): ItemAction.KillSinger,
-	Vector2(Item.Racoon,Item.Door): ItemAction.KillRacoon,
-	Vector2(Item.Person,Item.Door): ItemAction.KillSinger,	
-	Vector2(Item.Person,Item.Wardrobe): ItemAction.HidingInWardrobe,
-	Vector2(Item.Person,Item.Racoon): ItemAction.KillPerson,
-	Vector2(Item.Person,Item.Snake): ItemAction.KillPerson,
-	Vector2(Item.Person,Item.WindowGlas): ItemAction.KillPerson,
-	Vector2(Item.Person,Item.Peeler): ItemAction.KillPerson,
-	Vector2(Item.Newsletter,Item.WindowGlas): ItemAction.CoverWindows,
-	Vector2(Item.Newsletter,Item.Person): ItemAction.UseSleepingMask,
-}
+#Returns GameOver:bool, nextTry:bool, personMessage:String, removedItems:Array[item]
+func getInteraction(item1: Item, item2: Item, issue: Issue) -> Array:
+	if Vector3(item1,item2,issue) in itemActionDict:
+		return itemActionDict[Vector3(item1,item2, issue)]
+	elif Vector3(item2,item1,issue) in itemActionDict:
+		return itemActionDict[Vector3(item2,item1, issue)]
+	else:
+		return [false, true, "Irgendwie passiert nichts!", []]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -163,3 +55,469 @@ func _on_placeholder_selected(name: String,texture:Texture) -> void:
 	coursorObj.show()
 	selected = true
 	pass # Replace with function body.
+
+
+func getSolutionsByRemovedItems(issue: Issue) -> Array[Item]:
+	var solutions = issueSolutionsDict[issue]
+	var leftSolutions = []
+	for items in solutions:
+		if not items[0] in removedItems and not items[1] in removedItems:
+			leftSolutions.append(items)
+	return leftSolutions
+	
+func getNotRemovedAndNotIssueSourceItems(issue: Issue) -> Array[Item]:
+	var items = []
+	for item in Item.keys():
+		if not item in issueSources[issue] and not item in removedItems:
+			items.append(item)
+	return items
+	
+func getRandomIssueSource(issue: Issue):
+	var leftSources = getLeftIssueSources(issue)
+	if len(leftSources) == 1:
+		return leftSources[0]
+		
+	var sourceNumber = rng.randi_range(0, len(leftSources)-1)
+	return leftSources[sourceNumber]
+	
+func getLeftItemsWithoutSources()-> Array[Item]:
+	var items = []
+	for item in Item.keys():
+		if not item in removedItems and not item in issueSources[Issue.NOISE] and not item in issueSources[Issue.LIGHT]:
+			items.append(item)
+	return items
+	
+# Array[Array[Item]]
+func getSolutionsForIssue(issue: Issue, issueSource: Item) -> Array:
+	const maxSolutionCount = 3
+	var solutions = []
+	for solutionItems in issueSolutionsDict[issue]:
+		if issueSource in solutionItems and solutionItems[0] not in removedItems and  solutionItems[1] not in removedItems:
+			solutions.append(solutionItems)
+	
+	var result = []
+	for i in range(0, min(maxSolutionCount, len(solutions))):
+		var solution = solutions.pick_random()
+		result.append(solution)
+		solutions.remove_at(solutions.find(solution))
+		
+	return result
+		
+			
+func getIssueAndIssueSource() -> Array:
+	var issue = getRandomIssue();
+	var issueSource = getRandomIssueSource(issue)
+	return [issue, issueSource]
+	
+func getScene() -> Array:
+	const maxDifferentItems = 8
+	
+	var issue = getRandomIssue();
+	var issueSource = getRandomIssueSource(issue)
+	
+	var leftItems = getNotRemovedAndNotIssueSourceItems(issue)
+	var solutions = getSolutionsForIssue(issue, issueSource)
+	
+	var possibleItems = getLeftItemsWithoutSources()
+	var sceneItems = []
+	for i in range(0,min(maxDifferentItems, len(possibleItems))):
+		var item = possibleItems.pick_random()
+		sceneItems.append(item)
+		possibleItems.remove_at(possibleItems.find(item))
+		
+	for solution in solutions:
+		if not solution[0] in sceneItems:
+			sceneItems.append(solution[0])
+		if not solution[1] in sceneItems:
+			sceneItems.append(solution[1])
+			
+	return [issue, issueSource, sceneItems]
+		
+	
+	
+	
+
+func getRandomIssue():
+	var hasNoiseSources = hasIssueSources(Issue.NOISE)
+	var hasLightSources = hasIssueSources(Issue.LIGHT)
+	
+	if hasNoiseSources and not hasLightSources:
+		return Issue.NOISE
+	elif not hasNoiseSources and hasLightSources:
+		return Issue.LIGHT
+	elif not hasNoiseSources and not hasLightSources:
+		return null
+	
+	var issueNumber = rng.randi_range(0, 1)
+	if issueNumber == 0:
+		return Issue.NOISE
+	else:
+		return Issue.LIGHT
+
+func hasIssueSources(issue: Issue) -> bool:
+	for item in issueSources[issue]:
+		if not item in removedItems:
+			return true
+	return false
+	
+func getLeftIssueSources(issue: Issue) -> Array:
+	var sources = []
+	for item in issueSources[issue]:
+		if not item in removedItems:
+			sources.append(item)
+	return sources
+
+var removedItems: Array[Item]
+
+var issueSources: Dictionary[Issue,Array] = {
+	Issue.NOISE: [Item.Racoon, Item.Snake, Item.Door],
+	Issue.LIGHT: [Item.Lamp, Item.WindowGlas]
+}
+
+enum Item {
+	Person,
+	SleepingMask,
+	Blanket,
+	Pillow,
+	Wardrobe,
+	LightSwitch,
+	Curtains,
+	Ax,
+	Hammer,
+	HearingProtection,
+	Stone,
+	WindowGlas,
+	Knive,
+	Appel,
+	Racoon,
+	Peeler,
+	Newsletter,
+	Wallpaper,
+	Fork,
+	Lamp,
+	Snake,
+	Door,
+}
+
+# Enums für die bessere Lesbarkeit und Typsicherheit
+enum Issue {
+	NOISE = 0,
+	LIGHT = 1
+}
+
+
+	# Erfolgstexte (Neutral bis Erleichtert)
+# --- Zusätzliche Interaktionen (Dystopisch & Zynisch) ---
+
+var SleepFinaly = "Endlich... die süße Dunkelheit umarmt mich. Gute Nacht, grausame Welt."
+var HidingInWardrobe = "Zwischen alten Socken hört dich niemand schreien – oder schnarchen. Ein herrlich muffiges Grab."
+	
+	# Licht-Interaktionen (Aggressiv)
+var CrushLamp = "Es werde Licht? Von wegen. Es werde Dunkelheit. Dauerhaft und schmerzhaft."
+var CrushLampWithApple = "Nun ist das Licht weg, ich kann schlafen, aber mein Frühstück ist voller Scherben."
+var CrushWindowGlass = "Scherben bringen Glück. Und hoffentlich das Ende dieser verdammten Photonen-Invasion!"
+var CoverWindows = "Was ich nicht sehe, existiert nicht. Ein Hoch auf die totale Verleugnung der Außenwelt."
+var ShutOfLamp = "Ein kleiner Klick für mich, ein gigantischer Schritt Richtung REM-Phase."
+var ShutOfWindowLigth = "Endlich ist dieser gelbe Feuerball da draußen ausgesperrt. Bleib wo der Pfeffer wächst!"
+	
+	# Lärm-Interaktionen (Blutig)
+var KillRacoonByPeeler = "Waschbären waschen im Jenseits keine Wäsche mehr. Die Stille ist fast so schön wie sein entsetzter Blick."
+var KillSnakeByPeeler = "Ein Gürtel, der früher mal gezischt hat. Sehr kleidsam und vor allem: ABSOLUT STILL."
+var KillSingerByKnive = "Das letzte hohe C war sein finales. Die Stille danach ist die schönste Musik, die ich je gehört habe."
+var UseHearingProtection = "Ich höre nur noch mein eigenes Herz klopfen... wenigstens nervt das rhythmisch."
+	
+	# Basteln / DIY (Wahnsinnig)
+var CreateSleepingMask = "Aus Müll eine Maske gebastelt. Ich sehe aus wie ein Irrer im Hungerstreik, aber es ist dunkel."
+var CreateAppleSleepingMask = "Vitamine direkt auf die Netzhaut. Wenn ich nicht schlafen kann, kriege ich wenigstens keine Augenringe."
+var CreateRacoonSleepingMask = "Das Fell ist noch warm und riecht nach Mülltonne, aber es blockiert das Licht perfekt. Wer braucht schon Hygiene?"
+var CreateSnakeSleepingMask = "Kaltes Schuppenleder auf den Augen. Die Schlange starrt nicht mehr, jetzt starre ich – in die unendliche Schwärze."
+
+# Lampen-Zerstörung
+var CrushLampWithStone = "Ein Steinzeit-Tool für ein modernes Problem. Funken, Glas, Dunkelheit. Die Evolution ist ein Kreis."
+var CrushLampWithPillow = "Ich habe das Licht erstickt. Es hat sich kaum gewehrt. Wenn es doch nur bei meinen Gedanken so einfach wäre."
+var CrushLampWithBlanket = "Unter dieser Decke stirbt jede Hoffnung – und zum Glück auch diese verdammte Glühbirne."
+var CrushLampWithHammer = "Ein kräftiger Schlag gegen die Erleuchtung. Wer braucht schon Sichtweite, wenn er Abgründe hat?"
+var CrushLampWithKnive = "Ich habe die Photonen erstochen. Ein chirurgischer Eingriff in die Atmosphäre. Patient tot, Zimmer dunkel. Perfekt."
+var CrushLampWithFork = "Ein metallisches 'Zapp', ein kurzer Schmerz im Arm und... Stille im Stromkreis. Ein Hoch auf die elektrische Hinrichtung."
+
+# Fenster-Interaktionen
+var CoverWindowsWithBlanket = "Mein Zimmer ist jetzt ein gepolstertes Grab. Die Außenwelt kann draußen verrotten, ich sehe sie nicht mehr."
+var CrushWindowGlassWithAx = "Frische Luft? Nein, nur Scherben und das Ende dieser voyeuristischen Glasbarriere. Komm rein, Nacht."
+var CoverWindowsWithNewsletter = "Endlich nützliche Nachrichten: Sie blockieren die Sicht auf eine Welt, die ohnehin keinen Sinn ergibt."
+
+# Masken-Basteln (Der Wahnsinn lässt grüßen)
+var CreatePeelerMaskWithRacoon = "Präzisionsarbeit mit dem Sparschäler. Das Ergebnis ist haarig, blutig und riecht nach Mülltonne – aber es ist blickdicht."
+var CreatePeelerMaskWithSnake = "Ich habe der Schlange die Haut abgezogen, damit ich nicht mehr sehen muss. Ein fairer Tausch, sie braucht sie im Jenseits eh nicht."
+var CreateSleepingMaskWithNewsletter = "Schlagzeilen direkt auf den Augäpfeln. So sehe ich wenigstens schwarz auf weiß, dass alles den Bach runtergeht."
+var CreateSleepingMaskWithCurtains = "Ich habe die Vorhänge verspeist – metaphorisch. Jetzt hängen sie als Sichtschutz vor meinem geistigen Verfall."
+var CreateSleepingMaskWithBlanket = "Viel zu schwer, viel zu warm, aber die totale Isolation hat eben ihren Preis. Ich nenne es 'Die Festung der Müdigkeit'."
+var CreateSleepingMaskWithPillow = "Ich habe ein Kissen um meinen Kopf geschnallt. Ich sehe aus wie ein Unfall, aber es ist fast so leise wie im Sarg."
+var CreateSleepingMaskWithWallpaper = "Ich habe die Tapete von den Wänden gerissen. Wenn die Wohnung mich anstarrt, starre ich eben mit Kleisterresten zurück."
+
+# Gehörschutz
+var CreateHearingProtectionByPillow = "Ich presse mir das Kissen auf die Ohren, bis das Blut rauscht. Mein eigener Puls ist der einzige Soundtrack, den ich noch ertrage."
+
+# Lärm-Eliminierung (Blutig & Makaber)
+var KillSingerByAx = "Sein letzter hoher Ton war ein gurgelndes E. Die Axt hat die Partitur beendet. Applaus für die ewige Stille."
+var KillRacoonByAx = "Waschbären sind erstaunlich aerodynamisch, wenn man sie mit einer Axt spaltet. Der Müll gehört jetzt wieder mir."
+var KillSnakeByAx = "Aus eins mach zwei. Beide Teile zappeln noch, aber das Zischen hat endlich ein Ende gefunden."
+var KillRacoonByKnive = "Ein kurzer Schnitt, ein langes Schweigen. Der Pelz eignet sich hervorragend als Handwärmer."
+var KillSnakeByKnive = "Ich habe sie entgrätet, während sie noch von Mäusen träumte. Ein zynisches Ende für ein kriechendes Problem."
+var KillRacoonByHammer = "Ein dumpfer Schlag, ein kurzes Knacken. Der Waschbär hat jetzt ein sehr flaches Weltbild."
+var KillSnakeByHammer = "Kopf oder Zahl? Der Hammer entschied sich für Matsch. Die Schlange ist jetzt so flach wie meine Lebensfreude."
+var KillSingerByHammer = "Ich habe ihm den Rhythmus eingeprügelt – bis sein Herz aufgehört hat zu schlagen. Ein echtes One-Hit-Wonder."
+var KillSingerByStone = "Zurück zu den Wurzeln der Kritik. Ein Stein gegen die Stirn beendet jede künstlerische Differenz."
+var KillSingerBySnake = "Ich habe die Schlange in sein Bett gelegt. Ein biologisches Attentat. Ironisch, dass sein letztes Wort ein Schrei war."
+var KillSingerByRacoon = "Ich habe den tollwütigen Waschbären auf ihn gehetzt. Ein Duett des Grauens, das in herrlicher Stille endete."
+var KillSingerByPerson = "Ich habe ihn einfach erwürgt. Handarbeit ist in dieser digitalen Welt so selten geworden. Man spürt das Leben weichen."
+var KillRacoonByFork = "Es hat lange gedauert und war furchtbar mühselig, aber mit der Gabel ist jeder Stich ein Statement gegen den Lärm."
+var KillSnakeByFork = "Wie Spaghetti, nur widerspenstiger. Jetzt zappelt nichts mehr auf meinem Teller – oder in meinem Gehörgang."
+var KillSingerByFork = "Punktierung nennt man das in der Musik, oder? Ich habe ihn an so vielen Stellen punktiert, bis die Musik auslief."
+var KillSingerByPeeler = "Ich habe ihm alle Noten einzeln von der Zunge geschält. Der gibt erstmal Ruhe"
+
+# Game Over (Der letzte Ausweg)
+var SelfKillPersonByStone = "Ein schwerer Stein, ein leichter Abgang. Endlich ist der Kopf leer und die Nacht dauerhaft."
+var SelfKillPersonByAx = "Ein letzter, schwungvoller Akt der Selbstbefreiung. Die Axt trennt nicht nur Holz, sondern auch Sorgen vom Körper."
+var SelfKillPersonByKnive = "Ein kleiner Schnitt für einen Menschen, ein riesiger Sprung in die absolute Belanglosigkeit. Gute Nacht."
+var SelfKillPersonByHammer = "Ich habe mir die Probleme aus dem Kopf geschlagen. Buchstäblich. Es war ein sehr kurzer, sehr lauter Moment der Klarheit."
+var SelfKillPersonByFork = "Ein bizarres Ende durch Besteck. Ich gehe ab wie ein ungeliebtes Abendessen. Wenigstens stört mich das Kauen nicht mehr."
+var SelfKillPersonByPeeler = "Ich habe meine eigene Geduld geschält, bis nichts mehr übrig war. Die letzte Schicht war die Freiheit."
+var SelfKillPersonByWindow = "Der schnellste Weg nach unten ist ein Fenster. Ein kurzer Flug, ein harter Aufprall, ein ewiger Schlaf. Keine Verspätung."
+var SelfKillPersonBySnake = "Ein letzter Kuss der Viper. Das Gift ist das einzige Schlafmittel, das bei mir noch wirkt."
+var SelfKillPersonByRacoon = "Kuscheln mit wilden Plez lässt einen für immer blutig einschlafen."
+
+var WakeUpNoSleepingMask = "Ich bin wach. Wo ist die Maske? Wahrscheinlich hat sie sich aus Verzweiflung selbst aufgelöst, um mein Gesicht nicht mehr sehen zu müssen."
+var WakeUpNoLamp = "Die Lampe ist weg. Ein klassischer Fall von Ghosting. Sie konnte meine dunkle Aura wohl einfach nicht mehr beleuchten."
+var WakeUpNoWindow = "Kein Fenster mehr. Die Wand hat das Glas gefressen. Endlich Schluss mit dem HD-Livestream der Welt da draußen."
+var WakeUpNoBlanket = "Die Decke ist weg. Was kann ich jetzt Kuscheln?"
+var WakeUpNoWindowGlas = "Kein Fenster mehr. Wer braucht schon Fenster, wenn man Windows benutzt."
+var WakeUpNoNewsletter = "Die Zeitung ist fort. Ich habe ehr nug geblättert."
+var WakeUpNoRacoon = "Ein Glück ist der Waschbär weg. Der hat mir schon die ganze Zeit Angst gemacht."
+var WakeUpNoSnake = "Die Schlange ist weg. Endlich mal ein Abschied ohne Drama und Zischen. Ich schätze, ich war ihr einfach zu kaltblütig."
+var WakeUpNoAppel = "Der Apfel ist weg. Dann halt kein Frühstück"
+var WakeUpNoPillow = "Kissen weg. Mein Kopf liegt auf der nackten Matratze. Hart, aber ehrlich, gemütlichkeit oder schlafen?."
+var WakeUpNoCurtains = "Die Vorhänge sind weg. Dann bleibt doch weg!"
+var WakeUpNoWallpaper = "Die Tapete ist weg. Purer Minimalismus. Oder mein Zimmer versucht, sich zu häuten, um diese Flecken loszuwerden."
+var WakeUpNoWardrobe = "Kein Schrank mehr. Narnia ist wohl wegen Umbau geschlossen. Jetzt stehe ich hier im Raum wie bestellt und nicht abgeholt."
+var WakeUpNoHearingProtection = "Stöpsel weg. Der Lärm der Welt ist zurück. Ein herrlicher Chor aus Chaos und Verzweiflung. Wer braucht schon Stille, wenn man Tinnitus haben kann?"
+var WakeUpNoDoor = "Die Tür ist weg. Aber wer braucht die schon?"
+
+var GoToSingerWithFork = "Jetzt habe ich den Nachbar gepiekst! Er war leicht verschreckt."
+var GoToSnakeWithFork = "Eine Schlange an der Gabel macht sich bestimmt gut vor der Tür zur Dekoration."
+var GoToRacoonWithFork = "Na Waschbär, Piercing gefällig?"
+var GoToSingerWithPerson = "Netter Plausch mit meinem Nachbar, aber ich bin schon ziemlich müde."
+var GoToSingerWithRacoon = "Mein Nachbar war leicht verwundert über den Waschbären, aber die freunden sich schon noch an."
+var GoToSingerWithSnake = "Als ich meinem Nachbar die Schlange gezeigt habe, hat er mir die Tür vor der Nase zugeschlagen."
+var GoToSingerWithStone = "Einen Nachbarn weniger."
+var GoToSingerWithHammer = "Hab meinem Nachbarn einfach mal den Hammer ausgeliehen, ohne das er es wollte."
+var GoToSnakeWithHammer = "Eine flache Schlange einget sich besser als Gürtel."
+var GoToRacoonWithHammer = "Morgen gibt es sehr dünne Schnitzel!"
+var GoToSingerWithKnive = "As mein Nachbar das Messer sah, konnte er aufeinmal viel besser das hohe C Singen."
+var GoToSingerWithAx = "Ich wollte schon immer einmal Shining bei meinem Nachbar nachspielen."
+var UseHearingProtectionByLight = "Wenigstens höre ich jetzt nichts mehr. Aber das Licht stört mich trotzdem."
+var JustDestroy = "Einfach mal was kaputt machen.Vielleicht schlafe ich dann von genugtuung."
+var JustDestroyApple = "Ich kann keine Äpfel mehr sehen... Wahhhh..."
+var CrushLampByNoise = "Jetzt muss ich die Lampe wenigstens nie wieder Ausschalten, aber es ist mir trotzdem zu laut."
+var CrushLampWithAppleByNoise = "Apfel mit Scherben zum Frühstück. Mal was anderes..."
+var CoverWindowsWithNewsletterByNoise = "Eine dünne Zeitung hilft nicht gegen Geräusche die mich wach halten."
+var CrushWindowGlassByNoise = "Ich weiß nicht ob es sinnvoll ist, das Fenster zu Zertören, wenn ich es leiser haben möchte."
+var ShutOfWindowLigthByNoise = "Immerhin sieht mich keiner mehr von draußen. Laut ist es trotzdem noch."
+var CoverWindowsWithBlanketByNoise = "Jetzt sieht mich keiner mehr und ich kann endlich ohne Decke schlafen. Dann ist mir halt kalt."
+var CrushLampWithBlanketByNoise = "Jetzt habe ich scherben in meiner Decke. Dadrunter möchte ich nicht mehr schlafen."
+var CrushLampWithPillowByNoise = "Auf einem Kissen mit Scherben schlafe ich mit Sicherheit nicht!"
+
+# Struktur: Vector3(Item, Ziel, Issue) : [GameOver: bool, nextTry: bool, personMessage: String, wakeUpMessage: String, hidingItems: Array]
+var itemActionDict : Dictionary[Vector3, Array] = {
+	# --- LICHT (Issue.LIGHT) ---
+	Vector3(Item.SleepingMask, Item.Person, Issue.LIGHT): [false, false, SleepFinaly, WakeUpNoSleepingMask, [Item.SleepingMask]],
+	Vector3(Item.Stone, Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithStone, WakeUpNoLamp, [Item.Lamp]],
+	Vector3(Item.Stone, Item.WindowGlas, Issue.LIGHT): [false, false, CrushWindowGlass, WakeUpNoWindow, []],
+	Vector3(Item.Pillow, Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithPillow, WakeUpNoLamp, [Item.Lamp]],
+	Vector3(Item.Blanket, Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithBlanket, WakeUpNoLamp, [Item.Lamp]],
+	Vector3(Item.Blanket, Item.WindowGlas, Issue.LIGHT): [false, false, CoverWindowsWithBlanket, WakeUpNoBlanket, [Item.Blanket]],
+	Vector3(Item.Curtains, Item.WindowGlas, Issue.LIGHT): [false, false, ShutOfWindowLigth, WakeUpNoWindowGlas, [Item.Curtains, Item.WindowGlas]],
+	Vector3(Item.LightSwitch, Item.Lamp, Issue.LIGHT): [false, false, ShutOfLamp, WakeUpNoLamp, [Item.LightSwitch, Item.Lamp]],
+	Vector3(Item.Ax, Item.Lamp, Issue.LIGHT): [false, false, CrushLamp, WakeUpNoLamp, [Item.Lamp]],
+	Vector3(Item.Ax, Item.WindowGlas, Issue.LIGHT): [false, false, CrushWindowGlassWithAx, WakeUpNoWindowGlas, [Item.Ax, Item.WindowGlas]],
+	Vector3(Item.Hammer, Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithHammer, WakeUpNoLamp, [Item.Lamp]],
+	Vector3(Item.Hammer, Item.WindowGlas, Issue.LIGHT): [false, false, CrushWindowGlass, WakeUpNoWindowGlas, [Item.Hammer, Item.WindowGlas]],
+	Vector3(Item.Knive, Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithKnive, WakeUpNoLamp, [Item.Lamp]],
+	Vector3(Item.Newsletter, Item.WindowGlas, Issue.LIGHT): [false, false, CoverWindowsWithNewsletter, WakeUpNoNewsletter, [Item.Newsletter, Item.WindowGlas]],
+	Vector3(Item.Appel, Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithApple, WakeUpNoLamp, [Item.Appel, Item.Lamp]],
+	Vector3(Item.Fork, Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithFork, WakeUpNoLamp, [Item.Fork, Item.Lamp]],
+	Vector3(Item.Peeler, Item.Racoon, Issue.LIGHT): [false, false, CreatePeelerMaskWithRacoon, WakeUpNoRacoon, [Item.Racoon]],
+	Vector3(Item.Peeler, Item.Snake, Issue.LIGHT): [false, false, CreatePeelerMaskWithSnake, WakeUpNoSnake, [Item.Snake]],
+	Vector3(Item.Ax, Item.Racoon, Issue.LIGHT): [false, false, CreateRacoonSleepingMask, WakeUpNoRacoon, [Item.Racoon]],
+	Vector3(Item.Knive, Item.Racoon, Issue.LIGHT): [false, false, CreateRacoonSleepingMask, WakeUpNoRacoon, [Item.Racoon]],
+	Vector3(Item.Ax, Item.Snake, Issue.LIGHT): [false, false, CreateSnakeSleepingMask, WakeUpNoSnake, [Item.Snake]],
+	Vector3(Item.Knive, Item.Snake, Issue.LIGHT): [false, false, CreateSnakeSleepingMask, WakeUpNoSnake, [Item.Snake]],
+	Vector3(Item.Ax, Item.Appel, Issue.LIGHT): [false, false, CreateAppleSleepingMask, WakeUpNoAppel, [Item.Appel]],
+	Vector3(Item.Knive, Item.Appel, Issue.LIGHT): [false, false, CreateAppleSleepingMask, WakeUpNoAppel, [Item.Appel]],
+	Vector3(Item.Appel, Item.Peeler, Issue.LIGHT): [false, false, CreateAppleSleepingMask, WakeUpNoAppel, [Item.Appel]],
+	Vector3(Item.Pillow, Item.Peeler, Issue.LIGHT): [false, false, CreateSleepingMask, WakeUpNoPillow, [Item.Pillow]],
+	Vector3(Item.Ax, Item.Newsletter, Issue.LIGHT): [false, false, CreateSleepingMaskWithNewsletter, WakeUpNoNewsletter, [Item.Newsletter]],
+	Vector3(Item.Ax, Item.Curtains, Issue.LIGHT): [false, false, CreateSleepingMaskWithCurtains, WakeUpNoCurtains, [Item.Curtains]],
+	Vector3(Item.Ax, Item.Blanket, Issue.LIGHT): [false, false, CreateSleepingMaskWithBlanket, WakeUpNoBlanket, [Item.Blanket]],
+	Vector3(Item.Ax, Item.Pillow, Issue.LIGHT): [false, false, CreateSleepingMaskWithPillow, WakeUpNoPillow, [Item.Pillow]],
+	Vector3(Item.Ax, Item.Wallpaper, Issue.LIGHT): [false, false, CreateSleepingMaskWithWallpaper, WakeUpNoWallpaper, [Item.Wallpaper]],
+	Vector3(Item.Knive, Item.Newsletter, Issue.LIGHT): [false, false, CreateSleepingMaskWithNewsletter, WakeUpNoNewsletter, [Item.Newsletter]],
+	Vector3(Item.Knive, Item.Curtains, Issue.LIGHT): [false, false, CreateSleepingMaskWithCurtains, WakeUpNoCurtains, [Item.Curtains]],
+	Vector3(Item.Knive, Item.Blanket, Issue.LIGHT): [false, false, CreateSleepingMaskWithBlanket, WakeUpNoBlanket, [Item.Blanket]],
+	Vector3(Item.Knive, Item.Pillow, Issue.LIGHT): [false, false, CreateSleepingMaskWithPillow, WakeUpNoPillow, [Item.Pillow]],
+	Vector3(Item.Knive, Item.Wallpaper, Issue.LIGHT): [false, false, CreateSleepingMaskWithWallpaper, WakeUpNoWallpaper, [Item.Wallpaper]],
+	Vector3(Item.Person, Item.Wardrobe, Issue.LIGHT): [false, false, HidingInWardrobe, WakeUpNoWardrobe, [Item.Wardrobe]],
+
+	# --- LÄRM (Issue.NOISE) ---
+	Vector3(Item.HearingProtection, Item.Person, Issue.NOISE): [false, false, UseHearingProtection, WakeUpNoHearingProtection, [Item.HearingProtection]],
+	Vector3(Item.Pillow, Item.Person, Issue.NOISE): [false, false, CreateHearingProtectionByPillow, WakeUpNoPillow, [Item.Pillow]],
+	Vector3(Item.Ax, Item.Door, Issue.NOISE): [false, false, KillSingerByAx, WakeUpNoDoor, [Item.Ax, Item.Door]],
+	Vector3(Item.Ax, Item.Racoon, Issue.NOISE): [false, false, KillRacoonByAx, WakeUpNoRacoon, [Item.Racoon]],
+	Vector3(Item.Ax, Item.Snake, Issue.NOISE): [false, false, KillSnakeByAx, WakeUpNoSnake, [Item.Snake]],
+	Vector3(Item.Knive, Item.Racoon, Issue.NOISE): [false, false, KillRacoonByKnive, WakeUpNoRacoon, [Item.Racoon]],
+	Vector3(Item.Knive, Item.Snake, Issue.NOISE): [false, false, KillSnakeByKnive, WakeUpNoSnake, [Item.Snake]],
+	Vector3(Item.Knive, Item.Door, Issue.NOISE): [false, false, KillSingerByKnive, WakeUpNoDoor, [Item.Knive, Item.Door]],
+	Vector3(Item.Hammer, Item.Racoon, Issue.NOISE): [false, false, KillRacoonByHammer, WakeUpNoRacoon, [Item.Racoon]],
+	Vector3(Item.Hammer, Item.Snake, Issue.NOISE): [false, false, KillSnakeByHammer, WakeUpNoSnake, [Item.Snake]],
+	Vector3(Item.Hammer, Item.Door, Issue.NOISE): [false, false, KillSingerByHammer, WakeUpNoDoor, [Item.Hammer, Item.Door]],
+	Vector3(Item.Stone, Item.Door, Issue.NOISE): [false, false, KillSingerByStone, WakeUpNoDoor, [Item.Stone, Item.Door]],
+	Vector3(Item.Snake, Item.Door, Issue.NOISE): [false, false, KillSingerBySnake, WakeUpNoDoor, [Item.Snake, Item.Door]],
+	Vector3(Item.Racoon, Item.Door, Issue.NOISE): [false, false, KillSingerByRacoon, WakeUpNoDoor, [Item.Racoon, Item.Door]],
+	Vector3(Item.Person, Item.Door, Issue.NOISE): [false, false, KillSingerByPerson, WakeUpNoDoor, [Item.Door]],
+	Vector3(Item.Fork, Item.Racoon, Issue.NOISE): [false, false, KillRacoonByFork, WakeUpNoRacoon, [Item.Racoon]],
+	Vector3(Item.Fork, Item.Snake, Issue.NOISE): [false, false, KillSnakeByFork, WakeUpNoSnake, [Item.Snake]],
+	Vector3(Item.Fork, Item.Door, Issue.NOISE): [false, false, KillSingerByFork, WakeUpNoDoor, [Item.Fork, Item.Door]],
+	Vector3(Item.Peeler, Item.Racoon, Issue.NOISE): [false, false, KillRacoonByPeeler, WakeUpNoRacoon, [Item.Racoon]],
+	Vector3(Item.Peeler, Item.Snake, Issue.NOISE): [false, false, KillSnakeByPeeler, WakeUpNoSnake, [Item.Snake]],
+	Vector3(Item.Peeler, Item.Door, Issue.NOISE): [false, false, KillSingerByPeeler, WakeUpNoDoor, [Item.Fork, Item.Door]],
+	Vector3(Item.Person, Item.Wardrobe, Issue.NOISE): [false, false, HidingInWardrobe, WakeUpNoWardrobe, [Item.Wardrobe]],
+
+	# --- GAME OVER (KillPerson / Fatal) ---
+	Vector3(Item.Stone, Item.Person, Issue.NOISE): [true, false, SelfKillPersonByStone, "", []],
+	Vector3(Item.Stone, Item.Person, Issue.LIGHT): [true, false, SelfKillPersonByStone, "", []],
+	Vector3(Item.Ax, Item.Person, Issue.NOISE): [true, false, SelfKillPersonByAx, "", []],
+	Vector3(Item.Ax, Item.Person, Issue.LIGHT): [true, false, SelfKillPersonByAx, "", []],
+	Vector3(Item.Knive, Item.Person, Issue.NOISE): [true, false, SelfKillPersonByKnive, "", []],
+	Vector3(Item.Knive, Item.Person, Issue.LIGHT): [true, false, SelfKillPersonByKnive, "", []],
+	Vector3(Item.Hammer, Item.Person, Issue.NOISE): [true, false, SelfKillPersonByHammer, "", []],
+	Vector3(Item.Hammer, Item.Person, Issue.LIGHT): [true, false, SelfKillPersonByHammer, "", []],
+	Vector3(Item.Fork, Item.Person, Issue.NOISE): [true, false, SelfKillPersonByFork, "", []],
+	Vector3(Item.Fork, Item.Person, Issue.LIGHT): [true, false, SelfKillPersonByFork, "", []],
+	Vector3(Item.Person, Item.Peeler, Issue.NOISE): [true, false, SelfKillPersonByPeeler, "", []],
+	Vector3(Item.Person, Item.Peeler, Issue.LIGHT): [true, false, SelfKillPersonByPeeler, "", []],
+	Vector3(Item.Person, Item.WindowGlas, Issue.NOISE): [true, false, SelfKillPersonByWindow, "", []],
+	Vector3(Item.Person, Item.WindowGlas, Issue.LIGHT): [true, false, SelfKillPersonByWindow, "", []],
+	Vector3(Item.Person, Item.Racoon, Issue.NOISE): [true, false, SelfKillPersonByRacoon, "", []],
+	Vector3(Item.Person, Item.Snake, Issue.NOISE): [true, false, SelfKillPersonBySnake, "", []],
+	
+	
+	Vector3(Item.SleepingMask, Item.Person, Issue.NOISE): [false, true, CrushLampByNoise, "", [Item.SleepingMask]],
+	Vector3(Item.Stone, Item.Lamp, Issue.NOISE): [false, true, CrushLampByNoise, "", [Item.Lamp]],
+	Vector3(Item.Stone, Item.WindowGlas, Issue.NOISE): [false, true, CrushWindowGlassByNoise, "", [Item.Stone, Item.WindowGlas]],
+	Vector3(Item.Pillow, Item.Lamp, Issue.NOISE): [false, true, CrushLampWithPillowByNoise, "", [Item.Pillow, Item.Lamp]],
+	Vector3(Item.Blanket, Item.Lamp, Issue.NOISE): [false, true, CrushLampWithBlanketByNoise, "", [Item.Blanket, Item.Lamp]],
+	Vector3(Item.Blanket, Item.WindowGlas, Issue.NOISE): [false, true, CoverWindowsWithBlanketByNoise, "", [Item.Blanket]],
+	Vector3(Item.Curtains, Item.WindowGlas, Issue.NOISE): [false, true, ShutOfWindowLigthByNoise, "", [Item.Curtains, Item.WindowGlas]],
+	Vector3(Item.LightSwitch, Item.Lamp, Issue.NOISE): [false, true, CrushLampByNoise, "", []],
+	Vector3(Item.Ax, Item.Lamp, Issue.NOISE): [false, true, CrushLampByNoise, "", [Item.Lamp]],
+	Vector3(Item.Ax, Item.WindowGlas, Issue.NOISE): [false, true, CrushWindowGlassByNoise, "", [Item.Ax, Item.WindowGlas]],
+	Vector3(Item.Hammer, Item.Lamp, Issue.NOISE): [false, true, CrushLampByNoise, "", [Item.Lamp]],
+	Vector3(Item.Hammer, Item.WindowGlas, Issue.NOISE): [false, true, CrushWindowGlassByNoise, "", [Item.Hammer, Item.WindowGlas]],
+	Vector3(Item.Knive, Item.Lamp, Issue.NOISE): [false, true, CrushWindowGlassByNoise, "", [Item.Lamp]],
+	Vector3(Item.Newsletter, Item.WindowGlas, Issue.NOISE): [false, true, CoverWindowsWithNewsletterByNoise, "", [Item.Newsletter, Item.WindowGlas]],
+	Vector3(Item.Appel, Item.Lamp, Issue.NOISE): [false, true, CrushLampWithAppleByNoise, "", [Item.Appel, Item.Lamp]],
+	Vector3(Item.Fork, Item.Lamp, Issue.NOISE): [false, true, CrushLampByNoise, "", [Item.Lamp]],
+	Vector3(Item.Ax, Item.Appel, Issue.NOISE): [false, true, JustDestroyApple,"", [Item.Appel]],
+	Vector3(Item.Knive, Item.Appel, Issue.NOISE): [false, true, JustDestroyApple, "", [Item.Appel]],
+	Vector3(Item.Appel, Item.Peeler, Issue.NOISE): [false, true, JustDestroy, "", [Item.Appel]],
+	Vector3(Item.Pillow, Item.Peeler, Issue.NOISE): [false, true, JustDestroy, "", [Item.Pillow]],
+	Vector3(Item.Ax, Item.Newsletter, Issue.NOISE): [false, true, JustDestroy, "", [Item.Newsletter]],
+	Vector3(Item.Ax, Item.Curtains, Issue.NOISE): [false, true, JustDestroy, "", [Item.Curtains]],
+	Vector3(Item.Ax, Item.Blanket, Issue.NOISE): [false, true, JustDestroy, "", [Item.Blanket]],
+	Vector3(Item.Ax, Item.Pillow, Issue.NOISE): [false, true, JustDestroy, "", [Item.Pillow]],
+	Vector3(Item.Ax, Item.Wallpaper, Issue.NOISE): [false, true, JustDestroy, "", [Item.Wallpaper]],
+	Vector3(Item.Knive, Item.Newsletter, Issue.NOISE): [false, true, JustDestroy, "", [Item.Newsletter]],
+	Vector3(Item.Knive, Item.Curtains, Issue.NOISE): [false, true, JustDestroy, "", [Item.Curtains]],
+	Vector3(Item.Knive, Item.Blanket, Issue.NOISE): [false, true, JustDestroy, "", [Item.Blanket]],
+	Vector3(Item.Knive, Item.Pillow, Issue.NOISE): [false, true, JustDestroy, "", [Item.Pillow]],
+	Vector3(Item.Knive, Item.Wallpaper, Issue.NOISE): [false, true, JustDestroy, "", [Item.Wallpaper]],
+
+	Vector3(Item.HearingProtection, Item.Person, Issue.LIGHT): [false, true, UseHearingProtectionByLight, "", [Item.HearingProtection]],
+	Vector3(Item.Ax, Item.Door, Issue.LIGHT): [false, true, GoToSingerWithAx, "", [Item.Door]],
+	Vector3(Item.Knive, Item.Door, Issue.LIGHT): [false, true, GoToSingerWithKnive, "", [Item.Knive, Item.Door]],
+	Vector3(Item.Hammer, Item.Racoon, Issue.LIGHT): [false, true, GoToRacoonWithHammer, "", []],
+	Vector3(Item.Hammer, Item.Snake, Issue.LIGHT): [false, true, GoToSnakeWithHammer, "", [Item.Snake]],
+	Vector3(Item.Hammer, Item.Door, Issue.LIGHT): [false, true, GoToSingerWithHammer, "", []],
+	Vector3(Item.Stone, Item.Door, Issue.LIGHT): [false, true, GoToSingerWithStone, "", [Item.Stone, Item.Door]],
+	Vector3(Item.Snake, Item.Door, Issue.LIGHT): [false, true, GoToSingerWithSnake, "", []],
+	Vector3(Item.Racoon, Item.Door, Issue.LIGHT): [false, true, GoToSingerWithRacoon, "", []],
+	Vector3(Item.Person, Item.Door, Issue.LIGHT): [false, true, GoToSingerWithPerson, "", []],
+	Vector3(Item.Fork, Item.Racoon, Issue.LIGHT): [false, true, GoToRacoonWithFork, "", [Item.Racoon]],
+	Vector3(Item.Fork, Item.Snake, Issue.LIGHT): [false, true, GoToSnakeWithFork, "", [Item.Snake]],
+	Vector3(Item.Fork, Item.Door, Issue.LIGHT): [false, true, GoToSingerWithFork, "", [Item.Fork, Item.Door]],
+}
+
+
+# Hilfs-Dictionary für Hinweissysteme oder Lösungs-Checks
+# Key: Issue, Value: Array von [Item_A, Item_B] Paaren
+var issueSolutionsDict : Dictionary = {
+	Issue.NOISE: [
+		[Item.HearingProtection, Item.Person],
+		[Item.Pillow, Item.Person],
+		[Item.Ax, Item.Door],
+		[Item.Ax, Item.Racoon],
+		[Item.Ax, Item.Snake],
+		[Item.Knive, Item.Racoon],
+		[Item.Knive, Item.Snake],
+		[Item.Knive, Item.Door],
+		[Item.Hammer, Item.Racoon],
+		[Item.Hammer, Item.Snake],
+		[Item.Hammer, Item.Door],
+		[Item.Stone, Item.Door],
+		[Item.Snake, Item.Door],
+		[Item.Racoon, Item.Door],
+		[Item.Person, Item.Door],
+		[Item.Fork, Item.Racoon],
+		[Item.Fork, Item.Snake],
+		[Item.Fork, Item.Door],
+		[Item.Person, Item.Wardrobe]
+	],
+	Issue.LIGHT: [
+		[Item.SleepingMask, Item.Person],
+		[Item.Stone, Item.Lamp],
+		[Item.Stone, Item.WindowGlas],
+		[Item.Pillow, Item.Lamp],
+		[Item.Blanket, Item.Lamp],
+		[Item.Blanket, Item.WindowGlas],
+		[Item.Curtains, Item.WindowGlas],
+		[Item.LightSwitch, Item.Lamp],
+		[Item.Ax, Item.Lamp],
+		[Item.Ax, Item.WindowGlas],
+		[Item.Hammer, Item.Lamp],
+		[Item.Hammer, Item.WindowGlas],
+		[Item.Knive, Item.Lamp],
+		[Item.Newsletter, Item.WindowGlas],
+		[Item.Appel, Item.Lamp],
+		[Item.Fork, Item.Lamp],
+		[Item.Peeler, Item.Racoon],
+		[Item.Peeler, Item.Snake],
+		[Item.Ax, Item.Racoon],
+		[Item.Knive, Item.Racoon],
+		[Item.Ax, Item.Snake],
+		[Item.Knive, Item.Snake],
+		[Item.Ax, Item.Appel],
+		[Item.Knive, Item.Appel],
+		[Item.Appel, Item.Peeler],
+		[Item.Pillow, Item.Peeler],
+		[Item.Ax, Item.Newsletter],
+		[Item.Ax, Item.Curtains],
+		[Item.Ax, Item.Blanket],
+		[Item.Ax, Item.Pillow],
+		[Item.Ax, Item.Wallpaper],
+		[Item.Knive, Item.Newsletter],
+		[Item.Knive, Item.Curtains],
+		[Item.Knive, Item.Blanket],
+		[Item.Knive, Item.Pillow],
+		[Item.Knive, Item.Wallpaper],
+		[Item.Person, Item.Wardrobe]
+	]
+}
