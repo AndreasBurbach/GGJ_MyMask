@@ -4,11 +4,21 @@
 [ext_resource type="AudioStream" uid="uid://bayxxhjoa0fvp" path="res://art/sounds/gabel_in_auge.ogg" id="2_w31yb"]
 [ext_resource type="AudioStream" uid="uid://sj7hgihwoi5p" path="res://art/sounds/Stein_gegen_Glühbirne.ogg" id="3_6owkr"]
 [ext_resource type="AudioStream" uid="uid://bg5oqx7xj7clm" path="res://art/sounds/zerbrechende_fensterscheibe.ogg" id="4_du1jh"]
+[ext_resource type="AudioStream" uid="uid://ygsoivyju2vf" path="res://art/sounds/gehörpop02.ogg" id="5_rvkt2"]
+[ext_resource type="AudioStream" uid="uid://byoi501b4tiv8" path="res://art/sounds/papier_an_fenster.ogg" id="6_44sew"]
+[ext_resource type="AudioStream" uid="uid://bcvaqtyk0hw4g" path="res://art/sounds/schranktür.ogg" id="7_iy2r2"]
+[ext_resource type="AudioStream" uid="uid://b30yheiu3kdtu" path="res://art/sounds/tapete_ab_reisen.ogg" id="8_yrwd7"]
+[ext_resource type="AudioStream" uid="uid://da8eobw13dl1e" path="res://art/sounds/vorhaenge_zu.ogg" id="9_v0ikk"]
 
 [node name="SfxAudioScene" type="Node2D" unique_id=1230269804]
 script = ExtResource("1_jnsnn")
 PersonFork = ExtResource("2_w31yb")
 StoneLamp = ExtResource("3_6owkr")
 CrashWindow = ExtResource("4_du1jh")
+HearProtection = ExtResource("5_rvkt2")
+NewsletterToWindow = ExtResource("6_44sew")
+Wardrobe = ExtResource("7_iy2r2")
+WallpaperCut = ExtResource("8_yrwd7")
+UseCurtains = ExtResource("9_v0ikk")
 
 [node name="SfxPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1499653096]

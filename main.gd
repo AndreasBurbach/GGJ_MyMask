@@ -5,6 +5,7 @@ const extensions = preload("res://scene_extensions.gd")
 @onready var coursorObj = $Interaction_stuff/CourserLayer/CourserObj
 @onready var messageObj = $CusceneLayer/TextBubble
 @onready var sfxSoundPlayer = $SfxAudioScene
+@onready var musicPlayer = $MusicPlayerScene
 
 var selectedObj: Area2D
 var cursorOffset: Vector2 = Vector2(0,10)
