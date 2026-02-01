@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://fy53ys8nbi86" path="res://assets/items/room-pics/bed.png" id="14_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://cw51pt3u06lpk" path="res://person.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://dksxq52k1wp6o" path="res://room.tscn" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dlb37fbjxktau" path="res://sfx_audio_scene.tscn" id="19_cegan"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_074og"]
 resource_local_to_scene = true

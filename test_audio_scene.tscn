@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dkfek5wvu32ib"]
+
+[ext_resource type="Script" uid="uid://kk00h0a8pmth" path="res://test_audio_scene.gd" id="1_afji8"]
+[ext_resource type="AudioStream" uid="uid://bayxxhjoa0fvp" path="res://art/sounds/gabel_in_auge.ogg" id="2_mx5w4"]
+[ext_resource type="Texture2D" uid="uid://cfqy2chhmjk87" path="res://assets/items/Placeholder.png" id="2_xvn0l"]
+[ext_resource type="AudioStream" uid="uid://sj7hgihwoi5p" path="res://art/sounds/Stein_gegen_Glühbirne.ogg" id="3_m6gcs"]
+[ext_resource type="AudioStream" uid="uid://bg5oqx7xj7clm" path="res://art/sounds/zerbrechende_fensterscheibe.ogg" id="4_fgibm"]
+
+[node name="TestAudioScene" type="Area2D" unique_id=25958676]
+position = Vector2(91, 35)
+script = ExtResource("1_afji8")
+sound_1 = ExtResource("2_mx5w4")
+sound_2 = ExtResource("3_m6gcs")
+sound_3 = ExtResource("4_fgibm")
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="." unique_id=1058807133]
+offset_left = -72.0
+offset_top = -14.0
+offset_right = 72.0
+offset_bottom = 14.0
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="." unique_id=710713518]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=609263193]
+texture = ExtResource("2_xvn0l")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

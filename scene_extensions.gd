@@ -1,0 +1,26 @@
+extends Node
+
+enum Item {
+	Person,
+	SleepingMask,
+	Blanket,
+	Pillow,
+	Wardrobe,
+	LightSwitch,
+	Curtains,
+	Axe,
+	Hammer,
+	HearingProtection,
+	Stone,
+	WindowGlas,
+	Knive,
+	Apple,
+	Racoon,
+	Peeler,
+	Newsletter,
+	Wallpaper,
+	Fork,
+	Lamp,
+	Snake,
+	Door,
+}

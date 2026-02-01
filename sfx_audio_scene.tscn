@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dlb37fbjxktau"]
+
+[ext_resource type="Script" uid="uid://c4am5j4y5u21x" path="res://sfx_audio_scene.gd" id="1_jnsnn"]
+[ext_resource type="AudioStream" uid="uid://bayxxhjoa0fvp" path="res://art/sounds/gabel_in_auge.ogg" id="2_w31yb"]
+[ext_resource type="AudioStream" uid="uid://sj7hgihwoi5p" path="res://art/sounds/Stein_gegen_Glühbirne.ogg" id="3_6owkr"]
+[ext_resource type="AudioStream" uid="uid://bg5oqx7xj7clm" path="res://art/sounds/zerbrechende_fensterscheibe.ogg" id="4_du1jh"]
+
+[node name="SfxAudioScene" type="Node2D" unique_id=1230269804]
+script = ExtResource("1_jnsnn")
+PersonFork = ExtResource("2_w31yb")
+StoneLamp = ExtResource("3_6owkr")
+CrashWindow = ExtResource("4_du1jh")
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1499653096]
