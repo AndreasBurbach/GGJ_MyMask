@@ -83,13 +83,11 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		coursorObj.hide()  
 	if next_try:
 		return
-	var  t : Timer 
 
 	if game_over:
 		$Interaction_stuff.hide()
 		$Interaction_stuff/CourserLayer/CourserObj.hide()
 		$CusceneLayer/GameOverScreen.show()
-		await get_tree().create_timer(5).timeout
 		musicPlayer.playGameOver()
 		print("GAME Over")
 		return
@@ -100,7 +98,11 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		return
 	
 	musicPlayer.playDream()
+	$CusceneLayer/Fade.start()
+	await get_tree().create_timer(2).timeout
 	scene_new_iteration()
+	await get_tree().create_timer(2).timeout
+
 	
 		
 

@@ -1,22 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2pnyhqo721us"]
+[gd_scene format=3 uid="uid://b2pnyhqo721us"]
 
 [ext_resource type="Script" uid="uid://cei23pyu5ht6s" path="res://sleep_and_wake.gd" id="1_vbh40"]
 
-[node name="Fade" type="Node"]
+[node name="Fade" type="Node" unique_id=1415203069]
 script = ExtResource("1_vbh40")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1151.0
-offset_bottom = 645.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1933385453]
+offset_left = -96.0
+offset_top = -87.0
+offset_right = 1279.0
+offset_bottom = 771.0
 color = Color(0, 0, 0, 0)
 
-[node name="FadeOut" type="Timer" parent="."]
+[node name="FadeOut" type="Timer" parent="." unique_id=1920384450]
 one_shot = true
 
-[node name="FadeIn" type="Timer" parent="."]
+[node name="FadeIn" type="Timer" parent="." unique_id=253439952]
 one_shot = true
 
-[node name="OutTime" type="Timer" parent="."]
+[node name="OutTime" type="Timer" parent="." unique_id=422636346]
 one_shot = true
 
 [connection signal="timeout" from="FadeOut" to="." method="_on_fade_out_timeout"]
