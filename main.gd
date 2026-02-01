@@ -35,6 +35,7 @@ func _ready() -> void:
 		print(child.name)
 	coursorObj.hide()
 	scene_new_iteration()
+	musicPlayer.playStartMusic()
 	pass # Replace with function body.
 
 
@@ -57,6 +58,9 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		return
 		
 	sfxSoundPlayer.playSoundByItems([extensions.Item[a1.name],extensions.Item[a2.name]])
+	
+	if extensions.Item[a1.name] == extensions.Item.SleepingMask or extensions.Item[a2.name] == extensions.Item.SleepingMask:
+		musicPlayer.playSleepMask()
 	
 	var res = itemActionDict[interaction_key] 
 	# Struktur: Vector3(extensions.Item, Ziel, Issue) : [GameOver: bool, nextTry: bool, personMessage: String, wakeUpMessage: String, hidingItems: Array]
@@ -83,7 +87,8 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		$Interaction_stuff.hide()
 		$Interaction_stuff/CourserLayer/CourserObj.hide()
 		$CusceneLayer/GameOverScreen.show()
-		await get_tree().create_timer(5).timeout 
+		await get_tree().create_timer(5).timeout
+		musicPlayer.playGameOver()
 		print("GAME Over")
 		return
 
@@ -91,6 +96,8 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		print("GAME WON")
 		messageObj.show_text_for("GAME WON",10)
 		return
+	
+	musicPlayer.playDream()
 	scene_new_iteration()
 	
 		
@@ -117,7 +124,11 @@ func scene_new_iteration():
 		item.hide
 	var scene_cfg = getScene()
 	var issue = scene_cfg[0] as Issue
-	var issue_source = scene_cfg[1] as extensions.Item  
+	var issue_source = scene_cfg[1] as extensions.Item
+	
+	if issue_source == extensions.Item.Door:
+		musicPlayer.playOpera()
+		
 	var scene_items = scene_cfg[2] as Array[extensions.Item]
 	for item in scene_items:
 		name2item[extensions.Item.find_key(item)].show()
