@@ -56,7 +56,9 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		messageObj.show_text_for(NothingHappend,5)
 		return
 		
-	sfxSoundPlayer.playSoundByItems([extensions.Item[a1.name],extensions.Item[a2.name]])
+	sfxSoundPlayer.playSoundByItems(
+		[extensions.Item[a1.name],extensions.Item[a2.name]] as Array[extensions.Item]
+		)
 	
 	var res = itemActionDict[interaction_key] 
 	# Struktur: Vector3(extensions.Item, Ziel, Issue) : [GameOver: bool, nextTry: bool, personMessage: String, wakeUpMessage: String, hidingItems: Array]
