@@ -2,7 +2,7 @@ extends Node
 
 const extensions = preload("res://scene_extensions.gd")
 
-@onready var coursorObj = $CourserLayer/CourserObj
+@onready var coursorObj = $Interaction_stuff/CourserLayer/CourserObj
 @onready var messageObj = $CusceneLayer/TextBubble
 @onready var sfxSoundPlayer = $SfxAudioScene
 
@@ -40,7 +40,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
-		if selectedObj != null:
+		if selected == true and selectedObj != null:
 			selectedObj.show() 
 		coursorObj.hide()
 		selected = false
@@ -70,15 +70,25 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		item_repr.hide()
 		if hide_item not in removedItems:
 			removedItems.append(hide_item) 
-	if game_over:
-		print("GAME Over")
+
+	if Item[selectedObj.name] in removedItems:
+		selected = false 
+		coursorObj.hide()  
 	if next_try:
-		if selectedObj in removedItems:
-			selected = false 
-			coursorObj.hide()  
 		return
+	var  t : Timer 
+
+	if game_over:
+		$Interaction_stuff.hide()
+		$Interaction_stuff/CourserLayer/CourserObj.hide()
+		$CusceneLayer/GameOverScreen.show()
+		await get_tree().create_timer(5).timeout 
+		print("GAME Over")
+		return
+
 	if getRandomIssue()==null:
 		print("GAME WON")
+		messageObj.show_text_for("GAME WON",10)
 		return
 	scene_new_iteration()
 	
@@ -101,6 +111,7 @@ func _on_placeholder_selected(name: String,texture:Texture,offset:Vector2) -> vo
 
 
 func scene_new_iteration():
+	print("new scene iteration")
 	for item in name2item.values():
 		item.hide
 	var scene_cfg = getScene()
@@ -121,9 +132,9 @@ func getSolutionsByRemovedItems(issue: Issue) -> Array[extensions.Item]:
 	
 func getNotRemovedAndNotIssueSourceItems(issue: Issue) -> Array[extensions.Item]:
 	var items: Array[extensions.Item] = []
-	for item in extensions.Item.keys():
+	for item in extensions.Item.values():
 		if not item in issueSources[issue] and not item in removedItems:
-			items.append(extensions.Item[item])
+			items.append(item)
 	return items
 	
 func getRandomIssueSource(issue: Issue):
@@ -134,11 +145,11 @@ func getRandomIssueSource(issue: Issue):
 	var sourceNumber = rng.randi_range(0, len(leftSources)-1)
 	return leftSources[sourceNumber]
 	
-func getLeftItemsWithoutSources()-> Array[extensions.Item]:
+func getLeftItemsWithoutSources()-> Array[Item]:
 	var items :Array[extensions.Item]=[]
-	for item in extensions.Item.keys():
+	for item in extensions.Item.values():
 		if not item in removedItems and not item in issueSources[Issue.NOISE] and not item in issueSources[Issue.LIGHT]:
-			items.append(extensions.Item[item])
+			items.append(item)
 	return items
 	
 # Array[Array[Item]]
