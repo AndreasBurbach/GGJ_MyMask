@@ -129,9 +129,11 @@ var itemActionDict : Dictionary[Vector2,ItemAction] = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var children = $ItemContainer.get_children()
+	var children = get_tree().get_nodes_in_group("Placeholder")
 	for child in children: 
-		name2item[child.name] = child 
+		child = child as Placeholder
+		name2item[child.name] = child
+		child.selected.connect(_on_placeholder_selected) 
 		print(child.name)
 	coursorObj.hide()
 	

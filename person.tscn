@@ -3,7 +3,19 @@
 [ext_resource type="Script" uid="uid://bvavelnngq1uw" path="res://person.gd" id="1_3qlke"]
 [ext_resource type="Texture2D" uid="uid://cabiwiwitqvqt" path="res://art/sprites/person.png" id="1_hncb1"]
 [ext_resource type="Texture2D" uid="uid://bj0j7ejenc4gs" path="res://art/sprites/person_eyes.png" id="2_3qlke"]
+[ext_resource type="PackedScene" uid="uid://cfmvyhxwydp3y" path="res://Placeholder.tscn" id="2_r7rx5"]
+[ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="3_2v3k6"]
 [ext_resource type="Script" uid="uid://wme8x1l2r401" path="res://personeyes.gd" id="3_g6f2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoeld"]
+resource_local_to_scene = true
+size = Vector2(48, 136)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xktsn"]
+resource_local_to_scene = true
+shader = ExtResource("3_2v3k6")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
 
 [sub_resource type="Animation" id="Animation_3qlke"]
 length = 0.001
@@ -53,20 +65,29 @@ metadata/_edit_group_ = true
 
 [node name="Container" type="Node2D" parent="." unique_id=141999487]
 
-[node name="Body" type="Sprite2D" parent="Container" unique_id=1715423154]
+[node name="Person" parent="Container" unique_id=764344958 instance=ExtResource("2_r7rx5")]
+x_offset = -21.915
+y_offset = -28.775
+
+[node name="CollisionShape2D" parent="Container/Person" index="0" unique_id=1035127510]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_hoeld")
+
+[node name="Sprite2D" parent="Container/Person" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_xktsn")
 texture = ExtResource("1_hncb1")
 
-[node name="Eyes" type="Node2D" parent="Container" unique_id=1485549230]
+[node name="Eyes" type="Node2D" parent="Container/Person" unique_id=1485549230]
 script = ExtResource("3_g6f2d")
 
-[node name="Sprite" type="Sprite2D" parent="Container/Eyes" unique_id=664283080]
+[node name="Sprite" type="Sprite2D" parent="Container/Person/Eyes" unique_id=664283080]
 texture = ExtResource("2_3qlke")
 
-[node name="Pivot" type="Marker2D" parent="Container/Eyes" unique_id=608855915]
+[node name="Pivot" type="Marker2D" parent="Container/Person/Eyes" unique_id=608855915]
 position = Vector2(1, -56)
 
 [node name="Walk" type="AnimationPlayer" parent="." unique_id=471859376]
-root_node = NodePath("../Container/Body")
+root_node = NodePath("")
 libraries/ = SubResource("AnimationLibrary_aoiax")
 speed_scale = 12.0
 
@@ -75,3 +96,5 @@ position = Vector2(3, 70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1960204126]
 shape = SubResource("SegmentShape2D_g6f2d")
+
+[editable path="Container/Person"]

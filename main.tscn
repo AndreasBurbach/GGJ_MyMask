@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://brc7tkecr8s0i"]
+[gd_scene format=3 uid="uid://brc7tkecr8s0i"]
 
 [ext_resource type="Script" uid="uid://op647jm0ibgi" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cfmvyhxwydp3y" path="res://Placeholder.tscn" id="2_0xm2m"]
@@ -7,110 +7,21 @@
 [ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://b2h4i4gvn4v4p" path="res://assets/items/room-pics/pillow.png" id="5_kek77"]
 [ext_resource type="Texture2D" uid="uid://hhkmbh6niyd1" path="res://assets/items/room-pics/cover.png" id="6_4c57u"]
-[ext_resource type="PackedScene" uid="uid://b2pnyhqo721us" path="res://sleep_and_wake.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" path="res://sleep_and_wake.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://t617jgahr322" path="res://assets/items/room-pics/closet.png" id="7_4c57u"]
-[ext_resource type="PackedScene" uid="uid://cg3nc17p58a38" path="res://text_bubble.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" path="res://text_bubble.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://cjallyue27fdg" path="res://assets/items/room-pics/lamp-whole.png" id="8_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cs0ixiud7sqda" path="res://assets/items/room-pics/door.png" id="12_vivmo"]
 [ext_resource type="Texture2D" uid="uid://br2w28glfkvr" path="res://assets/items/room-pics/floor.png" id="12_w48qg"]
 [ext_resource type="Texture2D" uid="uid://bntotd4i7njjd" path="res://art/sprites/window1.png" id="13_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://pjj43mle6bkv" path="res://assets/items/room-pics/walls.png" id="13_vivmo"]
 [ext_resource type="Texture2D" uid="uid://fy53ys8nbi86" path="res://assets/items/room-pics/bed.png" id="14_2cqfq"]
-[ext_resource type="Texture2D" uid="uid://cabiwiwitqvqt" path="res://art/sprites/person.png" id="14_yaehf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-resource_local_to_scene = true
-size = Vector2(143, 28)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
-resource_local_to_scene = true
-size = Vector2(128.00002, 128)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
-resource_local_to_scene = true
-size = Vector2(143, 28)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c57u"]
-resource_local_to_scene = true
-size = Vector2(81.63431, 67.40538)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
-resource_local_to_scene = true
-size = Vector2(107.20123, 63.296223)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
-resource_local_to_scene = true
-size = Vector2(151.5, 224)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg77c"]
-resource_local_to_scene = true
-size = Vector2(47.5, 28)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycdy4"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqfq"]
-resource_local_to_scene = true
-size = Vector2(153.52933, 109.23629)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yaehf"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaehf"]
-resource_local_to_scene = true
-size = Vector2(86.85939, 68.90199)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
+[ext_resource type="PackedScene" uid="uid://cw51pt3u06lpk" path="res://person.tscn" id="15_vivmo"]
+[ext_resource type="PackedScene" uid="uid://dksxq52k1wp6o" path="res://room.tscn" id="16_2cqfq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_074og"]
 resource_local_to_scene = true
-size = Vector2(48, 136)
+size = Vector2(143, 28)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
 resource_local_to_scene = true
@@ -118,189 +29,263 @@ shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[node name="Main" type="Node"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82xsv"]
+resource_local_to_scene = true
+size = Vector2(128.00002, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_getpj"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryguw"]
+resource_local_to_scene = true
+size = Vector2(143, 28)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u8w0"]
+resource_local_to_scene = true
+size = Vector2(81.63431, 67.40538)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0odxb"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lswn8"]
+resource_local_to_scene = true
+size = Vector2(107.20123, 63.296223)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6jrf"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
+resource_local_to_scene = true
+size = Vector2(151.5, 224)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsp4k"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq58d"]
+resource_local_to_scene = true
+size = Vector2(47.5, 28)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_seu75"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htxhm"]
+resource_local_to_scene = true
+size = Vector2(153.52933, 109.23629)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jq2sk"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k2k6"]
+resource_local_to_scene = true
+size = Vector2(86.85939, 68.90199)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rl1p"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[node name="Main" type="Node" unique_id=2003212805]
 script = ExtResource("1_ig7tw")
 
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=750911066]
 layer = -1
 
-[node name="Floor" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Floor" type="Sprite2D" parent="BackgroundLayer" unique_id=1892335957]
 position = Vector2(576, 335)
 texture = ExtResource("12_w48qg")
 
-[node name="Walls" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Walls" type="Sprite2D" parent="BackgroundLayer" unique_id=909982410]
 position = Vector2(577, 336)
 texture = ExtResource("13_vivmo")
 
-[node name="Bed" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Bed" type="Sprite2D" parent="BackgroundLayer" unique_id=319653267]
 position = Vector2(600, 330)
 texture = ExtResource("14_2cqfq")
 
-[node name="ItemContainer" type="Node2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer/Bed" unique_id=1781382964]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/Bed/StaticBody2D" unique_id=608303639]
+polygon = PackedVector2Array(-286, 207, -162, 154, -168, 42, -228, 42, -263, 63, -329, 49, -375, 17, -389, -45, -520, -9, -518, 115)
+
+[node name="Room" parent="." unique_id=1847015269 instance=ExtResource("16_2cqfq")]
+position = Vector2(576, 256)
+scale = Vector2(0.8, 0.8)
+
+[node name="ItemContainer" type="Node2D" parent="." unique_id=438334925]
 position = Vector2(-64, -33)
 
-[node name="Placeholder" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Placeholder" parent="ItemContainer" unique_id=869069577 instance=ExtResource("2_0xm2m")]
 visible = false
 
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder" index="0"]
-shape = SubResource("RectangleShape2D_lquwl")
+[node name="CollisionShape2D" parent="ItemContainer/Placeholder" index="0" unique_id=1035127510]
+shape = SubResource("RectangleShape2D_074og")
 
-[node name="Sprite2D" parent="ItemContainer/Placeholder" index="1"]
-material = SubResource("ShaderMaterial_7mycd")
+[node name="Sprite2D" parent="ItemContainer/Placeholder" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_cegan")
 
-[node name="Placeholder2" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Placeholder2" parent="ItemContainer" unique_id=1451848162 instance=ExtResource("2_0xm2m")]
 visible = false
 position = Vector2(568, 296)
 
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder2" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Placeholder2" index="0" unique_id=1035127510]
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_272bh")
+shape = SubResource("RectangleShape2D_82xsv")
 
-[node name="Sprite2D" parent="ItemContainer/Placeholder2" index="1"]
-material = SubResource("ShaderMaterial_5vw27")
+[node name="Sprite2D" parent="ItemContainer/Placeholder2" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_getpj")
 texture = ExtResource("4_1bvp3")
 
-[node name="Placeholder3" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Placeholder3" parent="ItemContainer" unique_id=704703587 instance=ExtResource("2_0xm2m")]
 visible = false
 position = Vector2(504, 432)
 
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder3" index="0"]
-shape = SubResource("RectangleShape2D_5vw27")
+[node name="CollisionShape2D" parent="ItemContainer/Placeholder3" index="0" unique_id=1035127510]
+shape = SubResource("RectangleShape2D_ryguw")
 
-[node name="Sprite2D" parent="ItemContainer/Placeholder3" index="1"]
-material = SubResource("ShaderMaterial_kek77")
+[node name="Sprite2D" parent="ItemContainer/Placeholder3" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_d13ii")
 
-[node name="Pillow" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Pillow" parent="ItemContainer" unique_id=625485689 instance=ExtResource("2_0xm2m")]
 position = Vector2(664, 369)
 x_offset = 64.26
 y_offset = 35.925
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Pillow" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Pillow" index="0" unique_id=1035127510]
 position = Vector2(-425.30124, 23.679375)
 rotation = -0.48869225
 scale = Vector2(0.9999999, 1)
 skew = -0.42760575
-shape = SubResource("RectangleShape2D_4c57u")
+shape = SubResource("RectangleShape2D_1u8w0")
 
-[node name="Sprite2D" parent="ItemContainer/Pillow" index="1"]
-material = SubResource("ShaderMaterial_efxa6")
+[node name="Sprite2D" parent="ItemContainer/Pillow" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_0odxb")
 texture = ExtResource("5_kek77")
 
-[node name="Blanket" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Blanket" parent="ItemContainer" unique_id=1454775577 instance=ExtResource("2_0xm2m")]
 position = Vector2(664, 369)
 x_offset = 63.205
 y_offset = 34.21
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Blanket" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Blanket" index="0" unique_id=1035127510]
 position = Vector2(-339.69684, 74.93981)
 rotation = 0.25936875
 skew = 0.57770383
-shape = SubResource("RectangleShape2D_kek77")
+shape = SubResource("RectangleShape2D_lswn8")
 
-[node name="Sprite2D" parent="ItemContainer/Blanket" index="1"]
-material = SubResource("ShaderMaterial_4c57u")
+[node name="Sprite2D" parent="ItemContainer/Blanket" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_a6jrf")
 position = Vector2(0, -2)
 texture = ExtResource("6_4c57u")
 
-[node name="Wardrobe" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Wardrobe" parent="ItemContainer" unique_id=1685242702 instance=ExtResource("2_0xm2m")]
 position = Vector2(608, 360)
 x_offset = 91.51
 y_offset = 125.15
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Wardrobe" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Wardrobe" index="0" unique_id=1035127510]
 position = Vector2(364.25, -8)
-shape = SubResource("RectangleShape2D_efxa6")
+shape = SubResource("RectangleShape2D_xuqvo")
 
-[node name="Sprite2D" parent="ItemContainer/Wardrobe" index="1"]
-material = SubResource("ShaderMaterial_dg77c")
+[node name="Sprite2D" parent="ItemContainer/Wardrobe" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_qsp4k")
 texture = ExtResource("7_4c57u")
 
-[node name="Lamp" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="StaticBody2D" type="StaticBody2D" parent="ItemContainer/Wardrobe" unique_id=963225054]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ItemContainer/Wardrobe/StaticBody2D" unique_id=1421318212]
+polygon = PackedVector2Array(274, 72, 320, 112, 329, 103, 392, 118, 443, 91, 447, -98, 370, -121, 345, -150, 282, -119)
+
+[node name="Lamp" parent="ItemContainer" unique_id=840691478 instance=ExtResource("2_0xm2m")]
 position = Vector2(600, 353)
 x_offset = 35.92
 y_offset = 19.92
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Lamp" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Lamp" index="0" unique_id=1035127510]
 position = Vector2(172.96759, -196.30771)
-shape = SubResource("RectangleShape2D_dg77c")
+shape = SubResource("RectangleShape2D_kq58d")
 
-[node name="Sprite2D" parent="ItemContainer/Lamp" index="1"]
-material = SubResource("ShaderMaterial_ycdy4")
+[node name="Sprite2D" parent="ItemContainer/Lamp" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_seu75")
 texture = ExtResource("8_efxa6")
 
-[node name="Door" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="Door" parent="ItemContainer" unique_id=727148750 instance=ExtResource("2_0xm2m")]
 position = Vector2(592, 353)
 x_offset = 59.73
 y_offset = 108.29
 trust_collision = true
 
-[node name="CollisionShape2D" parent="ItemContainer/Door" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/Door" index="0" unique_id=1035127510]
 position = Vector2(162.51593, -98.254745)
 rotation = 1.6528268
 skew = 0.20594883
-shape = SubResource("RectangleShape2D_2cqfq")
+shape = SubResource("RectangleShape2D_htxhm")
 
-[node name="Sprite2D" parent="ItemContainer/Door" index="1"]
-material = SubResource("ShaderMaterial_yaehf")
+[node name="Sprite2D" parent="ItemContainer/Door" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_jq2sk")
 texture = ExtResource("12_vivmo")
 
-[node name="WindowGlas" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
+[node name="WindowGlas" parent="ItemContainer" unique_id=1082709196 instance=ExtResource("2_0xm2m")]
 position = Vector2(352, 265)
 x_offset = -3.29
 y_offset = -23.23
 
-[node name="CollisionShape2D" parent="ItemContainer/WindowGlas" index="0"]
+[node name="CollisionShape2D" parent="ItemContainer/WindowGlas" index="0" unique_id=1035127510]
 position = Vector2(-7.6293945e-06, 1.0000019)
 rotation = 1.569051
 scale = Vector2(0.9999999, 1)
 skew = -0.37175536
-shape = SubResource("RectangleShape2D_yaehf")
+shape = SubResource("RectangleShape2D_4k2k6")
 
-[node name="Sprite2D" parent="ItemContainer/WindowGlas" index="1"]
-material = SubResource("ShaderMaterial_074og")
+[node name="Sprite2D" parent="ItemContainer/WindowGlas" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_0rl1p")
 texture = ExtResource("13_2cqfq")
 
-[node name="Person" parent="ItemContainer" instance=ExtResource("2_0xm2m")]
-position = Vector2(824, 473)
-x_offset = -21.915
-y_offset = -28.775
+[node name="Person" parent="." unique_id=2064254714 instance=ExtResource("15_vivmo")]
+position = Vector2(676, 448)
 
-[node name="CollisionShape2D" parent="ItemContainer/Person" index="0"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_074og")
+[node name="CourserLayer" type="CanvasLayer" parent="." unique_id=255875038]
 
-[node name="Sprite2D" parent="ItemContainer/Person" index="1"]
-material = SubResource("ShaderMaterial_cegan")
-texture = ExtResource("14_yaehf")
-
-[node name="CourserLayer" type="CanvasLayer" parent="."]
-
-[node name="CourserObj" type="Sprite2D" parent="CourserLayer"]
+[node name="CourserObj" type="Sprite2D" parent="CourserLayer" unique_id=361798530]
 texture = ExtResource("3_h2yge")
 
-[node name="CusceneLayer" type="CanvasLayer" parent="."]
+[node name="CusceneLayer" type="CanvasLayer" parent="." unique_id=1992803865]
 visible = false
 
-[node name="Fade" parent="CusceneLayer" instance=ExtResource("6_7mycd")]
+[node name="Fade" parent="CusceneLayer" unique_id=1018160165 instance=ExtResource("6_7mycd")]
 in_time = 0.0
 
-[node name="TextBubble" parent="CusceneLayer" instance=ExtResource("7_272bh")]
+[node name="TextBubble" parent="CusceneLayer" unique_id=1119391613 instance=ExtResource("7_272bh")]
 position = Vector2(824, 135)
 default = "Hello"
-
-[connection signal="selected" from="ItemContainer/Placeholder" to="." method="_on_placeholder_selected"]
-[connection signal="selected" from="ItemContainer/Placeholder2" to="." method="_on_placeholder_selected"]
-[connection signal="selected" from="ItemContainer/Pillow" to="." method="_on_placeholder_selected"]
-[connection signal="selected" from="ItemContainer/Blanket" to="." method="_on_placeholder_selected"]
-[connection signal="selected" from="ItemContainer/Wardrobe" to="." method="_on_placeholder_selected"]
-[connection signal="selected" from="ItemContainer/Lamp" to="." method="_on_placeholder_selected"]
-[connection signal="selected" from="ItemContainer/Door" to="." method="_on_placeholder_selected"]
-[connection signal="selected" from="ItemContainer/WindowGlas" to="." method="_on_placeholder_selected"]
-[connection signal="selected" from="ItemContainer/Person" to="." method="_on_placeholder_selected"]
 
 [editable path="ItemContainer/Placeholder"]
 [editable path="ItemContainer/Placeholder2"]
@@ -311,4 +296,3 @@ default = "Hello"
 [editable path="ItemContainer/Lamp"]
 [editable path="ItemContainer/Door"]
 [editable path="ItemContainer/WindowGlas"]
-[editable path="ItemContainer/Person"]
