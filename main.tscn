@@ -11,80 +11,231 @@
 [ext_resource type="Texture2D" uid="uid://t617jgahr322" path="res://assets/items/room-pics/closet.png" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cg3nc17p58a38" path="res://text_bubble.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://cjallyue27fdg" path="res://assets/items/room-pics/lamp-whole.png" id="8_efxa6"]
+[ext_resource type="Texture2D" uid="uid://bvxwk4g3jmdu" path="res://art/sprites/knife.png" id="11_ryguw"]
+[ext_resource type="Texture2D" uid="uid://b3qttj30o7xsg" path="res://art/sprites/switch.png" id="12_d13ii"]
 [ext_resource type="Texture2D" uid="uid://cs0ixiud7sqda" path="res://assets/items/room-pics/door.png" id="12_vivmo"]
 [ext_resource type="Texture2D" uid="uid://br2w28glfkvr" path="res://assets/items/room-pics/floor.png" id="12_w48qg"]
+[ext_resource type="Texture2D" uid="uid://b77et021gq8o4" path="res://art/sprites/axe.png" id="13_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://bntotd4i7njjd" path="res://art/sprites/window1.png" id="13_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://pjj43mle6bkv" path="res://assets/items/room-pics/walls.png" id="13_vivmo"]
+[ext_resource type="Texture2D" uid="uid://dna1r8wxmvdn0" path="res://art/sprites/stone.png" id="14_0odxb"]
 [ext_resource type="Texture2D" uid="uid://fy53ys8nbi86" path="res://assets/items/room-pics/bed.png" id="14_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://p3xsdxiihk03" path="res://art/sprites/peeler.png" id="15_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://cw51pt3u06lpk" path="res://person.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://dksxq52k1wp6o" path="res://room.tscn" id="16_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://d340dcgcs3td5" path="res://art/sprites/apple.png" id="16_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://bqhist6a8omci" path="res://art/sprites/fork.png" id="17_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://d2tpdpvrjse0r" path="res://art/sprites/curtain.png" id="18_kq58d"]
+[ext_resource type="Texture2D" uid="uid://bircpfkpcv3al" path="res://art/sprites/snake_cute.png" id="19_seu75"]
+[ext_resource type="Texture2D" uid="uid://ctwl1pmhunqrd" path="res://art/sprites/hammer.png" id="20_kq58d"]
+[ext_resource type="Texture2D" uid="uid://bufrrq8iq1kq6" path="res://art/sprites/sleepmask.png" id="21_seu75"]
+[ext_resource type="Texture2D" uid="uid://1usxoy6dgecp" path="res://art/sprites/Horschutz.png" id="22_htxhm"]
+[ext_resource type="Texture2D" uid="uid://pa6v3hy44bug" path="res://art/sprites/tapestry_piece.png" id="23_seu75"]
 
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_074og"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq2sk"]
 resource_local_to_scene = true
 size = Vector2(143, 28)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4k2k6"]
 resource_local_to_scene = true
 shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_82xsv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rl1p"]
 resource_local_to_scene = true
 size = Vector2(128.00002, 128)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_getpj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ok6jj"]
 resource_local_to_scene = true
 shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryguw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_facbu"]
 resource_local_to_scene = true
 size = Vector2(143, 28)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1qrp"]
 resource_local_to_scene = true
 shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u8w0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8e4i"]
 resource_local_to_scene = true
 size = Vector2(81.63431, 67.40538)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0odxb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lmeg"]
 resource_local_to_scene = true
 shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lswn8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cp0l"]
 resource_local_to_scene = true
 size = Vector2(107.20123, 63.296223)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6jrf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2t1y"]
 resource_local_to_scene = true
 shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gngh3"]
 resource_local_to_scene = true
 size = Vector2(151.5, 224)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsp4k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n3wm"]
 resource_local_to_scene = true
 shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq58d"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnost"]
 resource_local_to_scene = true
 size = Vector2(47.5, 28)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_seu75"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnkbs"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6a44"]
+resource_local_to_scene = true
+size = Vector2(153.52933, 109.23629)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cbny"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrvbo"]
+resource_local_to_scene = true
+size = Vector2(86.85939, 68.90199)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uypp3"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blkrb"]
+resource_local_to_scene = true
+size = Vector2(48, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abqjc"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iyjs"]
+resource_local_to_scene = true
+size = Vector2(16, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4w656"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e71vb"]
+resource_local_to_scene = true
+size = Vector2(42.482376, 22.709984)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rnkwl"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vke2r"]
+resource_local_to_scene = true
+size = Vector2(24, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uit24"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruth0"]
+resource_local_to_scene = true
+size = Vector2(24, 38)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rm4vd"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyto"]
+resource_local_to_scene = true
+size = Vector2(24, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm6fg"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b17eg"]
+resource_local_to_scene = true
+size = Vector2(13, 28)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntx8l"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_come4"]
+size = Vector2(33, 121)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uatky"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqtf5"]
+resource_local_to_scene = true
+size = Vector2(131.69267, 309.60193)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1vm84"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu3dr"]
+resource_local_to_scene = true
+size = Vector2(40.4758, 19.036713)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cyx1q"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dhbp"]
+resource_local_to_scene = true
+size = Vector2(34.96051, 22.583313)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jx0wj"]
+resource_local_to_scene = true
+shader = ExtResource("4_lquwl")
+shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkkcx"]
+resource_local_to_scene = true
+size = Vector2(32, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_34ol3"]
 resource_local_to_scene = true
 shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
@@ -92,7 +243,7 @@ shader_parameter/line_thickness = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htxhm"]
 resource_local_to_scene = true
-size = Vector2(153.52933, 109.23629)
+size = Vector2(23, 111)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jq2sk"]
 resource_local_to_scene = true
@@ -100,18 +251,352 @@ shader = ExtResource("4_lquwl")
 shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
 shader_parameter/line_thickness = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k2k6"]
-resource_local_to_scene = true
-size = Vector2(86.85939, 68.90199)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rl1p"]
-resource_local_to_scene = true
-shader = ExtResource("4_lquwl")
-shader_parameter/line_color = Color(0.57388204, 0.50448245, 0.0085459035, 1)
-shader_parameter/line_thickness = 0.0
+[sub_resource type="LabelSettings" id="LabelSettings_074og"]
+font_size = 100
+font_color = Color(1, 0.49, 0.49, 1)
 
 [node name="Main" type="Node" unique_id=1178112073]
 script = ExtResource("1_ig7tw")
+
+[node name="Interaction_stuff" type="Node2D" parent="." unique_id=62824517]
+
+[node name="ItemContainer" type="Node2D" parent="Interaction_stuff" unique_id=2110082557]
+position = Vector2(-64, -33)
+
+[node name="Placeholder" parent="Interaction_stuff/ItemContainer" unique_id=848615 instance=ExtResource("2_0xm2m")]
+visible = false
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Placeholder" index="0" unique_id=1035127510]
+shape = SubResource("RectangleShape2D_jq2sk")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Placeholder" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_4k2k6")
+
+[node name="Placeholder2" parent="Interaction_stuff/ItemContainer" unique_id=260494476 instance=ExtResource("2_0xm2m")]
+visible = false
+position = Vector2(568, 296)
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Placeholder2" index="0" unique_id=1035127510]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_0rl1p")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Placeholder2" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_ok6jj")
+texture = ExtResource("4_1bvp3")
+
+[node name="Placeholder3" parent="Interaction_stuff/ItemContainer" unique_id=362195320 instance=ExtResource("2_0xm2m")]
+visible = false
+position = Vector2(504, 432)
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Placeholder3" index="0" unique_id=1035127510]
+shape = SubResource("RectangleShape2D_facbu")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Placeholder3" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_b1qrp")
+
+[node name="Pillow" parent="Interaction_stuff/ItemContainer" unique_id=2070790265 instance=ExtResource("2_0xm2m")]
+position = Vector2(664, 369)
+x_offset = 64.26
+y_offset = 35.925
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Pillow" index="0" unique_id=1035127510]
+position = Vector2(-425.30124, 23.679375)
+rotation = -0.48869225
+scale = Vector2(0.9999999, 1)
+skew = -0.42760575
+shape = SubResource("RectangleShape2D_h8e4i")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Pillow" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_4lmeg")
+texture = ExtResource("5_kek77")
+
+[node name="Blanket" parent="Interaction_stuff/ItemContainer" unique_id=1853836460 instance=ExtResource("2_0xm2m")]
+position = Vector2(664, 369)
+x_offset = 63.205
+y_offset = 34.21
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Blanket" index="0" unique_id=1035127510]
+position = Vector2(-339.69684, 74.93981)
+rotation = 0.25936875
+skew = 0.57770383
+shape = SubResource("RectangleShape2D_0cp0l")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Blanket" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_d2t1y")
+position = Vector2(0, -2)
+texture = ExtResource("6_4c57u")
+
+[node name="Wardrobe" parent="Interaction_stuff/ItemContainer" unique_id=51738863 instance=ExtResource("2_0xm2m")]
+position = Vector2(608, 360)
+x_offset = 91.51
+y_offset = 125.15
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Wardrobe" index="0" unique_id=1035127510]
+position = Vector2(364.25, -8)
+shape = SubResource("RectangleShape2D_gngh3")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Wardrobe" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_0n3wm")
+texture = ExtResource("7_4c57u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Interaction_stuff/ItemContainer/Wardrobe" unique_id=710512859]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interaction_stuff/ItemContainer/Wardrobe/StaticBody2D" unique_id=157039311]
+polygon = PackedVector2Array(274, 72, 320, 112, 329, 103, 392, 118, 443, 91, 447, -98, 370, -121, 345, -150, 282, -119)
+
+[node name="Lamp" parent="Interaction_stuff/ItemContainer" unique_id=1188170685 instance=ExtResource("2_0xm2m")]
+position = Vector2(600, 353)
+x_offset = 35.92
+y_offset = 19.92
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Lamp" index="0" unique_id=1035127510]
+position = Vector2(172.96759, -196.30771)
+shape = SubResource("RectangleShape2D_qnost")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Lamp" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_wnkbs")
+texture = ExtResource("8_efxa6")
+
+[node name="Door" parent="Interaction_stuff/ItemContainer" unique_id=1123710878 instance=ExtResource("2_0xm2m")]
+position = Vector2(592, 353)
+x_offset = 59.73
+y_offset = 108.29
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Door" index="0" unique_id=1035127510]
+position = Vector2(162.51593, -98.254745)
+rotation = 1.6528268
+skew = 0.20594883
+shape = SubResource("RectangleShape2D_f6a44")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Door" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_0cbny")
+texture = ExtResource("12_vivmo")
+
+[node name="WindowGlas" parent="Interaction_stuff/ItemContainer" unique_id=685454857 instance=ExtResource("2_0xm2m")]
+position = Vector2(352, 265)
+x_offset = -3.29
+y_offset = -23.23
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/WindowGlas" index="0" unique_id=1035127510]
+position = Vector2(-7.6293945e-06, 1.0000019)
+rotation = 1.569051
+scale = Vector2(0.9999999, 1)
+skew = -0.37175536
+shape = SubResource("RectangleShape2D_hrvbo")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/WindowGlas" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_uypp3")
+texture = ExtResource("13_2cqfq")
+
+[node name="Knive" parent="Interaction_stuff/ItemContainer" unique_id=319361115 instance=ExtResource("2_0xm2m")]
+position = Vector2(536, 369)
+x_offset = 22.915
+y_offset = 29.69
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Knive" index="0" unique_id=1035127510]
+position = Vector2(104, 122)
+shape = SubResource("RectangleShape2D_blkrb")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Knive" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_abqjc")
+position = Vector2(8, -1)
+texture = ExtResource("11_ryguw")
+
+[node name="LightSwitch" parent="Interaction_stuff/ItemContainer" unique_id=1526214866 instance=ExtResource("2_0xm2m")]
+position = Vector2(768, 408)
+x_offset = 6.13
+y_offset = 4.85
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/LightSwitch" index="0" unique_id=1035127510]
+position = Vector2(63, -125)
+shape = SubResource("RectangleShape2D_6iyjs")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/LightSwitch" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_4w656")
+texture = ExtResource("12_d13ii")
+
+[node name="Axe" parent="Interaction_stuff/ItemContainer" unique_id=931861314 instance=ExtResource("2_0xm2m")]
+position = Vector2(520, 281)
+x_offset = 22.12
+y_offset = 33.115
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Axe" index="0" unique_id=1035127510]
+position = Vector2(116.116104, 148.75436)
+rotation = 2.0123646
+skew = -0.6352997
+shape = SubResource("RectangleShape2D_e71vb")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Axe" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_rnkwl")
+position = Vector2(0, -6)
+texture = ExtResource("13_1u8w0")
+
+[node name="Stone" parent="Interaction_stuff/ItemContainer" unique_id=1536080977 instance=ExtResource("2_0xm2m")]
+position = Vector2(496, 296)
+x_offset = 5.805
+y_offset = 7.26
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Stone" index="0" unique_id=1035127510]
+position = Vector2(59, 136)
+shape = SubResource("RectangleShape2D_vke2r")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Stone" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_uit24")
+texture = ExtResource("14_0odxb")
+
+[node name="Peeler" parent="Interaction_stuff/ItemContainer" unique_id=1950674533 instance=ExtResource("2_0xm2m")]
+position = Vector2(642, 232)
+x_offset = 9.11
+y_offset = 8.825
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Peeler" index="0" unique_id=1035127510]
+position = Vector2(84, 149)
+shape = SubResource("RectangleShape2D_ruth0")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Peeler" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_rm4vd")
+texture = ExtResource("15_a6jrf")
+
+[node name="Apple" parent="Interaction_stuff/ItemContainer" unique_id=674286737 instance=ExtResource("2_0xm2m")]
+position = Vector2(472, 233)
+x_offset = 12.345
+y_offset = 13.7
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Apple" index="0" unique_id=1035127510]
+position = Vector2(29, 155)
+shape = SubResource("RectangleShape2D_pjyto")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Apple" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_sm6fg")
+texture = ExtResource("16_xuqvo")
+
+[node name="Fork" parent="Interaction_stuff/ItemContainer" unique_id=1158921526 instance=ExtResource("2_0xm2m")]
+position = Vector2(773, 281)
+x_offset = 9.01
+y_offset = 8.765
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Fork" index="0" unique_id=1035127510]
+position = Vector2(54.5, 162)
+shape = SubResource("RectangleShape2D_b17eg")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Fork" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_ntx8l")
+texture = ExtResource("17_qsp4k")
+
+[node name="Curtains" parent="Interaction_stuff/ItemContainer" unique_id=23179540 instance=ExtResource("2_0xm2m")]
+position = Vector2(676, 360)
+x_offset = 25.06
+y_offset = 121.925
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Curtains" index="0" unique_id=1035127510]
+position = Vector2(-379.5, -69.5)
+shape = SubResource("RectangleShape2D_come4")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Curtains" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_uatky")
+position = Vector2(-5, 0)
+texture = ExtResource("18_kq58d")
+
+[node name="Snake" parent="Interaction_stuff/ItemContainer" unique_id=2045513227 instance=ExtResource("2_0xm2m")]
+position = Vector2(1405, 433)
+x_offset = 135.98
+y_offset = 71.225
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Snake" index="0" unique_id=1035127510]
+position = Vector2(-1182.2993, -293.48956)
+rotation = 1.0681415
+shape = SubResource("RectangleShape2D_rqtf5")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Snake" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_1vm84")
+position = Vector2(-1200.0001, -241)
+scale = Vector2(0.6852592, 0.6852592)
+texture = ExtResource("19_seu75")
+
+[node name="Hammer" parent="Interaction_stuff/ItemContainer" unique_id=813643263 instance=ExtResource("2_0xm2m")]
+position = Vector2(609, 338)
+x_offset = 15.3
+y_offset = 13.975
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Hammer" index="0" unique_id=1035127510]
+position = Vector2(-43.394806, 179.0752)
+rotation = 0.28983915
+shape = SubResource("RectangleShape2D_wu3dr")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Hammer" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_cyx1q")
+texture = ExtResource("20_kq58d")
+
+[node name="SleepingMask" parent="Interaction_stuff/ItemContainer" unique_id=1880928930 instance=ExtResource("2_0xm2m")]
+position = Vector2(640, 381)
+x_offset = 18.105
+y_offset = 20.935
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/SleepingMask" index="0" unique_id=1035127510]
+position = Vector2(1.323883, 183.4961)
+rotation = -0.5783627
+shape = SubResource("RectangleShape2D_0dhbp")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/SleepingMask" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_jx0wj")
+position = Vector2(-8, 0)
+texture = ExtResource("21_seu75")
+
+[node name="HearingProtection" parent="Interaction_stuff/ItemContainer" unique_id=1226969648 instance=ExtResource("2_0xm2m")]
+position = Vector2(768, 130)
+x_offset = 13.265
+y_offset = 7.38
+trust_collision = true
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/HearingProtection" index="0" unique_id=1035127510]
+position = Vector2(-157, 281)
+shape = SubResource("RectangleShape2D_kkkcx")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/HearingProtection" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_34ol3")
+position = Vector2(-145.49866, 82)
+scale = Vector2(1.2284124, 1.2284123)
+texture = ExtResource("22_htxhm")
+
+[node name="Racoon" parent="Interaction_stuff/ItemContainer" unique_id=764344958 instance=ExtResource("2_0xm2m")]
+position = Vector2(-16, 10)
+
+[node name="Wallpaper" parent="Interaction_stuff/ItemContainer" unique_id=1987819470 instance=ExtResource("2_0xm2m")]
+position = Vector2(743, 311)
+
+[node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Wallpaper" index="0" unique_id=1035127510]
+shape = SubResource("RectangleShape2D_htxhm")
+
+[node name="Sprite2D" parent="Interaction_stuff/ItemContainer/Wallpaper" index="1" unique_id=389929912]
+material = SubResource("ShaderMaterial_jq2sk")
+texture = ExtResource("23_seu75")
+
+[node name="Newsletter" parent="Interaction_stuff/ItemContainer" unique_id=1367880260 instance=ExtResource("2_0xm2m")]
+position = Vector2(64, 33)
+
+[node name="Person" parent="Interaction_stuff" unique_id=2102129749 instance=ExtResource("15_vivmo")]
+position = Vector2(676, 448)
+
+[node name="CourserLayer" type="CanvasLayer" parent="Interaction_stuff" unique_id=33849377]
+
+[node name="CourserObj" type="Sprite2D" parent="Interaction_stuff/CourserLayer" unique_id=691285681]
+texture = ExtResource("3_h2yge")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1756490103]
 layer = -1
@@ -137,193 +622,52 @@ texture = ExtResource("14_2cqfq")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/Bed/StaticBody2D" unique_id=2123653176]
 polygon = PackedVector2Array(-286, 207, -162, 154, -168, 42, -228, 42, -263, 63, -329, 49, -375, 17, -389, -45, -520, -9, -518, 115)
 
-[node name="ItemContainer" type="Node2D" parent="." unique_id=2110082557]
-position = Vector2(-64, -33)
-
-[node name="Placeholder" parent="ItemContainer" unique_id=848615 instance=ExtResource("2_0xm2m")]
-visible = false
-
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder" index="0" unique_id=1035127510]
-shape = SubResource("RectangleShape2D_074og")
-
-[node name="Sprite2D" parent="ItemContainer/Placeholder" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_cegan")
-
-[node name="Placeholder2" parent="ItemContainer" unique_id=260494476 instance=ExtResource("2_0xm2m")]
-visible = false
-position = Vector2(568, 296)
-
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder2" index="0" unique_id=1035127510]
-position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_82xsv")
-
-[node name="Sprite2D" parent="ItemContainer/Placeholder2" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_getpj")
-texture = ExtResource("4_1bvp3")
-
-[node name="Placeholder3" parent="ItemContainer" unique_id=362195320 instance=ExtResource("2_0xm2m")]
-visible = false
-position = Vector2(504, 432)
-
-[node name="CollisionShape2D" parent="ItemContainer/Placeholder3" index="0" unique_id=1035127510]
-shape = SubResource("RectangleShape2D_ryguw")
-
-[node name="Sprite2D" parent="ItemContainer/Placeholder3" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_d13ii")
-
-[node name="Pillow" parent="ItemContainer" unique_id=2070790265 instance=ExtResource("2_0xm2m")]
-position = Vector2(664, 369)
-x_offset = 64.26
-y_offset = 35.925
-trust_collision = true
-
-[node name="CollisionShape2D" parent="ItemContainer/Pillow" index="0" unique_id=1035127510]
-position = Vector2(-425.30124, 23.679375)
-rotation = -0.48869225
-scale = Vector2(0.9999999, 1)
-skew = -0.42760575
-shape = SubResource("RectangleShape2D_1u8w0")
-
-[node name="Sprite2D" parent="ItemContainer/Pillow" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_0odxb")
-texture = ExtResource("5_kek77")
-
-[node name="Blanket" parent="ItemContainer" unique_id=1853836460 instance=ExtResource("2_0xm2m")]
-position = Vector2(664, 369)
-x_offset = 63.205
-y_offset = 34.21
-trust_collision = true
-
-[node name="CollisionShape2D" parent="ItemContainer/Blanket" index="0" unique_id=1035127510]
-position = Vector2(-339.69684, 74.93981)
-rotation = 0.25936875
-skew = 0.57770383
-shape = SubResource("RectangleShape2D_lswn8")
-
-[node name="Sprite2D" parent="ItemContainer/Blanket" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_a6jrf")
-position = Vector2(0, -2)
-texture = ExtResource("6_4c57u")
-
-[node name="Wardrobe" parent="ItemContainer" unique_id=51738863 instance=ExtResource("2_0xm2m")]
-position = Vector2(608, 360)
-x_offset = 91.51
-y_offset = 125.15
-trust_collision = true
-
-[node name="CollisionShape2D" parent="ItemContainer/Wardrobe" index="0" unique_id=1035127510]
-position = Vector2(364.25, -8)
-shape = SubResource("RectangleShape2D_xuqvo")
-
-[node name="Sprite2D" parent="ItemContainer/Wardrobe" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_qsp4k")
-texture = ExtResource("7_4c57u")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="ItemContainer/Wardrobe" unique_id=710512859]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ItemContainer/Wardrobe/StaticBody2D" unique_id=157039311]
-polygon = PackedVector2Array(274, 72, 320, 112, 329, 103, 392, 118, 443, 91, 447, -98, 370, -121, 345, -150, 282, -119)
-
-[node name="Lamp" parent="ItemContainer" unique_id=1188170685 instance=ExtResource("2_0xm2m")]
-position = Vector2(600, 353)
-x_offset = 35.92
-y_offset = 19.92
-trust_collision = true
-
-[node name="CollisionShape2D" parent="ItemContainer/Lamp" index="0" unique_id=1035127510]
-position = Vector2(172.96759, -196.30771)
-shape = SubResource("RectangleShape2D_kq58d")
-
-[node name="Sprite2D" parent="ItemContainer/Lamp" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_seu75")
-texture = ExtResource("8_efxa6")
-
-[node name="Door" parent="ItemContainer" unique_id=1123710878 instance=ExtResource("2_0xm2m")]
-position = Vector2(592, 353)
-x_offset = 59.73
-y_offset = 108.29
-trust_collision = true
-
-[node name="CollisionShape2D" parent="ItemContainer/Door" index="0" unique_id=1035127510]
-position = Vector2(162.51593, -98.254745)
-rotation = 1.6528268
-skew = 0.20594883
-shape = SubResource("RectangleShape2D_htxhm")
-
-[node name="Sprite2D" parent="ItemContainer/Door" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_jq2sk")
-texture = ExtResource("12_vivmo")
-
-[node name="WindowGlas" parent="ItemContainer" unique_id=685454857 instance=ExtResource("2_0xm2m")]
-position = Vector2(352, 265)
-x_offset = -3.29
-y_offset = -23.23
-
-[node name="CollisionShape2D" parent="ItemContainer/WindowGlas" index="0" unique_id=1035127510]
-position = Vector2(-7.6293945e-06, 1.0000019)
-rotation = 1.569051
-scale = Vector2(0.9999999, 1)
-skew = -0.37175536
-shape = SubResource("RectangleShape2D_4k2k6")
-
-[node name="Sprite2D" parent="ItemContainer/WindowGlas" index="1" unique_id=389929912]
-material = SubResource("ShaderMaterial_0rl1p")
-texture = ExtResource("13_2cqfq")
-
-[node name="Racoon" parent="ItemContainer" unique_id=764344958 instance=ExtResource("2_0xm2m")]
-
-[node name="Knive" parent="ItemContainer" unique_id=319361115 instance=ExtResource("2_0xm2m")]
-
-[node name="Wallpaper" parent="ItemContainer" unique_id=1987819470 instance=ExtResource("2_0xm2m")]
-
-[node name="HearingProtection" parent="ItemContainer" unique_id=1226969648 instance=ExtResource("2_0xm2m")]
-
-[node name="Peeler" parent="ItemContainer" unique_id=1950674533 instance=ExtResource("2_0xm2m")]
-
-[node name="Snake" parent="ItemContainer" unique_id=2045513227 instance=ExtResource("2_0xm2m")]
-
-[node name="Axe" parent="ItemContainer" unique_id=931861314 instance=ExtResource("2_0xm2m")]
-
-[node name="LightSwitch" parent="ItemContainer" unique_id=1526214866 instance=ExtResource("2_0xm2m")]
-
-[node name="Stone" parent="ItemContainer" unique_id=1536080977 instance=ExtResource("2_0xm2m")]
-
-[node name="Hammer" parent="ItemContainer" unique_id=813643263 instance=ExtResource("2_0xm2m")]
-
-[node name="SleepingMask" parent="ItemContainer" unique_id=1880928930 instance=ExtResource("2_0xm2m")]
-
-[node name="Fork" parent="ItemContainer" unique_id=1158921526 instance=ExtResource("2_0xm2m")]
-
-[node name="Curtains" parent="ItemContainer" unique_id=23179540 instance=ExtResource("2_0xm2m")]
-
-[node name="Apple" parent="ItemContainer" unique_id=674286737 instance=ExtResource("2_0xm2m")]
-
-[node name="Newsletter" parent="ItemContainer" unique_id=1367880260 instance=ExtResource("2_0xm2m")]
-position = Vector2(64, 33)
-
-[node name="Person" parent="." unique_id=2102129749 instance=ExtResource("15_vivmo")]
-position = Vector2(676, 448)
-
-[node name="CourserLayer" type="CanvasLayer" parent="." unique_id=33849377]
-
-[node name="CourserObj" type="Sprite2D" parent="CourserLayer" unique_id=691285681]
-texture = ExtResource("3_h2yge")
-
 [node name="CusceneLayer" type="CanvasLayer" parent="." unique_id=36522148]
 
 [node name="Fade" parent="CusceneLayer" unique_id=1734964139 instance=ExtResource("6_7mycd")]
 in_time = 0.0
 
+[node name="GameOverScreen" type="ColorRect" parent="CusceneLayer" unique_id=827947684]
+visible = false
+offset_right = 1152.0
+offset_bottom = 656.0
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[node name="Label" type="Label" parent="CusceneLayer/GameOverScreen" unique_id=718628719]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99300003
+anchor_bottom = 0.98800004
+offset_right = 8.063965
+offset_bottom = 7.776001
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_074og")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextBubble" parent="CusceneLayer" unique_id=551091152 instance=ExtResource("7_272bh")]
 position = Vector2(872, 14)
 default = "Hello"
 
-[editable path="ItemContainer/Placeholder"]
-[editable path="ItemContainer/Placeholder2"]
-[editable path="ItemContainer/Placeholder3"]
-[editable path="ItemContainer/Pillow"]
-[editable path="ItemContainer/Blanket"]
-[editable path="ItemContainer/Wardrobe"]
-[editable path="ItemContainer/Lamp"]
-[editable path="ItemContainer/Door"]
-[editable path="ItemContainer/WindowGlas"]
+[editable path="Interaction_stuff/ItemContainer/Placeholder"]
+[editable path="Interaction_stuff/ItemContainer/Placeholder2"]
+[editable path="Interaction_stuff/ItemContainer/Placeholder3"]
+[editable path="Interaction_stuff/ItemContainer/Pillow"]
+[editable path="Interaction_stuff/ItemContainer/Blanket"]
+[editable path="Interaction_stuff/ItemContainer/Wardrobe"]
+[editable path="Interaction_stuff/ItemContainer/Lamp"]
+[editable path="Interaction_stuff/ItemContainer/Door"]
+[editable path="Interaction_stuff/ItemContainer/WindowGlas"]
+[editable path="Interaction_stuff/ItemContainer/Knive"]
+[editable path="Interaction_stuff/ItemContainer/LightSwitch"]
+[editable path="Interaction_stuff/ItemContainer/Axe"]
+[editable path="Interaction_stuff/ItemContainer/Stone"]
+[editable path="Interaction_stuff/ItemContainer/Peeler"]
+[editable path="Interaction_stuff/ItemContainer/Apple"]
+[editable path="Interaction_stuff/ItemContainer/Fork"]
+[editable path="Interaction_stuff/ItemContainer/Curtains"]
+[editable path="Interaction_stuff/ItemContainer/Snake"]
+[editable path="Interaction_stuff/ItemContainer/Hammer"]
+[editable path="Interaction_stuff/ItemContainer/SleepingMask"]
+[editable path="Interaction_stuff/ItemContainer/HearingProtection"]
+[editable path="Interaction_stuff/ItemContainer/Wallpaper"]

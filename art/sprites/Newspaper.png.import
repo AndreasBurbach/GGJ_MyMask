@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b77et021gq8o4"
-path="res://.godot/imported/ax.png-8b157cc81f430ce58c74c240dcb7d1cd.ctex"
+uid="uid://w37ei6vhunkx"
+path="res://.godot/imported/Newspaper.png-fe5ec4299c8301efa966f01bbb11d1e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/ax.png"
-dest_files=["res://.godot/imported/ax.png-8b157cc81f430ce58c74c240dcb7d1cd.ctex"]
+source_file="res://art/sprites/Newspaper.png"
+dest_files=["res://.godot/imported/Newspaper.png-fe5ec4299c8301efa966f01bbb11d1e2.ctex"]
 
 [params]
 

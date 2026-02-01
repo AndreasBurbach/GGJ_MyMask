@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj1lloob5ion3"
-path="res://.godot/imported/Waschbar.png-306902bf0f79d5525ab1ba47be3e66d0.ctex"
+uid="uid://b77et021gq8o4"
+path="res://.godot/imported/axe.png-d4cdf8f510460ccf07a9d0b743bf885e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/Waschbar.png"
-dest_files=["res://.godot/imported/Waschbar.png-306902bf0f79d5525ab1ba47be3e66d0.ctex"]
+source_file="res://art/sprites/axe.png"
+dest_files=["res://.godot/imported/axe.png-d4cdf8f510460ccf07a9d0b743bf885e.ctex"]
 
 [params]
 
