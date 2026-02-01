@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cyjfigho3i0gd"]
+
+[ext_resource type="Script" uid="uid://bcwx5g66qec63" path="res://music_player_scene.gd" id="1_snu5m"]
+[ext_resource type="AudioStream" uid="uid://bwst6jhvwohtu" path="res://art/music/Awakening.wav" id="2_8kfor"]
+[ext_resource type="AudioStream" uid="uid://4bid1d6p736f" path="res://art/music/Dream 1.wav" id="3_dfxhc"]
+[ext_resource type="AudioStream" uid="uid://bfge3frm40a44" path="res://art/music/Dream 2.wav" id="4_5j6g2"]
+[ext_resource type="AudioStream" uid="uid://ep4h6er6ekd" path="res://art/music/Dream 3.wav" id="5_myefq"]
+[ext_resource type="AudioStream" uid="uid://4lse2btr3v5u" path="res://art/music/Dream 4.wav" id="6_wwnfy"]
+[ext_resource type="AudioStream" uid="uid://degudcd3xcpol" path="res://art/music/Operngesang.wav" id="7_ik2c8"]
+[ext_resource type="AudioStream" uid="uid://dofjkfwm1vc1m" path="res://art/music/Sleep Mask.wav" id="8_i257p"]
+[ext_resource type="AudioStream" uid="uid://dpiwdfewg5ub7" path="res://art/music/Start music.wav" id="9_if161"]
+[ext_resource type="AudioStream" uid="uid://daben6h71jl13" path="res://art/music/Last Dream (Fork).wav" id="10_6ae7o"]
+
+[node name="MusicPlayerScene" type="Node2D" unique_id=191444352]
+script = ExtResource("1_snu5m")
+Awakening = ExtResource("2_8kfor")
+Dream1 = ExtResource("3_dfxhc")
+Dream2 = ExtResource("4_5j6g2")
+Dream3 = ExtResource("5_myefq")
+Dream4 = ExtResource("6_wwnfy")
+Opera = ExtResource("7_ik2c8")
+SleepMask = ExtResource("8_i257p")
+StartMusic = ExtResource("9_if161")
+GameOver = ExtResource("10_6ae7o")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1245929300]
