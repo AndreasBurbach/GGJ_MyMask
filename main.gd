@@ -287,34 +287,31 @@ var AwakeAgain8 = "Langsam habe ich die Schnauze voll. Ich hätte nie gedacht, d
 
 var NothingHappend = "Schade, das hat nicht funktioniert."
 
-#var SleepFinaly = "Endlich... die süße Dunkelheit umarmt mich. Gute Nacht, grausame Welt."
+var SleepFinaly = "Ich hätte nie gedacht, dass ich so lange brauchen würde, um einzuschlafen... Aber ich habe es geschafft! Bitte begleite mich doch auch in der nächsten Nacht, du hast mir sehr geholfen."
 var HidingInWardrobe = "Irgendwie hätte ich nicht gedacht, dass die Tricks aus der Kindheit wirklich funktionieren. Vielleicht sollte mir auch öfter die Augen zuhalten, damit mich niemand sieht."
-
-#var CrushWindowGlass = "Scherben bringen Glück. Und hoffentlich das Ende dieser verdammten Photonen-Invasion!"
-var CoverWindows = "Jetzt sind alle meine Sorgen endlich ausgesperrt. Das hilft bestimmt beim Schlafen."
 
 # SimplyShutOff
 var ShutOfLamp = "So einfach kann es gehen. Warum nicht immer so."
-var ShutOfWindowLigth = "Ah, endlich kann ich mein Grottenolmleben weiterführen. Wer braucht schon Tageslicht?"
+var CoverWindowWithCurtains = "Ah, endlich kann ich mein Grottenolmleben weiterführen. Wer braucht schon Tageslicht?"
 
 # Destroy
-#var JustDestroy = "Einfach mal was kaputt machen.Vielleicht schlafe ich dann von genugtuung."
-#var JustDestroyApple = "Ich kann keine Äpfel mehr sehen... Wahhhh..."
+var JustDestroy = "Das war sowieso hässlich. Jetzt kann ich es ruhigen Gewissens wegschmeißen."
+var JustDestroyApple = "Eigentlich wollte ich den zum Frühstück essen, aber gut. Diese Tatsache muss ich jetzt radikal akzeptieren."
 
 # Hearing Protection
 var UseHearingProtection = "Ich wusste schon immer, dass Ohrstöpsel eines Tages mein Leben retten würden."
-#var UseHearingProtectionByLight = "Wenigstens höre ich jetzt nichts mehr. Aber das Licht stört mich trotzdem."
+var UseHearingProtectionByLight = "Jetzt höre ich nichts mehr. Aber bei diesem grässlichen Licht kann ich trotzdem nicht einschlafen."
 
-# ByNoise
-#var CoverWindowsWithNewsletterByNoise = "Eine dünne Zeitung hilft nicht gegen Geräusche die mich wach halten."
-#var CrushWindowGlassByNoise = "Ich weiß nicht ob es sinnvoll ist, das Fenster zu Zertören, wenn ich es leiser haben möchte."
-#var ShutOfWindowLigthByNoise = "Immerhin sieht mich keiner mehr von draußen. Laut ist es trotzdem noch."
-#var CoverWindowsWithBlanketByNoise = "Jetzt sieht mich keiner mehr und ich kann endlich ohne Decke schlafen. Dann ist mir halt kalt."
+# EsIstNochLaut
+var CoverWindowsWithNewsletterByNoise = "Wenn ich mir die Zeitung jetzt auch noch in die Ohren stopfe gegen den Lärm, könnte das mit dem Schlafen vielleicht was werden."
+var CrushWindowGlassByNoise = "War es wirklich so sinnvoll, das Fenster zu zerstören, wenn mich Lärm am Einschlafen hindert?"
+var CoverWindowWithCurtainsByNoise = "Gute Nacht, du schöne Welt. Jetzt muss ich nur noch dem Lärm hier ebenso gute Nacht sagen."
+var CoverWindowsWithBlanketByNoise = "Warum die Bettdecke im Bett verwenden, wenn ich sie auch am Fenster benutzen kann? Aber es ist immer noch zu laut zum Schlafen."
 
-#var CrushLampByNoise = "Jetzt muss ich die Lampe wenigstens nie wieder Ausschalten, aber es ist mir trotzdem zu laut."
-#var CrushLampWithBlanketByNoise = "Jetzt habe ich scherben in meiner Decke. Dadrunter möchte ich nicht mehr schlafen."
-#var CrushLampWithPillowByNoise = "Auf einem Kissen mit Scherben schlafe ich mit Sicherheit nicht!"
-#var CrushLampWithAppleByNoise = "Apfel mit Scherben zum Frühstück. Mal was anderes..."
+var CrushLampByNoise = "Das hat gut getan. Aber ob ich im Dunkeln wohl noch die Lärmquelle ausfindig machen kann? Die Lampe war offentlichlich nicht der Verursacher."
+var CrushLampWithBlanketByNoise = "So im Nachhinein denke ich mir, dass das vielleicht doch keine so gute Idee war. Jetzt ist meine Bettdecke voller Scherben. Aber ob ich im Dunkeln wohl noch die Lärmquelle ausfindig machen kann? Die Lampe war offentlichlich nicht der Verursacher."
+var CrushLampWithPillowByNoise = "So im Nachhinein denke ich mir, dass das vielleicht doch keine so gute Idee war. Jetzt ist mein Kissen voller Scherben. Aber ob ich im Dunkeln wohl noch die Lärmquelle ausfindig machen kann? Die Lampe war offentlichlich nicht der Verursacher."
+var CrushLampWithAppleByNoise = "Ha! Das war ein guter Wurf. Aber ob ich im Dunkeln wohl noch die Lärmquelle ausfindig machen kann? Die Lampe war offentlichlich nicht der Verursacher."
 
 # CrushLamp
 var CrushLamp = "Das Licht zerfließt auf den Scherben der Dunkelheit."
@@ -327,23 +324,25 @@ var CrushLampWithKnive = "Ein präzises Werkzeug für einen präzisen Anwendungs
 var CrushLampWithFork = "Ich habe das Auge der Elektrik aufgespießt. Wo ist der Grill?"
 
 # Window
+var CrushWindowGlass = "Kühle Luft hilft beim Einschlafen. Schade nur, dass es draußen wärmer als drinnen ist."
+var CoverWindows = "Jetzt sind alle meine Sorgen endlich ausgesperrt. Das hilft bestimmt beim Schlafen."
 var CoverWindowsWithBlanket = "Warum die Bettdecke im Bett verwenden, wenn ich sie auch am Fenster benutzen kann?"
 var CrushWindowGlassWithAxe = "Das wollte ich schon immer mal machen. Eigentlich im Zug, aber was soll's. Evakuiert werde ich hier wohl nicht."
 var CoverWindowsWithNewsletter = "Jetzt darf ich mein Fenster nur nicht merh angucken. Sonst kann ich bei den ganzen schlechten Schlagzeilen kein Auge mehr zumachen."
 
-# CreateSleepingMask
-#var CreateSleepingMask = "Aus Müll eine Maske gebastelt. Ich sehe aus wie ein Irrer im Hungerstreik, aber es ist dunkel."
-#var CreateSleepingMaskWithApple = "Vitamine direkt auf die Netzhaut. Wenn ich nicht schlafen kann, kriege ich wenigstens keine Augenringe."
-#var CreateSleepingMaskWithRacoon = "Das Fell ist noch warm und riecht nach Mülltonne, aber es blockiert das Licht perfekt. Wer braucht schon Hygiene?"
-#var CreateSleepingMaskWithSnake = "Kaltes Schuppenleder auf den Augen. Die Schlange starrt nicht mehr, jetzt starre ich – in die unendliche Schwärze."
+# Create
+var CreateSleepingMask = "Aus Müll eine Maske gebastelt. Ich sehe aus wie ein Irrer im Hungerstreik, aber es ist dunkel."
+var CreateSleepingMaskWithApple = "Vitamine direkt auf die Netzhaut. Wenn ich nicht schlafen kann, kriege ich wenigstens keine Augenringe."
+var CreateSleepingMaskWithRacoon = "Das Fell ist noch warm und riecht nach Mülltonne, aber es blockiert das Licht perfekt. Wer braucht schon Hygiene?"
+var CreateSleepingMaskWithSnake = "Kaltes Schuppenleder auf den Augen. Die Schlange starrt nicht mehr, jetzt starre ich – in die unendliche Schwärze."
 
-#var CreatePeelerMaskWithRacoon = "Präzisionsarbeit mit dem Sparschäler. Das Ergebnis ist haarig, blutig und riecht nach Mülltonne – aber es ist blickdicht."
-#var CreatePeelerMaskWithSnake = "Ich habe der Schlange die Haut abgezogen, damit ich nicht mehr sehen muss. Ein fairer Tausch, sie braucht sie im Jenseits eh nicht."
-#var CreateSleepingMaskWithNewsletter = "Schlagzeilen direkt auf den Augäpfeln. So sehe ich wenigstens schwarz auf weiß, dass alles den Bach runtergeht."
-#var CreateSleepingMaskWithCurtains = "Ich habe die Vorhänge verspeist – metaphorisch. Jetzt hängen sie als Sichtschutz vor meinem geistigen Verfall."
-#var CreateSleepingMaskWithBlanket = "Viel zu schwer, viel zu warm, aber die totale Isolation hat eben ihren Preis. Ich nenne es 'Die Festung der Müdigkeit'."
-#var CreateSleepingMaskWithPillow = "Ich habe ein Kissen um meinen Kopf geschnallt. Ich sehe aus wie ein Unfall, aber es ist fast so leise wie im Sarg."
-#var CreateSleepingMaskWithWallpaper = "Ich habe die Tapete von den Wänden gerissen. Wenn die Wohnung mich anstarrt, starre ich eben mit Kleisterresten zurück."
+var CreatePeelerMaskWithRacoon = "Präzisionsarbeit mit dem Sparschäler. Das Ergebnis ist haarig, blutig und riecht nach Mülltonne – aber es ist blickdicht."
+var CreatePeelerMaskWithSnake = "Ich habe der Schlange die Haut abgezogen, damit ich nicht mehr sehen muss. Ein fairer Tausch, sie braucht sie im Jenseits eh nicht."
+var CreateSleepingMaskWithNewsletter = "Schlagzeilen direkt auf den Augäpfeln. So sehe ich wenigstens schwarz auf weiß, dass alles den Bach runtergeht."
+var CreateSleepingMaskWithCurtains = "Ich habe die Vorhänge verspeist – metaphorisch. Jetzt hängen sie als Sichtschutz vor meinem geistigen Verfall."
+var CreateSleepingMaskWithBlanket = "Viel zu schwer, viel zu warm, aber die totale Isolation hat eben ihren Preis. Ich nenne es 'Die Festung der Müdigkeit'."
+var CreateSleepingMaskWithPillow = "Ich habe ein Kissen um meinen Kopf geschnallt. Ich sehe aus wie ein Unfall, aber es ist fast so leise wie im Sarg."
+var CreateSleepingMaskWithWallpaper = "Ich habe die Tapete von den Wänden gerissen. Wenn die Wohnung mich anstarrt, starre ich eben mit Kleisterresten zurück."
 
 var CreateHearingProtectionByPillow = "Ein überdimensionaler Kopfhörer. Mit eingebauter Noise-Cancelling-Funktion - das sollte funktionieren."
 
@@ -424,7 +423,7 @@ var itemActionDict : Dictionary[Vector3, Array] = {
 	Vector3(extensions.Item.Pillow, extensions.Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithPillow, WakeUpNoLamp, [extensions.Item.Lamp]],
 	Vector3(extensions.Item.Blanket, extensions.Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithBlanket, WakeUpNoLamp, [extensions.Item.Lamp]],
 	Vector3(extensions.Item.Blanket, extensions.Item.WindowGlas, Issue.LIGHT): [false, false, CoverWindowsWithBlanket, WakeUpNoBlanket, [extensions.Item.Blanket]],
-	Vector3(extensions.Item.Curtains, extensions.Item.WindowGlas, Issue.LIGHT): [false, false, ShutOfWindowLigth, WakeUpNoWindowGlas, [extensions.Item.Curtains, extensions.Item.WindowGlas]],
+	Vector3(extensions.Item.Curtains, extensions.Item.WindowGlas, Issue.LIGHT): [false, false, CoverWindowWithCurtains, WakeUpNoWindowGlas, [extensions.Item.Curtains, extensions.Item.WindowGlas]],
 	Vector3(extensions.Item.LightSwitch, extensions.Item.Lamp, Issue.LIGHT): [false, false, ShutOfLamp, WakeUpNoLamp, [extensions.Item.LightSwitch, extensions.Item.Lamp]],
 	Vector3(extensions.Item.Axe, extensions.Item.Lamp, Issue.LIGHT): [false, false, CrushLamp, WakeUpNoLamp, [extensions.Item.Lamp]],
 	Vector3(extensions.Item.Axe, extensions.Item.WindowGlas, Issue.LIGHT): [false, false, CrushWindowGlassWithAxe, WakeUpNoWindowGlas, [extensions.Item.Axe, extensions.Item.WindowGlas]],
@@ -436,13 +435,13 @@ var itemActionDict : Dictionary[Vector3, Array] = {
 	Vector3(extensions.Item.Fork, extensions.Item.Lamp, Issue.LIGHT): [false, false, CrushLampWithFork, WakeUpNoLamp, [extensions.Item.Fork, extensions.Item.Lamp]],
 	Vector3(extensions.Item.Peeler, extensions.Item.Racoon, Issue.LIGHT): [false, false, CreatePeelerMaskWithRacoon, WakeUpNoRacoon, [extensions.Item.Racoon]],
 	Vector3(extensions.Item.Peeler, extensions.Item.Snake, Issue.LIGHT): [false, false, CreatePeelerMaskWithSnake, WakeUpNoSnake, [extensions.Item.Snake]],
-	Vector3(extensions.Item.Axe, extensions.Item.Racoon, Issue.LIGHT): [false, false, CreateRacoonSleepingMask, WakeUpNoRacoon, [extensions.Item.Racoon]],
-	Vector3(extensions.Item.Knive, extensions.Item.Racoon, Issue.LIGHT): [false, false, CreateRacoonSleepingMask, WakeUpNoRacoon, [extensions.Item.Racoon]],
-	Vector3(extensions.Item.Axe, extensions.Item.Snake, Issue.LIGHT): [false, false, CreateSnakeSleepingMask, WakeUpNoSnake, [extensions.Item.Snake]],
-	Vector3(extensions.Item.Knive, extensions.Item.Snake, Issue.LIGHT): [false, false, CreateSnakeSleepingMask, WakeUpNoSnake, [extensions.Item.Snake]],
-	Vector3(extensions.Item.Axe, extensions.Item.Apple, Issue.LIGHT): [false, false, CreateAppleSleepingMask, WakeUpNoApple, [extensions.Item.Apple]],
-	Vector3(extensions.Item.Knive, extensions.Item.Apple, Issue.LIGHT): [false, false, CreateAppleSleepingMask, WakeUpNoApple, [extensions.Item.Apple]],
-	Vector3(extensions.Item.Apple, extensions.Item.Peeler, Issue.LIGHT): [false, false, CreateAppleSleepingMask, WakeUpNoApple, [extensions.Item.Apple]],
+	Vector3(extensions.Item.Axe, extensions.Item.Racoon, Issue.LIGHT): [false, false, CreateSleepingMaskWithRacoon, WakeUpNoRacoon, [extensions.Item.Racoon]],
+	Vector3(extensions.Item.Knive, extensions.Item.Racoon, Issue.LIGHT): [false, false, CreateSleepingMaskWithRacoon, WakeUpNoRacoon, [extensions.Item.Racoon]],
+	Vector3(extensions.Item.Axe, extensions.Item.Snake, Issue.LIGHT): [false, false, CreateSleepingMaskWithSnake, WakeUpNoSnake, [extensions.Item.Snake]],
+	Vector3(extensions.Item.Knive, extensions.Item.Snake, Issue.LIGHT): [false, false, CreateSleepingMaskWithSnake, WakeUpNoSnake, [extensions.Item.Snake]],
+	Vector3(extensions.Item.Axe, extensions.Item.Apple, Issue.LIGHT): [false, false, CreateSleepingMaskWithApple, WakeUpNoApple, [extensions.Item.Apple]],
+	Vector3(extensions.Item.Knive, extensions.Item.Apple, Issue.LIGHT): [false, false, CreateSleepingMaskWithApple, WakeUpNoApple, [extensions.Item.Apple]],
+	Vector3(extensions.Item.Apple, extensions.Item.Peeler, Issue.LIGHT): [false, false, CreateSleepingMaskWithApple, WakeUpNoApple, [extensions.Item.Apple]],
 	Vector3(extensions.Item.Pillow, extensions.Item.Peeler, Issue.LIGHT): [false, false, CreateSleepingMask, WakeUpNoPillow, [extensions.Item.Pillow]],
 	Vector3(extensions.Item.Axe, extensions.Item.Newsletter, Issue.LIGHT): [false, false, CreateSleepingMaskWithNewsletter, WakeUpNoNewsletter, [extensions.Item.Newsletter]],
 	Vector3(extensions.Item.Axe, extensions.Item.Curtains, Issue.LIGHT): [false, false, CreateSleepingMaskWithCurtains, WakeUpNoCurtains, [extensions.Item.Curtains]],
