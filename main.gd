@@ -68,8 +68,8 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 	# Struktur: Vector3(extensions.Item, Ziel, Issue) : [GameOver: bool, nextTry: bool, personMessage: String, wakeUpMessage: String, hidingItems: Array]
 	var game_over = res[0] as bool
 	var next_try = res[1] as bool
-	var person_message =res[2] as String
-	var wakeup_message =res[3] as String  
+	var person_message = res[2] as String
+	var wakeup_message = res[3] as String  
 	var hide_items = res[4] as Array[extensions.Item]
 	for hide_item in hide_items:
 		var item_repr = name2item[extensions.Item.find_key(hide_item)]
@@ -96,13 +96,9 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		messageObj.show_text_for("GAME WON",10)
 		return
 
-	musicPlayer.playDream()
 	var pmt = messageObj.show_text_for(person_message)
 	await $CusceneLayer/Fade.fadeout(3)
-	scene_new_iteration()
-	await messageObj.wait()
-	await $CusceneLayer/Fade.fadein(1)
-	messageObj.show_text_for(wakeup_message)
+	scene_new_iteration(wakeup_message)
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
@@ -121,21 +117,64 @@ func _on_placeholder_selected(name: String,texture:Texture,offset:Vector2) -> vo
 	coursorObj.show()
 	selected = true
 
-func scene_new_iteration():
+func scene_new_iteration(wakeupMsg = null):
 	print("new scene iteration")
 	for item in name2item.values():
 		item.hide
-	var scene_cfg = getScene()
-	var issue = scene_cfg[0] as Issue
-	var issue_source = scene_cfg[1] as extensions.Item
+	var scene = getScene()
 	
-	if issue_source == extensions.Item.Door:
-		musicPlayer.playOpera()
 		
-	var scene_items = scene_cfg[2] as Array[extensions.Item]
-	for item in scene_items:
+	for item in scene.items:
 		name2item[extensions.Item.find_key(item)].show()
-	pass
+
+	await messageObj.wait()
+	$CusceneLayer/Fade.fadein(1)
+	messageObj.show_text_for([scene.awakeMsg, scene.issueMsg])
+	if wakeupMsg: messageObj.show_text_for(wakeupMsg)
+
+	if scene.issueSource == extensions.Item.Door:
+		musicPlayer.playOpera()
+	else:
+		musicPlayer.playDream()
+
+	return scene
+
+#Array with [issue, issueSource, itemsForScene, MessageWhenAwakes, MessageForIssue]
+func getScene() -> Dictionary:
+	const maxDifferentItems = 8
+	
+	var issue = getRandomIssue();
+	var issueSource = getRandomIssueSource(issue)
+	
+	var leftItems = getNotRemovedAndNotIssueSourceItems(issue)
+	var solutions = getSolutionsForIssue(issue, issueSource)
+	print("Source: " + str(extensions.Item.keys()[issueSource]))
+	
+	var possibleItems = getLeftItemsWithoutSources()
+	var sceneItems = []
+	#for i in range(0,min(maxDifferentItems, len(possibleItems))):
+	#	var item = possibleItems.pick_random()
+	#	sceneItems.append(item)
+	#	possibleItems.remove_at(possibleItems.find(item))
+	
+	# DEBUG
+	sceneItems = possibleItems
+		
+	for solution in solutions:
+		if not solution[0] in sceneItems:
+			sceneItems.append(solution[0])
+		if not solution[1] in sceneItems:
+			sceneItems.append(solution[1])
+			
+	if not extensions.Item.Person in sceneItems:
+		sceneItems.append(extensions.Item.Person)
+
+	return {
+		issue = issue,
+		issueSource = issueSource,
+		items = sceneItems,
+		awakeMsg = AwakeAgainMessages.pick_random(),
+		issueMsg = NoiseIssueStartMessage if issue == Issue.NOISE else LightIssueStartMessage }
 
 func getSolutionsByRemovedItems(issue: Issue) -> Array[extensions.Item]:
 	var solutions = issueSolutionsDict[issue]
@@ -188,40 +227,7 @@ func getIssueAndIssueSource() -> Array:
 	var issue = getRandomIssue();
 	var issueSource = getRandomIssueSource(issue)
 	return [issue, issueSource]
-	
-#Array with [issue, issueSource, itemsForScene, MessageWhenAwakes, MessageForIssue]
-func getScene() -> Array:
-	const maxDifferentItems = 8
-	
-	var issue = getRandomIssue();
-	var issueSource = getRandomIssueSource(issue)
-	
-	var leftItems = getNotRemovedAndNotIssueSourceItems(issue)
-	var solutions = getSolutionsForIssue(issue, issueSource)
-	
-	var possibleItems = getLeftItemsWithoutSources()
-	var sceneItems = []
-	#for i in range(0,min(maxDifferentItems, len(possibleItems))):
-	#	var item = possibleItems.pick_random()
-	#	sceneItems.append(item)
-	#	possibleItems.remove_at(possibleItems.find(item))
-	
-	# DEBUG
-	sceneItems = possibleItems
-		
-	for solution in solutions:
-		if not solution[0] in sceneItems:
-			sceneItems.append(solution[0])
-		if not solution[1] in sceneItems:
-			sceneItems.append(solution[1])
-			
-	if not extensions.Item.Person in sceneItems:
-		sceneItems.append(extensions.Item.Person)
-		
-	var awakeMessage = AwakeAgainMessages.pick_random()
-	var issueMessage = NoiseIssueStartMessage if issue == Issue.NOISE else LightIssueStartMessage
-			
-	return [issue, issueSource, sceneItems, awakeMessage, issueMessage]
+
 
 func getRandomIssue():
 	var hasNoiseSources = hasIssueSources(Issue.NOISE)
@@ -268,8 +274,6 @@ enum Issue {
 	LIGHT = 1
 }
 
-var AwakeAgainMessages = [AwakeAgain1,AwakeAgain2,AwakeAgain3,AwakeAgain4,AwakeAgain5,AwakeAgain6,AwakeAgain7,AwakeAgain8]
-
 var NoiseIssueStartMessage = "Meine Ohren klingeln von dem Lärm hier. Das soll Gesang sein?!? Vielleicht sollte ich dafür sorgen, dass das Singen aufhört..."
 var LightIssueStartMessage = "Es ist hier so hell wie in Griechenland in der Mittagssonne. Wie soll man da schlafen?"
 
@@ -282,6 +286,7 @@ var AwakeAgain5 = "Hilfe, hört das denn nie auf?!"
 var AwakeAgain6 = "Ich bin so müde!"
 var AwakeAgain7 = "Vielleicht sollte ich abends weniger Alkohol trinken."
 var AwakeAgain8 = "Langsam habe ich die Schnauze voll. Ich hätte nie gedacht, dass ich das mal sage, aber... Wann klingelt endlich mein Wecker?"
+var AwakeAgainMessages = [AwakeAgain1,AwakeAgain2,AwakeAgain3,AwakeAgain4,AwakeAgain5,AwakeAgain6,AwakeAgain7,AwakeAgain8]
 
 var NothingHappend = "Schade, das hat nicht funktioniert."
 
