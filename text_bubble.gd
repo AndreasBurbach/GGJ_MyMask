@@ -2,6 +2,9 @@ class_name TextBubble
 extends Node2D
 
 @export var default:String="Speech bubble"
+@export var attach:Node2D
+@export var margin:int = 20
+const spikeheight = 80
 
 var msg_queue = []
 
@@ -14,7 +17,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if !attach: return
+	
+	global_position = attach.global_position
+	
+	var rect : Rect2 = $ColorRect.get_global_rect()
+	var pivot : Vector2 = rect.get_support(Vector2(1,-1))
+	var viewport : Vector2 = get_viewport_rect().size
+	
+	global_position += Vector2(min(0, viewport.x - pivot.x), max(0,- pivot.y))
+
 
 func show_text_for(text, seconds : int = 7):
 	if text is not Array: text = [text]
@@ -45,3 +57,9 @@ func is_done():
 func wait():
 	if is_done(): return
 	else: await done
+
+
+func _on_label_resized() -> void:
+	$ColorRect.size = $Label.get_rect().size + margin*Vector2(2,2)
+	$ColorRect.position = Vector2(-50,-spikeheight-$ColorRect.size.y)
+	$Label.position = $ColorRect.position + margin*Vector2(1,1)

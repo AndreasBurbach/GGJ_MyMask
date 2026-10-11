@@ -85,7 +85,6 @@ b = Vector2(10, 74)
 
 [node name="Person" type="CharacterBody2D" unique_id=2064254714]
 script = ExtResource("1_3qlke")
-metadata/_edit_group_ = true
 
 [node name="Container" type="Node2D" parent="." unique_id=141999487]
 
@@ -119,5 +118,8 @@ position = Vector2(3, 70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1960204126]
 shape = SubResource("SegmentShape2D_g6f2d")
+
+[node name="SpeechPivot" type="Marker2D" parent="." unique_id=761156065]
+position = Vector2(25, -66)
 
 [editable path="Container/Person"]

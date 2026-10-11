@@ -22,24 +22,29 @@ script = ExtResource("1_bo3s3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=973102491]
 material = SubResource("ShaderMaterial_j0576")
-offset_right = 256.0
-offset_bottom = 160.0
+offset_left = -38.0
+offset_top = -240.0
+offset_right = 218.0
+offset_bottom = -80.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="." unique_id=2075389631]
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 232.0
-offset_bottom = 144.0
+custom_maximum_size = Vector2(208, -1)
+offset_left = -14.0
+offset_top = -224.0
+offset_right = -13.0
+offset_bottom = -204.0
 text = "Speech Bubble"
 label_settings = SubResource("LabelSettings_87vmk")
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="ShowTimer" type="Timer" parent="." unique_id=784092334]
 one_shot = true
 
 [node name="SpeechSpike" type="Polygon2D" parent="." unique_id=1070482693]
-position = Vector2(16, -32)
-polygon = PackedVector2Array(64, 192, 16, 296, 112, 192)
+polygon = PackedVector2Array(40, -80, 0, 0, 70, -80)
 uv = PackedVector2Array(56, 192, 72, 264, 112, 192)
 
+[connection signal="resized" from="Label" to="." method="_on_label_resized"]
 [connection signal="timeout" from="ShowTimer" to="." method="_on_show_timer_timeout"]
