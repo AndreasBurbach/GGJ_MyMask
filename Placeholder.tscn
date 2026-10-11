@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca80evulmn22s" path="res://Placeholder.gd" id="1_vpkq7"]
 [ext_resource type="Shader" uid="uid://bemj1i2w1w8td" path="res://Placeholder.gdshader" id="2_wpfw3"]
-[ext_resource type="Texture2D" uid="uid://ffa871ytl1j7" path="res://assets/items/Test.png" id="3_vpkq7"]
+[ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="3_vpkq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpkq7"]
 resource_local_to_scene = true
