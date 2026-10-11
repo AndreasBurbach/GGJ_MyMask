@@ -71,7 +71,6 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 	var person_message =res[2] as String
 	var wakeup_message =res[3] as String  
 	var hide_items = res[4] as Array[extensions.Item]
-	messageObj.show_text_for(person_message,5)
 	for hide_item in hide_items:
 		var item_repr = name2item[extensions.Item.find_key(hide_item)]
 		item_repr.hide()
@@ -97,14 +96,13 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		messageObj.show_text_for("GAME WON",10)
 		return
 	
-	musicPlayer.playDream()
-	$CusceneLayer/Fade.start()
-	await get_tree().create_timer(2).timeout
-	scene_new_iteration()
-	await get_tree().create_timer(2).timeout
+	$CusceneLayer/Fade.start(
+		[person_message],
+		[],
+		[wakeup_message],
+		[])
 
-	
-		
+	musicPlayer.playDream()
 
 func _on_placeholder_selected(name: String,texture:Texture,offset:Vector2) -> void:
 	if selected: 

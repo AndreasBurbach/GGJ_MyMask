@@ -715,10 +715,8 @@ texture = ExtResource("3_h2yge")
 
 [node name="CusceneLayer" type="CanvasLayer" parent="." unique_id=36522148]
 
-[node name="Fade" parent="CusceneLayer" unique_id=1734964139 instance=ExtResource("6_7mycd")]
-out_time = 2.0
-hold_time = 2.0
-in_time = 0.0
+[node name="Fade" parent="CusceneLayer" unique_id=1734964139 node_paths=PackedStringArray("bubble") instance=ExtResource("6_7mycd")]
+bubble = NodePath("../TextBubble")
 
 [node name="GameOverScreen" type="ColorRect" parent="CusceneLayer" unique_id=827947684]
 visible = false

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cg3nc17p58a38"]
+[gd_scene format=3 uid="uid://dmtjhmqtbjocm"]
 
 [ext_resource type="Script" uid="uid://b00fdpqcaakvd" path="res://text_bubble.gd" id="1_bo3s3"]
-[ext_resource type="Shader" uid="uid://b78k6fdyilt81" path="res://text_bubble.gdshader" id="1_j0576"]
+[ext_resource type="Shader" path="res://text_bubble.gdshader" id="1_j0576"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j0576"]
 shader = ExtResource("1_j0576")
