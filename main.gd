@@ -54,7 +54,7 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 	var interaction_key = Vector3(extensions.Item[a1.name],extensions.Item[a2.name],currentIssue)
 	if not interaction_key in itemActionDict:
 		print("Nothing happened")
-		messageObj.show_text_for(NothingHappend,5)
+		messageObj.show_text_for(NothingHappend)
 		return
 		
 	sfxSoundPlayer.playSoundByItems(

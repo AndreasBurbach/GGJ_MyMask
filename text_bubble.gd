@@ -28,9 +28,12 @@ func _process(delta: float) -> void:
 	global_position += Vector2(min(0, viewport.x - pivot.x), max(0,- pivot.y))
 
 
-func show_text_for(text, seconds : int = 7):
-	if text is not Array: text = [text]
-	for t in text:
+func show_text_for(text, seconds : int = 0):
+	if text is not Array: text = [text]		
+	for t:String in text:
+		if seconds == 0:
+			seconds = max(1, len(t) * 0.05)
+
 		msg_queue.append([t, seconds])
 	if $ShowTimer.is_stopped():
 		_on_show_timer_timeout()
