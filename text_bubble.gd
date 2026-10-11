@@ -22,6 +22,7 @@ func show_text_for(text, seconds : int = 7):
 		msg_queue.append([t, seconds])
 	if $ShowTimer.is_stopped():
 		_on_show_timer_timeout()
+	wait()
 
 func _on_show_timer_timeout() -> void:
 	if msg_queue.is_empty():
@@ -39,7 +40,7 @@ func _on_show_timer_timeout() -> void:
 			$ShowTimer.start(seconds)
 
 func is_done():
-	return msg_queue.is_empty()
+	return msg_queue.is_empty() && $ShowTimer.is_stopped()
 
 func wait():
 	if is_done(): return

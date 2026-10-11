@@ -3,7 +3,7 @@ extends Node
 const extensions = preload("res://scene_extensions.gd")
 
 @onready var coursorObj = $Interaction_stuff/CourserLayer/CourserObj
-@onready var messageObj = $CusceneLayer/TextBubble
+@onready var messageObj : TextBubble = $CusceneLayer/TextBubble
 @onready var sfxSoundPlayer = $SfxAudioScene
 @onready var musicPlayer = $MusicPlayerScene
 
@@ -95,14 +95,17 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		print("GAME WON")
 		messageObj.show_text_for("GAME WON",10)
 		return
-	
-	$CusceneLayer/Fade.start(
-		[person_message],
-		[],
-		[wakeup_message],
-		[])
 
 	musicPlayer.playDream()
+	var pmt = messageObj.show_text_for(person_message)
+	await $CusceneLayer/Fade.fadeout(3)
+	scene_new_iteration()
+	await messageObj.wait()
+	await $CusceneLayer/Fade.fadein(1)
+	messageObj.show_text_for(wakeup_message)
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout
 
 func _on_placeholder_selected(name: String,texture:Texture,offset:Vector2) -> void:
 	if selected: 
