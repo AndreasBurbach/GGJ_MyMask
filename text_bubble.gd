@@ -31,10 +31,10 @@ func _process(delta: float) -> void:
 func show_text_for(text, seconds : int = 0):
 	if text is not Array: text = [text]		
 	for t:String in text:
-		if seconds == 0:
-			seconds = max(1, len(t) * 0.05)
+		var s : int = max(2, len(t) * 0.05) if seconds == 0 else seconds
+		print(s)
 
-		msg_queue.append([t, seconds])
+		msg_queue.append([t, s])
 	if $ShowTimer.is_stopped():
 		_on_show_timer_timeout()
 	wait()

@@ -29,10 +29,11 @@ offset_bottom = -80.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="." unique_id=2075389631]
+custom_minimum_size = Vector2(150, 0)
 custom_maximum_size = Vector2(208, -1)
 offset_left = -14.0
 offset_top = -224.0
-offset_right = -13.0
+offset_right = 86.0
 offset_bottom = -204.0
 text = "Speech Bubble"
 label_settings = SubResource("LabelSettings_87vmk")
