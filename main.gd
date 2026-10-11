@@ -77,9 +77,9 @@ func interaction(a1:Area2D,a2:Area2D) -> void:
 		if hide_item not in removedItems:
 			removedItems.append(hide_item) 
 
-	if extensions.Item[selectedObj.name] in removedItems:
-		selected = false 
-		coursorObj.hide()  
+	selected = false 
+	coursorObj.hide()  
+
 	if next_try:
 		return
 
