@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dofjkfwm1vc1m"
+path="res://.godot/imported/Sleep Mask.wav-864aa1f3114f3159fdf93b9e6daf0bbb.sample"
+
+[deps]
+
+source_file="res://assets/music/Sleep Mask.wav"
+dest_files=["res://.godot/imported/Sleep Mask.wav-864aa1f3114f3159fdf93b9e6daf0bbb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

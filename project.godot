@@ -19,6 +19,11 @@ run/main_scene="uid://brc7tkecr8s0i"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://bpue464gyu34t"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+
 [input]
 
 Mouse_Left_Click={
