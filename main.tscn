@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b2pnyhqo721us" path="res://sleep_and_wake.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://2a8sou7gg5i6" path="res://art/sprites/drawer.png" id="6_ok6jj"]
 [ext_resource type="Texture2D" uid="uid://t617jgahr322" path="res://assets/items/room-pics/closet.png" id="7_4c57u"]
-[ext_resource type="PackedScene" uid="uid://cg3nc17p58a38" path="res://text_bubble.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dmtjhmqtbjocm" path="res://text_bubble.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://c8n6dkd3kprqu" path="res://art/sprites/chair.png" id="8_come4"]
 [ext_resource type="Texture2D" uid="uid://cjallyue27fdg" path="res://assets/items/room-pics/lamp-whole.png" id="8_efxa6"]
 [ext_resource type="Texture2D" uid="uid://bvxwk4g3jmdu" path="res://art/sprites/knife.png" id="11_ryguw"]

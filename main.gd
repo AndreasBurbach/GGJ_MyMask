@@ -285,7 +285,7 @@ var AwakeAgain8 = "Langsam habe ich die Schnauze voll. Ich hätte nie gedacht, d
 
 var NothingHappend = "Schade, das hat nicht funktioniert."
 
-var SleepFinaly = "Ich hätte nie gedacht, dass ich so lange brauchen würde, um einzuschlafen... Aber ich habe es geschafft! Bitte begleite mich doch auch in der nächsten Nacht, du hast mir sehr geholfen."
+var SleepFinaly = "Ich hätte nie gedacht, dass ich so lange brauchen würde, um einzuschlafen... Hoffentlich war dieser Traum der letzte."
 var HidingInWardrobe = "Irgendwie hätte ich nicht gedacht, dass die Tricks aus der Kindheit wirklich funktionieren. Vielleicht sollte mir auch öfter die Augen zuhalten, damit mich niemand sieht."
 
 # SimplyShutOff
@@ -329,18 +329,18 @@ var CrushWindowGlassWithAxe = "Das wollte ich schon immer mal machen. Eigentlich
 var CoverWindowsWithNewsletter = "Jetzt darf ich mein Fenster nur nicht merh angucken. Sonst kann ich bei den ganzen schlechten Schlagzeilen kein Auge mehr zumachen."
 
 # Create
-var CreateSleepingMask = "Aus Müll eine Maske gebastelt. Ich sehe aus wie ein Irrer im Hungerstreik, aber es ist dunkel."
-var CreateSleepingMaskWithApple = "Vitamine direkt auf die Netzhaut. Wenn ich nicht schlafen kann, kriege ich wenigstens keine Augenringe."
-var CreateSleepingMaskWithRacoon = "Das Fell ist noch warm und riecht nach Mülltonne, aber es blockiert das Licht perfekt. Wer braucht schon Hygiene?"
-var CreateSleepingMaskWithSnake = "Kaltes Schuppenleder auf den Augen. Die Schlange starrt nicht mehr, jetzt starre ich – in die unendliche Schwärze."
+var CreateSleepingMask = "Notsituationen erfordern besondere Ergebnisse. Wer hätte gedacht, dass ich daraus mal eine Schlafmaske machen würde? Zum Glück sieht mich niemand damit und zum Glück habe ich den Spiegel doch noch nicht gekauft."
+var CreateSleepingMaskWithApple = "Ich sehe aus wie eine riesige Fliege mit roten Augen."
+var CreateSleepingMaskWithRacoon = "Der Geruch könnte besser sein, aber weich ist das Fell ja."
+var CreateSleepingMaskWithSnake = "Hoffentlich ist da kein Gift dran."
 
-var CreatePeelerMaskWithRacoon = "Präzisionsarbeit mit dem Sparschäler. Das Ergebnis ist haarig, blutig und riecht nach Mülltonne – aber es ist blickdicht."
-var CreatePeelerMaskWithSnake = "Ich habe der Schlange die Haut abgezogen, damit ich nicht mehr sehen muss. Ein fairer Tausch, sie braucht sie im Jenseits eh nicht."
-var CreateSleepingMaskWithNewsletter = "Schlagzeilen direkt auf den Augäpfeln. So sehe ich wenigstens schwarz auf weiß, dass alles den Bach runtergeht."
-var CreateSleepingMaskWithCurtains = "Ich habe die Vorhänge verspeist – metaphorisch. Jetzt hängen sie als Sichtschutz vor meinem geistigen Verfall."
-var CreateSleepingMaskWithBlanket = "Viel zu schwer, viel zu warm, aber die totale Isolation hat eben ihren Preis. Ich nenne es 'Die Festung der Müdigkeit'."
-var CreateSleepingMaskWithPillow = "Ich habe ein Kissen um meinen Kopf geschnallt. Ich sehe aus wie ein Unfall, aber es ist fast so leise wie im Sarg."
-var CreateSleepingMaskWithWallpaper = "Ich habe die Tapete von den Wänden gerissen. Wenn die Wohnung mich anstarrt, starre ich eben mit Kleisterresten zurück."
+var CreatePeelerMaskWithRacoon = "Sparschäler können erstaunlich viele Anwendungsgebiete haben. Der Geruch könnte besser sein, aber weich ist das Fell ja."
+var CreatePeelerMaskWithSnake = "Die Haut ist ein bisschen dünn, aber ich hatte keinen größeren Sparschäler zur Hand. Naja, wird schon passen."
+var CreateSleepingMaskWithNewsletter = "Endlich habe ich doch noch einen Nutzen für die Zeitung gefunden. Jetzt kann ich auch die schlechten Nachrichten nicht mehr lesen, denn unter dem Papier ist es schön dunkel."
+var CreateSleepingMaskWithCurtains = "Wer hat nicht schon einmal davon geträumt, in einem Vorhang eingewickelt zu schlafen? Warum habe ich eigentlich keinen Teppich?"
+var CreateSleepingMaskWithBlanket = "Hoffentlich bekomme ich darunter genug Luft, aber blickdicht ist die Bettdecke immerhin."
+var CreateSleepingMaskWithPillow = "Ich schreie mit den Augen ins Kissen. Immerhin ist es jetzt dunkel."
+var CreateSleepingMaskWithWallpaper = "Mit frischem Kleister würde das betimmt noch viel besser auf meinen Augen halten."
 
 var CreateHearingProtectionByPillow = "Ein überdimensionaler Kopfhörer. Mit eingebauter Noise-Cancelling-Funktion - das sollte funktionieren."
 
