@@ -120,8 +120,6 @@ func _on_placeholder_selected(name: String,texture:Texture,offset:Vector2) -> vo
 	coursorObj.position = get_viewport().get_mouse_position() + cursorOffset
 	coursorObj.show()
 	selected = true
-	pass # Replace with function body.
-
 
 func scene_new_iteration():
 	print("new scene iteration")
@@ -203,10 +201,13 @@ func getScene() -> Array:
 	
 	var possibleItems = getLeftItemsWithoutSources()
 	var sceneItems = []
-	for i in range(0,min(maxDifferentItems, len(possibleItems))):
-		var item = possibleItems.pick_random()
-		sceneItems.append(item)
-		possibleItems.remove_at(possibleItems.find(item))
+	#for i in range(0,min(maxDifferentItems, len(possibleItems))):
+	#	var item = possibleItems.pick_random()
+	#	sceneItems.append(item)
+	#	possibleItems.remove_at(possibleItems.find(item))
+	
+	# DEBUG
+	sceneItems = possibleItems
 		
 	for solution in solutions:
 		if not solution[0] in sceneItems:
@@ -221,10 +222,6 @@ func getScene() -> Array:
 	var issueMessage = NoiseIssueStartMessage if issue == Issue.NOISE else LightIssueStartMessage
 			
 	return [issue, issueSource, sceneItems, awakeMessage, issueMessage]
-		
-	
-	
-	
 
 func getRandomIssue():
 	var hasNoiseSources = hasIssueSources(Issue.NOISE)

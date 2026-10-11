@@ -679,6 +679,7 @@ texture = ExtResource("27_0rl1p")
 
 [node name="Wallpaper" parent="Interaction_stuff/ItemContainer" unique_id=1987819470 instance=ExtResource("2_0xm2m")]
 position = Vector2(648, 296)
+trust_collision = true
 
 [node name="CollisionShape2D" parent="Interaction_stuff/ItemContainer/Wallpaper" index="0" unique_id=1035127510]
 position = Vector2(-180, -100)
@@ -709,8 +710,7 @@ texture = ExtResource("29_ok6jj")
 
 [node name="CusceneLayer" type="CanvasLayer" parent="." unique_id=36522148]
 
-[node name="Fade" parent="CusceneLayer" unique_id=1734964139 node_paths=PackedStringArray("bubble") instance=ExtResource("6_7mycd")]
-bubble = NodePath("../TextBubble")
+[node name="Fade" parent="CusceneLayer" unique_id=1734964139 instance=ExtResource("6_7mycd")]
 
 [node name="GameOverScreen" type="ColorRect" parent="CusceneLayer" unique_id=827947684]
 visible = false
