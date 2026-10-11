@@ -123,7 +123,7 @@ func scene_new_iteration(wakeupMsg = null):
 		item.hide
 	var scene = getScene()
 	
-		
+	currentIssue = scene.issue
 	for item in scene.items:
 		name2item[extensions.Item.find_key(item)].show()
 
