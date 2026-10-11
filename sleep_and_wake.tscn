@@ -18,9 +18,9 @@ one_shot = true
 [node name="FadeIn" type="Timer" parent="." unique_id=253439952]
 one_shot = true
 
-[node name="OutTime" type="Timer" parent="." unique_id=422636346]
+[node name="Hold" type="Timer" parent="." unique_id=422636346]
 one_shot = true
 
 [connection signal="timeout" from="FadeOut" to="." method="_on_fade_out_timeout"]
 [connection signal="timeout" from="FadeIn" to="." method="_on_fade_in_timeout"]
-[connection signal="timeout" from="OutTime" to="." method="_on_out_time_timeout"]
+[connection signal="timeout" from="Hold" to="." method="_on_hold_timeout"]
